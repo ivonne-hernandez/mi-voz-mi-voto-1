@@ -16,6 +16,7 @@ class EmailNotificationForm extends Component {
   }
 
   handleInputChange = (event) => {
+    console.log(event)
     if (event.target.name === "agree_to_emails") {
       let updatedValue = !this.state.agree_to_emails;
       return this.setState({ agree_to_emails: updatedValue });
@@ -36,15 +37,38 @@ class EmailNotificationForm extends Component {
     });
   }
 
+  stateOptions = () => {
+    const states = [ 
+      "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana",
+      "Iowa","Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", 
+      "New Jersey", "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota", "Tennessee", 
+      "Texas", "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"
+    ];
+
+    const stateOptions =  states.map(state => {
+      return (
+        <option name="state"
+          value={state}
+          key={state}>
+          {state}
+        </option>
+      );
+    });
+
+    return stateOptions;
+  }
+
 
   render = () => {
     return (
       <form>
+        <p>Sign up for Election Reminders</p>
         <div className="label-input-container">
           <label>
             First Name<em>*</em>
             <input type="text" 
               name="first_name" 
+              value={this.state.first_name}
               id="first_name" 
               required="required" 
               aria-required="true" 
@@ -56,6 +80,7 @@ class EmailNotificationForm extends Component {
             Last Name<em>*</em>
             <input type="text" 
               name="last_name" 
+              value={this.state.last_name}
               id="last_name" 
               required="required" 
               aria-required="true" 
@@ -63,21 +88,18 @@ class EmailNotificationForm extends Component {
           </label>
         </div>
         <div className="label-input-container">
-          <label>
-            State<em>*</em>
-            <input type="select" 
-              name="state" 
-              id="state" 
-              required="required" 
-              aria-required="true" 
-              onChange={(event) => this.handleInputChange(event)}/>
-          </label>
+          <label>State:<em>*</em></label>
+          <select name="state" id="state-select"
+            onChange={(event) => this.handleInputChange(event)}>
+            {this.stateOptions()}
+          </select>
         </div>
         <div className="label-input-container">
           <label>
             ZIP code<em>*</em>
             <input type="postal-code" 
               name="postal_code" 
+              value={this.state.postal_code}
               id="postal_code" 
               required="required" 
               aria-required="true" 
@@ -89,16 +111,18 @@ class EmailNotificationForm extends Component {
             Email address<em>*</em>
             <input type="email" 
               name="email" 
+              value={this.state.email}
               id="email" 
               required="required" 
               aria-required="true" 
               onChange={(event) => this.handleInputChange(event)}/>
           </label>
         </div>
-        <p>Preferred language:</p>
+        <p>Preferred language:<em>*</em></p>
         <div className="label-input-container">
           <input type="radio" 
             name="language" 
+            value={this.state.language}
             id="english" 
             value="en" 
             required="required" 
@@ -119,6 +143,7 @@ class EmailNotificationForm extends Component {
         <div className="label-input-container">
           <input type="checkbox" 
             name="agree_to_emails" 
+            value={this.state.agree_to_emails}
             id="agree_to_emails" 
             value={this.state.agree_to_emails} 
             required="required" 
