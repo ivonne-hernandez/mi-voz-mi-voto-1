@@ -1,10 +1,21 @@
 import './App.css';
+import { Component } from 'react';
+import Header from './Components/Header/Header';
 
-function App() {
-  return (
-    <div className="App">
+class App extends Component {
+  constructor() {
+    super();
+    this.state = {};
+  }
 
-    </div>
+  componentDidMount = () => {
+
+  }
+  
+  render = () => (
+      <div className="App">
+        <Header />
+      </div>
   );
 }
 
