@@ -1,6 +1,7 @@
 import './App.css';
 import { Component } from 'react';
 import Header from './Components/Header/Header';
+import MainContainer from './Components/MainContainer/MainContainer';
 
 class App extends Component {
   constructor() {
@@ -15,6 +16,7 @@ class App extends Component {
   render = () => (
       <div className="App">
         <Header />
+        <MainContainer />
       </div>
   );
 }
