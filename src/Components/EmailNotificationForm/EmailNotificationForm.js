@@ -67,6 +67,20 @@ class EmailNotificationForm extends Component {
     return this.state.agree_to_emails ? true: false;
   }
 
+  displayMissingInputMessage = () => {
+    if (!this.validateNames()) {
+      return <p className="missing-input-message">Please enter your first and last name.</p>;
+    } else if (!this.validateState()) {
+      return <p className="missing-input-message">Please select a state.</p>;
+    } else if (!this.validateEmail()) {
+      return <p className="missing-input-message">Please enter a valid email.</p>;
+    } else if (!this.validateLanguage()) {
+      return <p className="missing-input-message">Please select your preferred language.</p>;
+    } else if (!this.validateAcknowledgement()) {
+      return <p className="missing-input-message">Please check the "Sign up for email notifications" box.</p>;
+    }
+  }
+
   clearInputs = () => {
     this.setState({ 
       first_name: '',
@@ -245,12 +259,9 @@ class EmailNotificationForm extends Component {
               Submit
           </button>
         </div>
-        <div className="invalid-inputs-error-container">
-          {!this.validateNames() && <p className="invalid-input-error">Please enter your first and last name.</p>}
-          {!this.validateState() && <p className="invalid-input-error">Please select a state.</p>}
-          {!this.validateEmail() && <p className="invalid-input-error">Please enter a valid email.</p>}
-          {!this.validateLanguage() && <p className="invalid-input-error">Please select your preferred language.</p>}
-          {!this.validateAcknowledgement() && <p className="invalid-input-error">Please check the "Sign up for email notifications" box.</p>}
+        <div className="missing-input-message-container">
+          {this.state.displayMissingInput ? this.displayMissingInputMessage() : null}
+          <p className="missing-input-message"></p>
         </div>
       </form>
     );
