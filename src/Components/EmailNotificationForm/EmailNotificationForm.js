@@ -10,7 +10,8 @@ class EmailNotificationForm extends Component {
       state: '',
       email: '',
       language: '',
-      agree_to_emails: false
+      agree_to_emails: false,
+      displayMissingInput: false
     }
   }
 
@@ -26,7 +27,9 @@ class EmailNotificationForm extends Component {
   handleSubmit = (event) => {
     // upon clicking on the submit, I'll need validateInputs
     event.preventDefault();
+    this.setState({ displayMissingInput: true });
     if (this.validateInputs()) {
+      this.setState({ displayMissingInput: false });
       const newEmailSubscriber = {
         first_name: this.state.first_name,
         last_name: this.state.last_name,
