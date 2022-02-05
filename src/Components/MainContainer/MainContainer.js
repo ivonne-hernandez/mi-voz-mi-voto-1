@@ -3,7 +3,9 @@ import EmailNotificationForm from '../EmailNotificationForm/EmailNotificationFor
 
 const MainContainer = () => {
   return (
-    <EmailNotificationForm />
-  )
+    <main className='main-container'>
+      <EmailNotificationForm />
+    </main>
+  );
 }
 export default MainContainer;
