@@ -168,10 +168,10 @@ class EmailNotificationForm extends Component {
     return (
       <form className="form-container">
         <div className="form-header-container">
-          <p className="form-header">Sign up for State Election Reminders</p>
+          <p className="form-header">State Election Reminders</p>
         </div>
         <div className="label-input-container">
-          <label>
+          <label className="label">
             First Name<em>*</em>
             <input type="text" 
               name="first_name" 
@@ -184,7 +184,7 @@ class EmailNotificationForm extends Component {
           </label>
         </div>
         <div className="label-input-container">
-          <label>
+          <label className="label">
             Last Name<em>*</em>
             <input type="text" 
               name="last_name" 
@@ -197,7 +197,7 @@ class EmailNotificationForm extends Component {
           </label>
         </div>
         <div className="label-input-container">
-          <label>State<em>*</em></label>
+          <label className="label">State<em>*</em></label>
           <select name="state" 
             id="state-select"
             className="state-name-select input"
@@ -206,8 +206,8 @@ class EmailNotificationForm extends Component {
             {this.stateOptions()}
           </select>
         </div>
-        <div className="label-input-container">
-          <label>
+        <div className="label-input-container email-label">
+          <label className="label">
             Email address<em>*</em>
             <input type="email" 
               name="email" 
@@ -219,17 +219,16 @@ class EmailNotificationForm extends Component {
               onChange={(event) => this.handleInputChange(event)}/>
           </label>
         </div>
-        <p className="preferred-lang-p">Preferred language<em>*</em></p>
+        <p className="preferred-lang-p label">Preferred language<em>*</em></p>
         <div className="label-input-container">
           <input type="radio" 
             name="language" 
-            value={this.state.language}
             id="english" 
             value="en" 
             required="required" 
-            aria-required="true" 
+            className="input-radio"
             onChange={(event) => this.handleInputChange(event)}/> 
-          <label>English</label>
+          <label className="label-radio">English</label>
         </div>
         <div className="label-input-container">
           <input type="radio" 
@@ -237,20 +236,20 @@ class EmailNotificationForm extends Component {
             id="spanish" 
             value="es" 
             required="required" 
-            aria-required="true" 
+            className="input-radio"
             onChange={(event) => this.handleInputChange(event)}/> 
-          <label>Spanish</label>
+          <label className="label-radio">Spanish</label>
         </div>
         <div className="label-input-container">
           <input type="checkbox" 
             name="agree_to_emails" 
-            value={this.state.agree_to_emails}
             id="agree_to_emails" 
             value={this.state.agree_to_emails} 
             required="required" 
             aria-required="true" 
+            className="input-checkbox"
             onChange={(event) => this.handleInputChange(event)}/> 
-          <label className="agree-to-emails-checkbox">Sign up for email notifications about upcoming elections in my state.</label>
+          <label className="agree-to-emails-checkbox label">Sign up for email notifications about upcoming elections in my state.</label>
         </div>
         <div className="submit-button-container">
           <button
