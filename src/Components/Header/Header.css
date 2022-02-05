@@ -12,6 +12,7 @@
 
 .app-name:hover {
   transform: scale(1.01);
+  cursor: pointer;
 }
 
 .header-container {
@@ -31,4 +32,5 @@
 
 .header-button:hover {
   color: white;
+  cursor: pointer;
 }

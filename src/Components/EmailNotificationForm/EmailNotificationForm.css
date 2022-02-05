@@ -68,6 +68,6 @@ em {
   padding-bottom: 10px;
 }
 
-.input:hover, .submit-button:hover, .input-radio:hover, .input-checkbox:hover {
+.state-name-select:hover, .submit-button:hover, .input-radio:hover, .input-checkbox:hover {
   cursor: pointer;
 }
