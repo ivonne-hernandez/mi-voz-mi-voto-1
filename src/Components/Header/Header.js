@@ -6,7 +6,7 @@ const Header = ()  => {
       <img 
         className='vote-image'
         src={voteImage}
-        alt="vote-image"/>
+        alt="vote"/>
       <p className='app-name'>My Voice, My Vote</p>
       <button
         className='our-story-button header-button'>
@@ -17,7 +17,7 @@ const Header = ()  => {
         En Español
       </button>
     </div>
-  )
+  );
 }
 
 export default Header;
