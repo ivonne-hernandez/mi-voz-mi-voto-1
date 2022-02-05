@@ -28,10 +28,30 @@ em {
   font-family: 'DM Serif Display', serif;
   font-size: 28px;
   background-color: #1990ff;
+  text-align: center;
 }
 
 .form-container {
-  border: 1px solid black;
   border-radius: 8px;
   overflow: hidden;
+  box-shadow: 3px 1px 6px 5px rgb(0 0 0 / 20%);
+  height: 500px;
 }
+
+.missing-input-message {
+  color: #fd3535;
+  font-weight: bold;
+}
+
+.label {
+  line-height: 32px;
+}
+
+.label-radio, .agree-to-emails-checkbox {
+  margin: 5px;
+}
+
+.email-label, .preferred-lang-p, .agree-to-emails-checkbox, .submit-button-container {
+  margin-top: 5px;
+}
+
