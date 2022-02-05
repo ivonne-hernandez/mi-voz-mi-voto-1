@@ -8,7 +8,6 @@ class EmailNotificationForm extends Component {
       first_name: '',
       last_name: '',
       state: '',
-      postal_code: '',
       email: '',
       language: '',
       agree_to_emails: false
@@ -16,7 +15,6 @@ class EmailNotificationForm extends Component {
   }
 
   handleInputChange = (event) => {
-    console.log(event)
     if (event.target.name === "agree_to_emails") {
       let updatedValue = !this.state.agree_to_emails;
       return this.setState({ agree_to_emails: updatedValue });
@@ -25,12 +23,52 @@ class EmailNotificationForm extends Component {
     }
   }
 
+  handleSubmit = (event) => {
+    // upon clicking on the submit, I'll need validateInputs
+    event.preventDefault();
+    if (this.validateInputs()) {
+      const newEmailSubscriber = {
+        first_name: this.state.first_name,
+        last_name: this.state.last_name,
+        state: this.state.state,
+        email: this.state.email,
+        language: this.state.language,
+      }
+      // this.props.postNewEmailSubscriber(newEmailSubscriber) need to declare it in App, pass it to MainContainer
+      this.clearInputs();
+    }
+  }
+
+  validateInputs = () => {
+    return this.validateNames() && this.validateState() && this.validateEmail() 
+      && this.validateLanguage() && this.validateAcknowledgement();
+  }
+
+  validateNames = () => {
+    return this.state.first_name.length && this.state.last_name.length ? true: false;
+  }
+  
+  validateState = () => {
+    return this.state.state.length ? true: false;
+  }
+  
+  validateEmail = () => {
+    return /^[a-zA-Z0-9]+@(?:[a-zA-Z0-9]+\.)+[A-Za-z]+$/.test(this.state.email);
+  }
+  
+  validateLanguage = () => {
+    return this.state.language.length ? true: false;
+  }
+
+  validateAcknowledgement = () => {
+    return this.state.agree_to_emails ? true: false;
+  }
+
   clearInputs = () => {
     this.setState({ 
       first_name: '',
       last_name: '',
       state: '',
-      postal_code: '',
       email: '',
       language: '',
       agree_to_emails: false
@@ -38,7 +76,7 @@ class EmailNotificationForm extends Component {
   }
 
   stateOptions = () => {
-    const states = [ 
+    const states = [
       { value: 'al', label: 'Alabama' },
       { value: 'ak', label: 'Alaska' },
       { value: 'az', label: 'Arizona' },
@@ -109,11 +147,12 @@ class EmailNotificationForm extends Component {
     return options.concat(stateOptions);
   }
 
-
   render = () => {
     return (
-      <form>
-        <p>Sign up for Election Reminders</p>
+      <form className="form-container">
+        <div className="form-header-container">
+          <p className="form-header">Sign up for Election Reminders</p>
+        </div>
         <div className="label-input-container">
           <label>
             First Name<em>*</em>
@@ -122,7 +161,8 @@ class EmailNotificationForm extends Component {
               value={this.state.first_name}
               id="first_name" 
               required="required" 
-              aria-required="true" 
+              aria-required="true"
+              className="input"
               onChange={(event) => this.handleInputChange(event)}/>
           </label>
         </div>
@@ -135,27 +175,19 @@ class EmailNotificationForm extends Component {
               id="last_name" 
               required="required" 
               aria-required="true" 
+              className="input"
               onChange={(event) => this.handleInputChange(event)}/>
           </label>
         </div>
         <div className="label-input-container">
-          <label>State:<em>*</em></label>
-          <select name="state" id="state-select"
+          <label>State<em>*</em></label>
+          <select name="state" 
+            id="state-select"
+            className="state-name-select input"
+            defaultValue="Select"
             onChange={(event) => this.handleInputChange(event)}>
             {this.stateOptions()}
           </select>
-        </div>
-        <div className="label-input-container">
-          <label>
-            ZIP code<em>*</em>
-            <input type="postal-code" 
-              name="postal_code" 
-              value={this.state.postal_code}
-              id="postal_code" 
-              required="required" 
-              aria-required="true" 
-              onChange={(event) => this.handleInputChange(event)}/>
-          </label>
         </div>
         <div className="label-input-container">
           <label>
@@ -166,10 +198,11 @@ class EmailNotificationForm extends Component {
               id="email" 
               required="required" 
               aria-required="true" 
+              className="input"
               onChange={(event) => this.handleInputChange(event)}/>
           </label>
         </div>
-        <p>Preferred language:<em>*</em></p>
+        <p className="preferred-lang-p">Preferred language<em>*</em></p>
         <div className="label-input-container">
           <input type="radio" 
             name="language" 
@@ -203,10 +236,18 @@ class EmailNotificationForm extends Component {
           <label className="agree-to-emails-checkbox">Sign up for email notifications about upcoming elections in my state.</label>
         </div>
         <div className="submit-button-container">
-          <input type="submit" 
-            name="commit" 
-            value="Submit" 
-            /> 
+          <button
+            className="submit-button" 
+            onClick={(event) => this.handleSubmit(event)}>
+              Submit
+          </button>
+        </div>
+        <div className="invalid-inputs-error-container">
+          {!this.validateNames() && <p className="invalid-input-error">Please enter your first and last name.</p>}
+          {!this.validateState() && <p className="invalid-input-error">Please select a state.</p>}
+          {!this.validateEmail() && <p className="invalid-input-error">Please enter a valid email.</p>}
+          {!this.validateLanguage() && <p className="invalid-input-error">Please select your preferred language.</p>}
+          {!this.validateAcknowledgement() && <p className="invalid-input-error">Please check the "Sign up for email notifications" box.</p>}
         </div>
       </form>
     );
