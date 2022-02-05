@@ -24,6 +24,10 @@ em {
   width: 150px;
 }
 
+.submit-button:hover {
+  color: white;
+}
+
 .form-header {
   font-family: 'DM Serif Display', serif;
   font-size: 28px;
@@ -40,7 +44,8 @@ em {
 
 .missing-input-message {
   color: #fd3535;
-  font-weight: bold;
+  font-size: 20px;
+  margin-top: 5px;
 }
 
 .label {
@@ -55,3 +60,13 @@ em {
   margin-top: 5px;
 }
 
+.form-content-container {
+  width: 90%;
+  margin: 0 auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.input:hover, .submit-button:hover, .input-radio:hover, .input-checkbox:hover {
+  cursor: pointer;
+}

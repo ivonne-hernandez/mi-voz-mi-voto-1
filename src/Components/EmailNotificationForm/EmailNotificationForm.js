@@ -170,97 +170,99 @@ class EmailNotificationForm extends Component {
         <div className="form-header-container">
           <p className="form-header">State Election Reminders</p>
         </div>
-        <div className="label-input-container">
-          <label className="label">
-            First Name<em>*</em>
-            <input type="text" 
-              name="first_name" 
-              value={this.state.first_name}
-              id="first_name" 
+        <div className="form-content-container">
+          <div className="label-input-container">
+            <label className="label">
+              First Name<em>*</em>
+              <input type="text" 
+                name="first_name" 
+                value={this.state.first_name}
+                id="first_name" 
+                required="required" 
+                aria-required="true"
+                className="input"
+                onChange={(event) => this.handleInputChange(event)}/>
+            </label>
+          </div>
+          <div className="label-input-container">
+            <label className="label">
+              Last Name<em>*</em>
+              <input type="text" 
+                name="last_name" 
+                value={this.state.last_name}
+                id="last_name" 
+                required="required" 
+                aria-required="true" 
+                className="input"
+                onChange={(event) => this.handleInputChange(event)}/>
+            </label>
+          </div>
+          <div className="label-input-container">
+            <label className="label">State<em>*</em></label>
+            <select name="state" 
+              id="state-select"
+              className="state-name-select input"
+              defaultValue="Select"
+              onChange={(event) => this.handleInputChange(event)}>
+              {this.stateOptions()}
+            </select>
+          </div>
+          <div className="label-input-container email-label">
+            <label className="label">
+              Email address<em>*</em>
+              <input type="email" 
+                name="email" 
+                value={this.state.email}
+                id="email" 
+                required="required" 
+                aria-required="true" 
+                className="input"
+                onChange={(event) => this.handleInputChange(event)}/>
+            </label>
+          </div>
+          <p className="preferred-lang-p label">Preferred language<em>*</em></p>
+          <div className="label-input-container">
+            <input type="radio" 
+              name="language" 
+              id="english" 
+              value="en" 
               required="required" 
-              aria-required="true"
-              className="input"
-              onChange={(event) => this.handleInputChange(event)}/>
-          </label>
-        </div>
-        <div className="label-input-container">
-          <label className="label">
-            Last Name<em>*</em>
-            <input type="text" 
-              name="last_name" 
-              value={this.state.last_name}
-              id="last_name" 
+              className="input-radio"
+              onChange={(event) => this.handleInputChange(event)}/> 
+            <label className="label-radio">English</label>
+          </div>
+          <div className="label-input-container">
+            <input type="radio" 
+              name="language" 
+              id="spanish" 
+              value="es" 
+              required="required" 
+              className="input-radio"
+              onChange={(event) => this.handleInputChange(event)}/> 
+            <label className="label-radio">Spanish</label>
+          </div>
+          <div className="label-input-container">
+            <input type="checkbox" 
+              name="agree_to_emails" 
+              id="agree_to_emails" 
+              value={this.state.agree_to_emails} 
               required="required" 
               aria-required="true" 
-              className="input"
-              onChange={(event) => this.handleInputChange(event)}/>
-          </label>
-        </div>
-        <div className="label-input-container">
-          <label className="label">State<em>*</em></label>
-          <select name="state" 
-            id="state-select"
-            className="state-name-select input"
-            defaultValue="Select"
-            onChange={(event) => this.handleInputChange(event)}>
-            {this.stateOptions()}
-          </select>
-        </div>
-        <div className="label-input-container email-label">
-          <label className="label">
-            Email address<em>*</em>
-            <input type="email" 
-              name="email" 
-              value={this.state.email}
-              id="email" 
-              required="required" 
-              aria-required="true" 
-              className="input"
-              onChange={(event) => this.handleInputChange(event)}/>
-          </label>
-        </div>
-        <p className="preferred-lang-p label">Preferred language<em>*</em></p>
-        <div className="label-input-container">
-          <input type="radio" 
-            name="language" 
-            id="english" 
-            value="en" 
-            required="required" 
-            className="input-radio"
-            onChange={(event) => this.handleInputChange(event)}/> 
-          <label className="label-radio">English</label>
-        </div>
-        <div className="label-input-container">
-          <input type="radio" 
-            name="language" 
-            id="spanish" 
-            value="es" 
-            required="required" 
-            className="input-radio"
-            onChange={(event) => this.handleInputChange(event)}/> 
-          <label className="label-radio">Spanish</label>
-        </div>
-        <div className="label-input-container">
-          <input type="checkbox" 
-            name="agree_to_emails" 
-            id="agree_to_emails" 
-            value={this.state.agree_to_emails} 
-            required="required" 
-            aria-required="true" 
-            className="input-checkbox"
-            onChange={(event) => this.handleInputChange(event)}/> 
-          <label className="agree-to-emails-checkbox label">Sign up for email notifications about upcoming elections in my state.</label>
-        </div>
-        <div className="submit-button-container">
-          <button
-            className="submit-button" 
-            onClick={(event) => this.handleSubmit(event)}>
-              Submit
-          </button>
-        </div>
-        <div className="missing-input-message-container">
-          {this.state.displayMissingInput ? this.displayMissingInputMessage() : null}
-          <p className="missing-input-message"></p>
+              className="input-checkbox"
+              onChange={(event) => this.handleInputChange(event)}/> 
+            <label className="agree-to-emails-checkbox label">Sign up for email notifications about upcoming elections in my state.</label>
+          </div>
+          <div className="submit-button-container">
+            <button
+              className="submit-button" 
+              onClick={(event) => this.handleSubmit(event)}>
+                Submit
+            </button>
+          </div>
+          <div className="missing-input-message-container">
+            {this.state.displayMissingInput ? this.displayMissingInputMessage() : null}
+            <p className="missing-input-message"></p>
+          </div>
         </div>
       </form>
     );
