@@ -10,6 +10,10 @@
   color: #2b2d42;
 }
 
+.app-name:hover {
+  transform: scale(1.1);
+}
+
 .header-container {
   display: grid;
   grid-template-columns: 85px auto 150px 150px;
@@ -23,4 +27,8 @@
   font-size: 20px;
   border-radius: 8px;
   font-weight: bold;
+}
+
+.header-button:hover {
+  color: white;
 }
