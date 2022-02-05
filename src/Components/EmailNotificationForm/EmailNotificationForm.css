@@ -27,8 +27,11 @@ em {
 .form-header {
   font-family: 'DM Serif Display', serif;
   font-size: 28px;
+  background-color: #1990ff;
 }
 
 .form-container {
   border: 1px solid black;
+  border-radius: 8px;
+  overflow: hidden;
 }
