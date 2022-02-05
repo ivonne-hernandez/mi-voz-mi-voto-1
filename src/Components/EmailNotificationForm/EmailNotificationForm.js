@@ -151,7 +151,7 @@ class EmailNotificationForm extends Component {
     return (
       <form className="form-container">
         <div className="form-header-container">
-          <p className="form-header">Sign up for Election Reminders</p>
+          <p className="form-header">Sign up for State Election Reminders</p>
         </div>
         <div className="label-input-container">
           <label>
