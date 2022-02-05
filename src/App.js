@@ -12,11 +12,17 @@ class App extends Component {
   componentDidMount = () => {
 
   }
+
+  postNewEmailSubscriber = (newEmailSubscriber) => {
+    //apiCalls POST function here with(newEmailSubscriber) passed in
+    //.then(data => if response is okay then show the user that their email is now subscribed)
+    console.log(newEmailSubscriber);
+  }
   
   render = () => (
       <div className="App">
         <Header />
-        <MainContainer />
+        <MainContainer postNewEmailSubscriber={this.postNewEmailSubscriber}/>
       </div>
   );
 }

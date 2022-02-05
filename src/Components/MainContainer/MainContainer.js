@@ -1,10 +1,10 @@
 import './MainContainer.css';
 import EmailNotificationForm from '../EmailNotificationForm/EmailNotificationForm';
 
-const MainContainer = () => {
+const MainContainer = ({ postNewEmailSubscriber }) => {
   return (
     <main className='main-container'>
-      <EmailNotificationForm />
+      <EmailNotificationForm postNewEmailSubscriber={postNewEmailSubscriber} />
     </main>
   );
 }

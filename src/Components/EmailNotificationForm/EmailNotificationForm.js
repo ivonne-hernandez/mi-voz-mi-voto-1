@@ -25,7 +25,6 @@ class EmailNotificationForm extends Component {
   }
 
   handleSubmit = (event) => {
-    // upon clicking on the submit, I'll need validateInputs
     event.preventDefault();
     this.setState({ displayMissingInput: true });
     if (this.validateInputs()) {
@@ -37,7 +36,7 @@ class EmailNotificationForm extends Component {
         email: this.state.email,
         language: this.state.language,
       }
-      // this.props.postNewEmailSubscriber(newEmailSubscriber) need to declare it in App, pass it to MainContainer
+      this.props.postNewEmailSubscriber(newEmailSubscriber);
       this.clearInputs();
     }
   }
