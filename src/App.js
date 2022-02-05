@@ -14,11 +14,13 @@ class App extends Component {
   }
   
   render = () => {
-    <div className="App">
-      <Header />
-      <MainContainer postNewEmailSubscriber={this.postNewEmailSubscriber}/>
-    </div>
-  };
+    return (
+      <div className="App">
+        <Header />
+        <MainContainer postNewEmailSubscriber={this.postNewEmailSubscriber}/>
+      </div>
+    );
+  }
 }
 
 export default App;
