@@ -39,23 +39,74 @@ class EmailNotificationForm extends Component {
 
   stateOptions = () => {
     const states = [ 
-      "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana",
-      "Iowa","Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", 
-      "New Jersey", "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota", "Tennessee", 
-      "Texas", "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"
+      { value: 'al', label: 'Alabama' },
+      { value: 'ak', label: 'Alaska' },
+      { value: 'az', label: 'Arizona' },
+      { value: 'ar', label: 'Arkansas' },
+      { value: 'ca', label: 'California' },
+      { value: 'co', label: 'Colorado' },
+      { value: 'ct', label: 'Connecticut' },
+      { value: 'de', label: 'Delaware' },
+      { value: 'dc', label: 'District Of Columbia' },
+      { value: 'fl', label: 'Florida' },
+      { value: 'ga', label: 'Georgia' },
+      { value: 'hi', label: 'Hawaii' },
+      { value: 'id', label: 'Idaho' },
+      { value: 'il', label: 'Illinois' },
+      { value: 'in', label: 'Indiana' },
+      { value: 'ia', label: 'Iowa' },
+      { value: 'ks', label: 'Kansas' },
+      { value: 'ky', label: 'Kentucky' },
+      { value: 'la', label: 'Louisiana' },
+      { value: 'me', label: 'Maine' },
+      { value: 'md', label: 'Maryland' },
+      { value: 'ma', label: 'Massachusetts' },
+      { value: 'mi', label: 'Michigan' },
+      { value: 'mn', label: 'Minnesota' },
+      { value: 'ms', label: 'Mississippi' },
+      { value: 'mo', label: 'Missouri' },
+      { value: 'mt', label: 'Montana' },
+      { value: 'ne', label: 'Nebraska' },
+      { value: 'nv', label: 'Nevada' },
+      { value: 'nh', label: 'New Hampshire' },
+      { value: 'nj', label: 'New Jersey' },
+      { value: 'nm', label: 'New Mexico' },
+      { value: 'ny', label: 'New York' },
+      { value: 'nc', label: 'North Carolina' },
+      { value: 'nd', label: 'North Dakota' },
+      { value: 'oh', label: 'Ohio' },
+      { value: 'ok', label: 'Oklahoma' },
+      { value: 'or', label: 'Oregon' },
+      { value: 'pa', label: 'Pennsylvania' },
+      { value: 'ri', label: 'Rhode Island' },
+      { value: 'sc', label: 'South Carolina' },
+      { value: 'sd', label: 'South Dakota' },
+      { value: 'tn', label: 'Tennessee' },
+      { value: 'tx', label: 'Texas' },
+      { value: 'ut', label: 'Utah' },
+      { value: 'vt', label: 'Vermont' },
+      { value: 'va', label: 'Virginia' },
+      { value: 'wa', label: 'Washington' },
+      { value: 'wv', label: 'West Virginia' },
+      { value: 'wi', label: 'Wisconsin' },
+      { value: 'wy', label: 'Wyoming' }
     ];
 
-    const stateOptions =  states.map(state => {
+    const options = [
+      <option className="state-name-option" name="state" value="Select" key="Select" disabled={true}>
+        Select
+      </option>
+    ];
+  
+    const stateOptions = states.map(state => {
       return (
-        <option name="state"
-          value={state}
-          key={state}>
-          {state}
+        <option className="state-name-option" name="state" value={state.value} key={state.label}>
+          {state.label}
         </option>
       );
     });
 
-    return stateOptions;
+    return options.concat(stateOptions);
   }
 
 
