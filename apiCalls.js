@@ -1,24 +1,15 @@
 import endpoints from './endpoints.js';
 
-export const submitEmailForm = ({ first_name, last_name, state, email, language }) => {
+export const submitEmailForm = (firstName, email, zipCode, lang) => {
   return fetch(endpoints.submit, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      first_name: first_name,
-      last_name: last_name,
-      state: state,
+      firstName: firstName,
       email: email,
-      language: language
+      zipCode: zipCode,
+      lang: lang
     })
   })
-    .then(response => {
-      if (response.status !== 200) {
-        throw new Error ('Something has gone wrong, please try again.')
-      }
-      if (!response.ok) {
-        throw new Error ('Something has gone wrong, please try again.')
-      }
-      return response.json()
-    })
+    .then(response => response.json())
 }
