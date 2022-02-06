@@ -1,19 +1,19 @@
-import voteImage from '../../Assets/vote.png';
-import './Header.css';
+import voteImage from "../../Assets/vote.png";
+import "./Header.css";
 const Header = ()  => {
   return (
     <div className="header-container">
       <img 
-        className='vote-image'
+        className="vote-image"
         src={voteImage}
         alt="vote"/>
-      <p className='app-name'>My Voice, My Vote</p>
+      <p className="app-name">My Voice, My Vote</p>
       <button
-        className='our-story-button header-button'>
+        className="our-story-button header-button">
         Our Story
       </button>
       <button
-        className='en-espanol-button header-button'>
+        className="en-espanol-button header-button">
         En Español
       </button>
     </div>
