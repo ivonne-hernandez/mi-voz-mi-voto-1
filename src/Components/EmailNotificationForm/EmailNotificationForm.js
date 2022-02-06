@@ -7,7 +7,7 @@ class EmailNotificationForm extends Component {
     this.state = {
       first_name: "",
       last_name: "",
-      state: "",
+      state_name: "",
       email: "",
       language: "",
       agree_to_emails: false,
@@ -32,7 +32,7 @@ class EmailNotificationForm extends Component {
       const newEmailSubscriber = {
         first_name: this.state.first_name,
         last_name: this.state.last_name,
-        state: this.state.state,
+        state_name: this.state.state_name,
         email: this.state.email,
         language: this.state.language,
       }
@@ -51,7 +51,7 @@ class EmailNotificationForm extends Component {
   }
   
   validateState = () => {
-    return this.state.state.length ? true: false;
+    return this.state.state_name.length ? true: false;
   }
   
   validateEmail = () => {
@@ -84,7 +84,7 @@ class EmailNotificationForm extends Component {
     this.setState({ 
       first_name: "",
       last_name: "",
-      state: "",
+      state_name: "",
       email: "",
       language: "",
       agree_to_emails: false
@@ -147,14 +147,14 @@ class EmailNotificationForm extends Component {
     ];
 
     const options = [
-      <option className="state-name-option" name="state" value="Select" key="Select" disabled={true}>
+      <option className="state-name-option" name="state_name" value="Select" key="Select" disabled={true}>
         Select
       </option>
     ];
   
     const stateOptions = states.map(state => {
       return (
-        <option className="state-name-option" name="state" value={state.value} key={state.label}>
+        <option className="state-name-option" name="state_name" value={state.value} key={state.label}>
           {state.label}
         </option>
       );
@@ -198,8 +198,8 @@ class EmailNotificationForm extends Component {
           </div>
           <div className="label-input-container">
             <label className="label">State<em>*</em></label>
-            <select name="state" 
-              id="state-select"
+            <select name="state_name" 
+              id="state_name"
               className="state-name-select input"
               defaultValue="Select"
               onChange={(event) => this.handleInputChange(event)}>
