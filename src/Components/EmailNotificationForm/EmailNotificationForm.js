@@ -8,7 +8,7 @@ class EmailNotificationForm extends Component {
     this.state = {
       first_name: "",
       last_name: "",
-      state_name: "",
+      state_name: "Select",
       email: "",
       language: "",
       agree_to_emails: false,
@@ -17,12 +17,12 @@ class EmailNotificationForm extends Component {
   }
 
   handleInputChange = (event) => {
-    if (event.target.name === "agree_to_emails") {
-      let updatedValue = !this.state.agree_to_emails;
-      return this.setState({ agree_to_emails: updatedValue });
-    } else {
-      this.setState({ [event.target.name]: event.target.value });
-    }
+    this.setState({ [event.target.name]: event.target.value });
+  }
+
+  handleCheckboxInput = () => {
+    const updatedValue = !this.state.agree_to_emails;
+    return this.setState({ agree_to_emails: updatedValue });
   }
 
   handleSubmit = (event) => {
@@ -48,23 +48,23 @@ class EmailNotificationForm extends Component {
   }
 
   validateNames = () => {
-    return this.state.first_name.length && this.state.last_name.length ? true: false;
+    return this.state.first_name.length > 0 && this.state.last_name.length > 0;
   }
   
   validateState = () => {
-    return this.state.state_name.length ? true: false;
+    return this.state.state_name.length > 0 && this.state.state_name !== "Select" ;
   }
   
   validateEmail = () => {
-    return /^[a-zA-Z0-9]+@(?:[a-zA-Z0-9]+\.)+[A-Za-z]+$/.test(this.state.email);
+    return /^.+@(?:[a-zA-Z0-9]+\.)+[A-Za-z]+$/.test(this.state.email);
   }
   
   validateLanguage = () => {
-    return this.state.language.length ? true: false;
+    return this.state.language.length > 0;
   }
 
   validateAcknowledgement = () => {
-    return this.state.agree_to_emails ? true: false;
+    return this.state.agree_to_emails;
   }
 
   displayMissingInputMessage = () => {
@@ -85,7 +85,7 @@ class EmailNotificationForm extends Component {
     this.setState({ 
       first_name: "",
       last_name: "",
-      state_name: "",
+      state_name: "Select",
       email: "",
       language: "",
       agree_to_emails: false
@@ -148,7 +148,7 @@ class EmailNotificationForm extends Component {
             <select name="state_name" 
               id="state_name"
               className="state-name-select input"
-              defaultValue="Select"
+              value={this.state.state_name}
               onChange={(event) => this.handleInputChange(event)}>
               {this.stateOptions()}
             </select>
@@ -174,6 +174,7 @@ class EmailNotificationForm extends Component {
               value="en" 
               required="required" 
               className="input-radio"
+              checked={this.state.language === "en"}
               onChange={(event) => this.handleInputChange(event)}/> 
             <label className="label-radio">English</label>
           </div>
@@ -184,6 +185,7 @@ class EmailNotificationForm extends Component {
               value="es" 
               required="required" 
               className="input-radio"
+              checked={this.state.language === "es"}
               onChange={(event) => this.handleInputChange(event)}/> 
             <label className="label-radio">Spanish</label>
           </div>
@@ -195,7 +197,8 @@ class EmailNotificationForm extends Component {
               required="required" 
               aria-required="true" 
               className="input-checkbox"
-              onChange={(event) => this.handleInputChange(event)}/> 
+              checked={this.state.agree_to_emails}
+              onChange={() => this.handleCheckboxInput()}/> 
             <label className="agree-to-emails-checkbox label">Sign up for email notifications about upcoming elections in my state.</label>
           </div>
           <div className="submit-button-container">
