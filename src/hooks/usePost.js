@@ -21,7 +21,7 @@ const usePost = (newEmailSubscriber) => {
         })
 
       if (response.status !== 200) {
-        throw new Error ('Something has gone wrong, please try again.')
+        throw new Error (`${response.status} : Something has gone wrong, please try again.`)
       }
       if (!response.ok) {
         throw new Error ('Something has gone wrong, please try again.')
