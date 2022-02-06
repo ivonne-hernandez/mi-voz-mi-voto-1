@@ -118,8 +118,7 @@ class EmailNotificationForm extends Component {
         </div>
         <div className="form-content-container">
           <div className="label-input-container">
-            <label className="label">
-              First Name<em>*</em>
+              <label className="label" htmlFor="first_name">First Name<em>*</em></label>
               <input type="text" 
                 name="first_name" 
                 value={this.state.first_name}
@@ -128,23 +127,20 @@ class EmailNotificationForm extends Component {
                 aria-required="true"
                 className="input"
                 onChange={(event) => this.handleInputChange(event)}/>
-            </label>
           </div>
           <div className="label-input-container">
-            <label className="label">
-              Last Name<em>*</em>
-              <input type="text" 
-                name="last_name" 
-                value={this.state.last_name}
-                id="last_name" 
-                required="required" 
-                aria-required="true" 
-                className="input"
-                onChange={(event) => this.handleInputChange(event)}/>
-            </label>
+            <label className="label" htmlFor="last_name">Last Name<em>*</em></label>
+            <input type="text" 
+              name="last_name" 
+              value={this.state.last_name}
+              id="last_name" 
+              required="required" 
+              aria-required="true" 
+              className="input"
+              onChange={(event) => this.handleInputChange(event)}/>
           </div>
           <div className="label-input-container">
-            <label className="label">State<em>*</em></label>
+            <label className="label" htmlFor="state_name">State<em>*</em></label>
             <select name="state_name" 
               id="state_name"
               className="state-name-select input"
@@ -154,19 +150,17 @@ class EmailNotificationForm extends Component {
             </select>
           </div>
           <div className="label-input-container email-label">
-            <label className="label">
-              Email address<em>*</em>
-              <input type="email" 
-                name="email" 
-                value={this.state.email}
-                id="email" 
-                required="required" 
-                aria-required="true" 
-                className="input"
-                onChange={(event) => this.handleInputChange(event)}/>
-            </label>
+            <label className="label" htmlFor="email">Email address<em>*</em></label>
+            <input type="email" 
+              name="email" 
+              value={this.state.email}
+              id="email" 
+              required="required" 
+              aria-required="true" 
+              className="input"
+              onChange={(event) => this.handleInputChange(event)}/>
           </div>
-          <p className="preferred-lang-p label">Preferred language<em>*</em></p>
+          <label className="preferred-lang-p label" htmlFor="language">Preferred language<em>*</em></label>
           <div className="label-input-container">
             <input type="radio" 
               name="language" 
@@ -176,7 +170,7 @@ class EmailNotificationForm extends Component {
               className="input-radio"
               checked={this.state.language === "en"}
               onChange={(event) => this.handleInputChange(event)}/> 
-            <label className="label-radio">English</label>
+            <label className="label-radio" htmlFor="en">English</label>
           </div>
           <div className="label-input-container">
             <input type="radio" 
@@ -187,7 +181,7 @@ class EmailNotificationForm extends Component {
               className="input-radio"
               checked={this.state.language === "es"}
               onChange={(event) => this.handleInputChange(event)}/> 
-            <label className="label-radio">Spanish</label>
+            <label className="label-radio" htmlFor="es">Spanish</label>
           </div>
           <div className="label-input-container">
             <input type="checkbox" 
@@ -199,7 +193,9 @@ class EmailNotificationForm extends Component {
               className="input-checkbox"
               checked={this.state.agree_to_emails}
               onChange={() => this.handleCheckboxInput()}/> 
-            <label className="agree-to-emails-checkbox label">Sign up for email notifications about upcoming elections in my state.</label>
+            <label className="agree-to-emails-checkbox label" htmlFor="agree_to_emails">
+              Sign up for email notifications about upcoming elections in my state.
+            </label>
           </div>
           <div className="submit-button-container">
             <button
