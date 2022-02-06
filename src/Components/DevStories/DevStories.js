@@ -1,5 +1,8 @@
 import { Fragment } from 'react';
 import devs from '../Assets/devs.js';
+import { BsLinkedin as LinkedIn } from 'react-icons/bs';
+import { BsGithub as GitHub } from 'react-icons/bs'
+import './DevStories.css';
 
 const DevStories = () => {
   const devStory = devs.map(dev => {
@@ -8,8 +11,8 @@ const DevStories = () => {
         <h2 className="dev-name">{dev.name}</h2>
         <h3 className="dev-title">{dev.title}</h3>
         <img className="dev-photo" src={dev.photo} alt={dev.name} />
-        <a className="dev-linkedin" href={dev.linkedin}>linkedin</a>
-        <a className="dev-github" href={dev.github}>github</a>
+        <a className="dev-linkedin" href={dev.linkedin}>{LinkedIn}</a>
+        <a className="dev-github" href={dev.github}>{GitHub}</a>
         <p className="dev-bio">{dev.bio}</p>
       </>
     )
