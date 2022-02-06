@@ -1,12 +1,13 @@
 const endpoints = {
   submit: 'localhost:3001/api/v1/users'
   /* POST to API:
-    request object:
+    request object, newEmailSubscriber:
       {
-        firstName: 'string',
+        first_name: 'string',
+        last_name: 'string',
+        state: 'string', ** 'ca','co','me' **
         email: 'string',
-        zipCode: 'num',
-        lang: 'string' ** 'en' or 'es' **
+        language: 'string' ** 'en' or 'es' **
       }
     response object:
     -> WHAT DO WE WANT THE BACKEND TO RETURN UPON A SUCCESSFUL POST?
