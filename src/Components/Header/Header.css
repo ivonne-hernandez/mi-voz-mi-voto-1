@@ -1,0 +1,35 @@
+.vote-image {
+  width: 80px;
+  height: 80px;
+}
+
+.app-name {
+  font-size: 40px;
+  margin-left: 8px;
+  font-family: 'DM Serif Display', serif;
+  color: #2b2d42;
+}
+
+.app-name:hover {
+  cursor: pointer;
+}
+
+.header-container {
+  display: grid;
+  grid-template-columns: 85px auto 150px 150px;
+  align-items: center;
+  grid-gap: 20px;
+  margin: 20px;
+}
+
+.header-button {
+  background-color: #fd3535;
+  font-size: 20px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.header-button:hover {
+  color: white;
+  cursor: pointer;
+}
