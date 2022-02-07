@@ -3,3 +3,15 @@
   margin: 0;
   font-family: 'Roboto', sans-serif;
 }
+
+html {
+  font-size: 15px;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  cursor: pointer;
+}
