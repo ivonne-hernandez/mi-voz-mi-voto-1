@@ -236,7 +236,7 @@ class EmailNotificationForm extends Component {
                   </div>
                   <div className="missing-input-message-container">
                     {this.state.displayMissingInput ? this.displayMissingInputMessage() : null}
-                    <p className="missing-input-message">{this.state.successMessage}</p>
+                    <p className="success-message">{this.state.successMessage}</p>
                   </div>
                 </div>
               </form>
