@@ -20,6 +20,11 @@ const endpoints = {
         error: "Error creating subscriber. A valid email must be provided."},
         status: 400
       }
+      EMAIL ALREADY EXISTS:
+      {
+        error: "This email is already susbscribed to receive election notifications.",
+        status: 400
+      }
       GENERAL ERROR:
       {
         error: "Error creating subscriber.",
