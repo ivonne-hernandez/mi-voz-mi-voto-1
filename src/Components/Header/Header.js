@@ -1,9 +1,10 @@
-import voteImage from "../../Assets/vote.png";
-import "./Header.css";
+import voteImage from '../../Assets/vote.png';
+import './Header.css';
+
 const Header = ()  => {
   return (
     <div className="header-container">
-      <img 
+      <img
         className="vote-image"
         src={voteImage}
         alt="vote"/>

@@ -1,16 +1,17 @@
-import { Component } from "react";
-import "./EmailNotificationForm.css";
-import { states } from "./states"
+import { Component } from 'react';
+import './EmailNotificationForm.css';
+import { states } from './states';
+import { postNewEmailSubscriber } from '../../apiCalls.js';
 
 class EmailNotificationForm extends Component {
   constructor() {
     super();
     this.state = {
-      first_name: "",
-      last_name: "",
-      state_name: "Select",
-      email: "",
-      language: "",
+      first_name: '',
+      last_name: '',
+      state_name: 'Select',
+      email: '',
+      language: '',
       agree_to_emails: false,
       displayMissingInput: false
     }
@@ -37,28 +38,30 @@ class EmailNotificationForm extends Component {
         email: this.state.email,
         language: this.state.language,
       }
-      // this.props.postNewEmailSubscriber(newEmailSubscriber);
+
+      postNewEmailSubscriber(newEmailSubscriber)
+
       this.clearInputs();
     }
   }
 
   validateInputs = () => {
-    return this.validateNames() && this.validateState() && this.validateEmail() 
+    return this.validateNames() && this.validateState() && this.validateEmail()
       && this.validateLanguage() && this.validateAcknowledgement();
   }
 
   validateNames = () => {
     return this.state.first_name.length > 0 && this.state.last_name.length > 0;
   }
-  
+
   validateState = () => {
-    return this.state.state_name.length > 0 && this.state.state_name !== "Select" ;
+    return this.state.state_name.length > 0 && this.state.state_name !== 'Select' ;
   }
-  
+
   validateEmail = () => {
     return /^.+@(?:[a-zA-Z0-9]+\.)+[A-Za-z]+$/.test(this.state.email);
   }
-  
+
   validateLanguage = () => {
     return this.state.language.length > 0;
   }
@@ -82,12 +85,12 @@ class EmailNotificationForm extends Component {
   }
 
   clearInputs = () => {
-    this.setState({ 
-      first_name: "",
-      last_name: "",
-      state_name: "Select",
-      email: "",
-      language: "",
+    this.setState({
+      first_name: '',
+      last_name: '',
+      state_name: 'Select',
+      email: '',
+      language: '',
       agree_to_emails: false
     });
   }
@@ -98,7 +101,7 @@ class EmailNotificationForm extends Component {
         Select
       </option>
     ];
-  
+
     const stateOptions = states.map(state => {
       return (
         <option className="state-name-option" name="state_name" value={state.value} key={state.label}>
@@ -119,29 +122,29 @@ class EmailNotificationForm extends Component {
         <div className="form-content-container">
           <div className="label-input-container">
               <label className="label" htmlFor="first_name">First Name<em>*</em></label>
-              <input type="text" 
-                name="first_name" 
+              <input type="text"
+                name="first_name"
                 value={this.state.first_name}
-                id="first_name" 
-                required="required" 
+                id="first_name"
+                required="required"
                 aria-required="true"
                 className="input"
                 onChange={(event) => this.handleInputChange(event)}/>
           </div>
           <div className="label-input-container">
             <label className="label" htmlFor="last_name">Last Name<em>*</em></label>
-            <input type="text" 
-              name="last_name" 
+            <input type="text"
+              name="last_name"
               value={this.state.last_name}
-              id="last_name" 
-              required="required" 
-              aria-required="true" 
+              id="last_name"
+              required="required"
+              aria-required="true"
               className="input"
               onChange={(event) => this.handleInputChange(event)}/>
           </div>
           <div className="label-input-container">
             <label className="label" htmlFor="state_name">State<em>*</em></label>
-            <select name="state_name" 
+            <select name="state_name"
               id="state_name"
               className="state-name-select input"
               value={this.state.state_name}
@@ -151,55 +154,55 @@ class EmailNotificationForm extends Component {
           </div>
           <div className="label-input-container email-label">
             <label className="label" htmlFor="email">Email address<em>*</em></label>
-            <input type="email" 
-              name="email" 
+            <input type="email"
+              name="email"
               value={this.state.email}
-              id="email" 
-              required="required" 
-              aria-required="true" 
+              id="email"
+              required="required"
+              aria-required="true"
               className="input"
               onChange={(event) => this.handleInputChange(event)}/>
           </div>
           <label className="preferred-lang-p label" htmlFor="language">Preferred language<em>*</em></label>
           <div className="label-input-container">
-            <input type="radio" 
-              name="language" 
-              id="english" 
-              value="en" 
-              required="required" 
+            <input type="radio"
+              name="language"
+              id="english"
+              value="en"
+              required="required"
               className="input-radio"
               checked={this.state.language === "en"}
-              onChange={(event) => this.handleInputChange(event)}/> 
+              onChange={(event) => this.handleInputChange(event)}/>
             <label className="label-radio" htmlFor="en">English</label>
           </div>
           <div className="label-input-container">
-            <input type="radio" 
-              name="language" 
-              id="spanish" 
-              value="es" 
-              required="required" 
+            <input type="radio"
+              name="language"
+              id="spanish"
+              value="es"
+              required="required"
               className="input-radio"
               checked={this.state.language === "es"}
-              onChange={(event) => this.handleInputChange(event)}/> 
+              onChange={(event) => this.handleInputChange(event)}/>
             <label className="label-radio" htmlFor="es">Spanish</label>
           </div>
           <div className="label-input-container">
-            <input type="checkbox" 
-              name="agree_to_emails" 
-              id="agree_to_emails" 
-              value={this.state.agree_to_emails} 
-              required="required" 
-              aria-required="true" 
+            <input type="checkbox"
+              name="agree_to_emails"
+              id="agree_to_emails"
+              value={this.state.agree_to_emails}
+              required="required"
+              aria-required="true"
               className="input-checkbox"
               checked={this.state.agree_to_emails}
-              onChange={() => this.handleCheckboxInput()}/> 
+              onChange={() => this.handleCheckboxInput()}/>
             <label className="agree-to-emails-checkbox label" htmlFor="agree_to_emails">
               Sign up for email notifications about upcoming elections in my state.
             </label>
           </div>
           <div className="submit-button-container">
             <button
-              className="submit-button" 
+              className="submit-button"
               onClick={(event) => this.handleSubmit(event)}>
                 Submit
             </button>

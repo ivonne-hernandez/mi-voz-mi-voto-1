@@ -1,5 +1,5 @@
-import "./MainContainer.css";
-import EmailNotificationForm from "../EmailNotificationForm/EmailNotificationForm";
+import './MainContainer.css';
+import EmailNotificationForm from '../EmailNotificationForm/EmailNotificationForm';
 
 const MainContainer = () => {
   return (
