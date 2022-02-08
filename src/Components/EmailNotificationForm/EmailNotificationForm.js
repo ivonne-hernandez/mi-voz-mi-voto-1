@@ -17,8 +17,8 @@ class EmailNotificationForm extends Component {
       agree_to_emails: false,
       displayMissingInput: false,
       isSubmitting: false,
-      successMessage: '',
-      error: ''
+      successMessage: null,
+      error: null
     }
   }
 
@@ -58,9 +58,11 @@ class EmailNotificationForm extends Component {
         .then(message => {
           this.setState({ isSubmitting: false });
           this.setState({ successMessage: message.success });
+          this.setState({ error: null });
         })
         .catch(error => {
           this.setState({ isSubmitting: false });
+          this.setState({ successMessage: null });
           this.setState({ error: error.message });
         })
 
