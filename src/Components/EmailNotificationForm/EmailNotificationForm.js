@@ -13,10 +13,7 @@ class EmailNotificationForm extends Component {
       email: '',
       language: '',
       agree_to_emails: false,
-      displayMissingInput: false,
-      // isSubmitting: false,
-      // successMessage: '',
-      // error: ''
+      displayMissingInput: false
     }
   }
 
@@ -43,23 +40,6 @@ class EmailNotificationForm extends Component {
       }
 
       postNewEmailSubscriber(newEmailSubscriber)
-        // .then(response => {
-        //   if (response.status !== 200) {
-        //     throw new Error (`${response.status} : Sorry, cannot fetch the data.`)
-        //   }
-        //   if (!response.ok) {
-        //     throw new Error ('Something has gone wrong, please try again.')
-        //   }
-        //   return response.json()
-        // })
-        // .then(message => {
-        //    this.setState({ isSubmitting: true });
-        //    this.setState({ successMessage: message })''
-        // })
-        // .catch(error => {
-        //   this.setState({ isSubmitting: false });
-        //   this.setState({ error: error.message });
-        // })
 
       this.clearInputs();
     }
