@@ -1,5 +1,5 @@
 const endpoints = {
-  submit: 'http://localhost:3001/api/v1/users',
+  users: 'http://localhost:3001/api/v1/users',
   /* POST to API:
     REQUEST OBJECT:
       {

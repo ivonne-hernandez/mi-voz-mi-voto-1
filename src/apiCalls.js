@@ -1,7 +1,7 @@
 import endpoints from './endpoints.js';
 
 export const postNewEmailSubscriber = (newEmailSubscriber) => {
-  return fetch(endpoints.submit, {
+  return fetch(endpoints.users, {
     mode: 'cors',
     method: 'POST',
     headers: {
