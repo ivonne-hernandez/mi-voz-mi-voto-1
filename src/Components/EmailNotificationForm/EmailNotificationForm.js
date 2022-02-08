@@ -56,14 +56,18 @@ class EmailNotificationForm extends Component {
           return response.json()
         })
         .then(message => {
-          this.setState({ isSubmitting: false });
-          this.setState({ successMessage: message.success });
-          this.setState({ error: null });
+          this.setState({
+            isSubmitting: false,
+            successMessage: message.success,
+            error: null
+          });
         })
         .catch(error => {
-          this.setState({ isSubmitting: false });
-          this.setState({ successMessage: null });
-          this.setState({ error: error.message });
+          this.setState({
+            isSubmitting: false,
+            successMessage: null,
+            error: error.message
+          });
         })
 
       this.clearInputs();
