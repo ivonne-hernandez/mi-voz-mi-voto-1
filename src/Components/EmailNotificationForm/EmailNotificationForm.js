@@ -1,5 +1,7 @@
 import { Component, Fragment } from 'react';
 import './EmailNotificationForm.css';
+import Loading from '../Loading/Loading';
+import Error from '../Error/Error';
 import { states } from './states';
 import { postNewEmailSubscriber } from '../../apiCalls.js';
 
@@ -44,6 +46,7 @@ class EmailNotificationForm extends Component {
 
       postNewEmailSubscriber(newEmailSubscriber)
         .then(response => {
+          this.setState({ isSubmitting: true });
           if (response.status !== 200) {
             throw new Error (`${response.status} : Sorry, cannot fetch the data.`)
           }
@@ -53,8 +56,8 @@ class EmailNotificationForm extends Component {
           return response.json()
         })
         .then(message => {
-           this.setState({ isSubmitting: true });
-           this.setState({ successMessage: message });
+          this.setState({ isSubmitting: false });
+          this.setState({ successMessage: message.success });
         })
         .catch(error => {
           this.setState({ isSubmitting: false });
@@ -136,9 +139,9 @@ class EmailNotificationForm extends Component {
   render = () => {
     return (
       <>
-        {isSubmitting ? <Loading /> :
+        {this.state.isSubmitting ? <Loading /> :
           <>
-            {error ? <Error error={error} /> :
+            {this.state.error ? <Error error={this.state.error} /> :
               <form className="form-container">
                 <div className="form-header-container">
                   <p className="form-header">State Election Reminders</p>
@@ -233,7 +236,7 @@ class EmailNotificationForm extends Component {
                   </div>
                   <div className="missing-input-message-container">
                     {this.state.displayMissingInput ? this.displayMissingInputMessage() : null}
-                    <p className="missing-input-message"></p>
+                    <p className="missing-input-message">{this.state.successMessage}</p>
                   </div>
                 </div>
               </form>
