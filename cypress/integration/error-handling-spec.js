@@ -19,7 +19,7 @@ describe('Mi Voz, Mi Voto error handling flow', () => {
     cy.get('.loading-icon').should('be.visible')
   })
 
-  it.skip('Should display a an error message if the email is already subscribed', () => {
+  it('Should display an error message if the email is already subscribed', () => {
     cy.fixture('user1.json').as('user1').then((user1) => {
       cy.get('input[id=first_name]').type(user1.first_name)
       cy.get('input[id=last_name]').type(user1.last_name)
@@ -32,6 +32,7 @@ describe('Mi Voz, Mi Voto error handling flow', () => {
         body: user1
       })
     })
+    cy.get('.error-text').should('contain', 'This email is already susbscribed to receive election notifications.')
   })
 
   it('Should display a message confirming the subscription to election notifications', () => {
@@ -70,7 +71,7 @@ describe('Mi Voz, Mi Voto error handling flow', () => {
 
   })
 
-  it('', () => {
+  it.skip('', () => {
 
   })
 })
