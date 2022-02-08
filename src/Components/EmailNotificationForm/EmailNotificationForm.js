@@ -17,8 +17,8 @@ class EmailNotificationForm extends Component {
       agree_to_emails: false,
       displayMissingInput: false,
       isSubmitting: false,
-      successMessage: '',
-      error: ''
+      successMessage: null,
+      error: null
     }
   }
 
@@ -56,12 +56,18 @@ class EmailNotificationForm extends Component {
           return response.json()
         })
         .then(message => {
-          this.setState({ isSubmitting: false });
-          this.setState({ successMessage: message.success });
+          this.setState({
+            isSubmitting: false,
+            successMessage: message.success,
+            error: null
+          });
         })
         .catch(error => {
-          this.setState({ isSubmitting: false });
-          this.setState({ error: error.message });
+          this.setState({
+            isSubmitting: false,
+            successMessage: null,
+            error: error.message
+          });
         })
 
       this.clearInputs();

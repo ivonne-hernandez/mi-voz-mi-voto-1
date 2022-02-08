@@ -1,15 +1,15 @@
 const endpoints = {
-  submit: 'http://localhost:3001/api/v1/users',
+  users: 'http://localhost:3001/api/v1/users',
   /* POST to API:
-    request object:
+    REQUEST OBJECT:
       {
         first_name: 'string',
         last_name: 'string',
-        state_name: 'string', ** 'co' or 'ca' **
+        state_name: 'string', ** two letter state abbv **
         email: 'string',
         language: 'string' ** 'en' or 'es' **
       }
-    response object:
+    RESPONSE OBJECT:
       SUCCESSFULLY CREATED:
       {
         success: "You are now registered to receive notifications about upcoming elections in your state. A confirmation email has been sent to #{user.email}.",
@@ -17,7 +17,7 @@ const endpoints = {
       }
       EMAIL DOES NOT INCLUDE '@':
       {
-        error: "Error creating subscriber. A valid email must be provided."},
+        error: "Error creating subscriber. A valid email must be provided.",
         status: 400
       }
       EMAIL ALREADY EXISTS:
