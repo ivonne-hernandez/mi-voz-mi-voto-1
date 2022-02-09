@@ -51,6 +51,32 @@ describe('Mi Voz, Mi Voto email notification form user flow', () => {
     })
   });
 
+  it('Should be able to navigate & submit the form using only the keyboard.', () => {
+    cy.fixture('user1.json').as('user1').then((user1) => {
+      cy.type('{tab}', '{tab}', '{tab}')
+        .type(user1.first_name)
+        .type('{tab}')
+        .type(user1.last_name)
+        .type('{tab}')
+        .type(`${user1.state_name}l`)
+        .type('{tab}')
+        .type(user1.email)
+        .type('{tab}')
+        .type('{space}')
+        .get(`input[value=${user1.language}]`).should('equal', user1.language)
+        .type('{tab}')
+        .get('input[type=radio].agree_to_emails').check('false').should('equal', 'false')
+        .type('{space}')
+        .get('input[type=radio].agree_to_emails').check('true').should('equal', 'true')
+        .type('{tab}')
+        .type('{enter}')
+        .intercept('POST', 'http://localhost:3001/api/v1/users', {
+        body: user1
+      })
+      .get('.success-message').should('contain', `You are now registered to receive notifications about upcoming elections in your state. A confirmation email has been sent to ${user.email}.`)
+    })
+  });
+
 
 
   it('Should display a loading image while the submitting the form', () => {
