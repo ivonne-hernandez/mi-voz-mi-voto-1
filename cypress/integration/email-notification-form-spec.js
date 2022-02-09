@@ -3,7 +3,7 @@ describe('Mi Voz, Mi Voto email notification form user flow', () => {
     cy.visit('http://localhost:3000')
   });
 
-  it('Should be able to input a first name, last name, email & select a state, language, and confirm subscription.', () => {
+  it('Should be able to input a first name, last name, email & select a state, language, and confirm subscription', () => {
     cy.fixture('user1.json').as('user1').then((user1) => {
       cy.get('input[id=first_name]').type(user1.first_name)
         .get(`input[value=${user1.first_name}]`).should('equal', `${user1.first_name}`)
@@ -51,7 +51,7 @@ describe('Mi Voz, Mi Voto email notification form user flow', () => {
     })
   });
 
-  it('Should be able to navigate & submit the form using only the keyboard.', () => {
+  it('Should be able to navigate & submit the form using only the keyboard', () => {
     cy.fixture('user1.json').as('user1').then((user1) => {
       cy.type('{tab}', '{tab}', '{tab}')
         .type(user1.first_name)
@@ -77,7 +77,7 @@ describe('Mi Voz, Mi Voto email notification form user flow', () => {
     })
   });
 
-  it('Should clear all inputs and selections once the form is submitted.', () => {
+  it('Should clear all inputs and selections once the form is submitted', () => {
     cy.fixture('user1.json').as('user1').then((user1) => {
       cy.get('input[id=first_name]').type(user1.first_name)
         .get('input[id=last_name]').type(user1.last_name)
@@ -99,7 +99,7 @@ describe('Mi Voz, Mi Voto email notification form user flow', () => {
     })
   });
 
-  it('Should show a prompt if any of the required inputs are missing.', () => {
+  it('Should show a prompt if any of the required inputs are missing', () => {
     cy.fixture('user1.json').as('user1').then((user1) => {
       cy.get('.submit-button').click()
         .get('.missing-input-message-container').should('contain', 'Please enter your first and last name.')
@@ -121,8 +121,6 @@ describe('Mi Voz, Mi Voto email notification form user flow', () => {
         .get('input[id=agree_to_emails]').click()
     })
   });
-
-
 
   it('Should display a loading image while the submitting the form', () => {
     cy.fixture('user1.json').as('user1').then((user1) => {
