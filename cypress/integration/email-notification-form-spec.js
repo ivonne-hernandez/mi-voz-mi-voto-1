@@ -99,6 +99,31 @@ describe('Mi Voz, Mi Voto email notification form user flow', () => {
     })
   });
 
+  it('Should show a prompt if any of the required inputs are missing.', () => {
+    cy.fixture('user1.json').as('user1').then((user1) => {
+      cy.get('.submit-button').click()
+        .get('.missing-input-message-container').should('contain', 'Please enter your first and last name.')
+        .get('input[id=first_name]').type(user1.first_name)
+        .get('.submit-button').click()
+        .get('.missing-input-message-container').should('contain', 'Please enter your first and last name.')
+        .get('input[id=last_name]').type(user1.last_name)
+        .get('.submit-button').click()
+        .get('.missing-input-message-container').should('contain', 'Please select a state.')
+        .get('select[id=state_name]').select(user1.state_name)
+        .get('.submit-button').click()
+        .get('.missing-input-message-container').should('contain', 'Please enter a valid email.')
+        .get('input[id=email]').type(user1.email)
+        .get('.submit-button').click()
+        .get('.missing-input-message-container').should('contain', 'Please select your preferred language.')
+        .get('input[id=english]').click()
+        .get('.submit-button').click()
+        .get('.missing-input-message-container').should('contain', 'Please check the "Sign up for email notifications" box.')
+        .get('input[id=agree_to_emails]').click()
+    })
+  });
+
+
+
   it('Should display a loading image while the submitting the form', () => {
     cy.fixture('user1.json').as('user1').then((user1) => {
       cy.get('input[id=first_name]').type(user1.first_name)
@@ -129,7 +154,7 @@ describe('Mi Voz, Mi Voto email notification form user flow', () => {
       })
     })
       .get('.error-text').should('contain', 'This email is already susbscribed to receive election notifications.')
-  })
+  });
 
   it('Should display a message confirming the subscription to election notifications', () => {
     cy.fixture('user2.json').as('user2').then((user2) => {
@@ -145,7 +170,7 @@ describe('Mi Voz, Mi Voto email notification form user flow', () => {
       })
       .get('.success-message').should('contain', `You are now registered to receive notifications about upcoming elections in your state. A confirmation email has been sent to ${user2.email}.`)
     })
-  })
+  });
 
   it('Should display an error image & error message if the server can\'t complete the request', () => {
     cy.fixture('user1.json').as('user1').then((user1) => {
@@ -161,14 +186,14 @@ describe('Mi Voz, Mi Voto email notification form user flow', () => {
       })
     })
     cy.get('.error-text').should('contain', 'Error creating subscriber.')
-  })
+  });
 
   it.skip('Should display a button to send the user back to the form', () => {
 
-  })
+  });
 
   it.skip('', () => {
 
-  })
+  });
 
 })
