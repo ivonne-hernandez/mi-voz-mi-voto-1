@@ -3,6 +3,20 @@ describe('Mi Voz, Mi Voto error handling flow', () => {
     cy.visit('http://localhost:3000')
   })
 
+  it('As a user, I should see a form for State Election Reminders with the first name, last name, state, email address, preferred language, "Sign up for email notifications" inputs and a Submit button', () => {
+    cy.get('form[class="form-container"]').should('have.length', 1)
+      .get('p[class="form-header"]').contains('State Election Reminders')
+      .get('label[class="label"]').contains('First Name')
+      .get('label[class="label"]').contains('Last Name')
+      .get('label[class="label"]').contains('State')
+      .get('label[class="label"]').contains('Email address')
+      .get('label[class="preferred-lang-p label"]').contains('Preferred language')
+      .get('label[class="label-radio"]').contains('English')
+      .get('label[class="label-radio"]').contains('Spanish')
+      .get('label[class="agree-to-emails-checkbox label"]').contains('Sign up for email notifications about upcoming elections in my state.')
+      .get('button[class="submit-button"]').should('have.length', 1);
+  });
+
   it('Should display a loading image while the submitting the form', () => {
     cy.fixture('user1.json').as('user1').then((user1) => {
       cy.get('input[id=first_name]').type(user1.first_name)
