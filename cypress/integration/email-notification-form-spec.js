@@ -77,7 +77,27 @@ describe('Mi Voz, Mi Voto email notification form user flow', () => {
     })
   });
 
-
+  it('Should clear all inputs and selections once the form is submitted.', () => {
+    cy.fixture('user1.json').as('user1').then((user1) => {
+      cy.get('input[id=first_name]').type(user1.first_name)
+        .get('input[id=last_name]').type(user1.last_name)
+        .get('select[id=state_name]').select(user1.state_name)
+        .get('input[id=email]').type(user1.email)
+        .get('input[id=english]').click()
+        .get('input[id=agree_to_emails]').click()
+        .get('.submit-button').click()
+        .intercept('POST', 'http://localhost:3001/api/v1/users', {
+        body: user1
+      })
+        .get('input[id=first_name]').should('be.empty')
+        .get('input[id=last_name]').should('be.empty')
+        .get('select[id=state_name]').should('be.empty')
+        .get('input[id=email]').should('be.empty')
+        .get('input[id=english]').should('have.value', '')
+        .get('input[id=spanish]').should('have.value', '')
+        .get('input[id=agree_to_emails]').should('have.value', 'false')
+    })
+  });
 
   it('Should display a loading image while the submitting the form', () => {
     cy.fixture('user1.json').as('user1').then((user1) => {
