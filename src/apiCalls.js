@@ -2,7 +2,7 @@ import endpoints from './endpoints.js';
 
 export const postNewEmailSubscriber = (newEmailSubscriber) => {
   return fetch(endpoints.users, {
-    mode: 'cors',
+    mode: 'no-cors',
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
