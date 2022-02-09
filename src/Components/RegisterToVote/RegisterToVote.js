@@ -1,28 +1,18 @@
 import './RegisterToVote.css';
 
 const RegisterToVote = () => {
-  const iframeScript = () => {
-    var config = {
-      "logo": {"type":"default"},
-      "official-only": true
-    };
-    let loadVIT = function () {
-      if (typeof vit !== 'undefined'){
-        vit.core.init("_vit", config);
-      } else {
-        setTimeout(loadVIT, 500);
-      };
-    };
-    loadVIT();
-  }
   return (
-    <div>
-    <div id="_vit" style="min-width: 360px; max-width: 640px; height: 480px;"></div>
-    <script>
-      {this.iframeScript()}
-    </script>
-  </div>
-  )
+    <div className="register-to-vote-form">
+      <iframe className="register-to-vote-i-frame"
+        src="https://register.vote.org/?partner=111111&campaign=free-tools" 
+        id="frame1"
+        scrollable="no"
+        scrolling="no"
+        title="register-to-vote-form"
+      />
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/iframe-resizer/3.5.3/iframeResizer.min.js"></script>
+    </div>
+  );
 }
 
 export default RegisterToVote;
