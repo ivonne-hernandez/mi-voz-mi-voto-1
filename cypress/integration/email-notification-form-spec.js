@@ -91,7 +91,7 @@ describe('Mi Voz, Mi Voto email notification form user flow', () => {
       })
         .get('input[id=first_name]').should('be.empty')
         .get('input[id=last_name]').should('be.empty')
-        .get('select[id=state_name]').should('be.empty')
+        .get('select[id=state_name]').should('have.value', 'Select')
         .get('input[id=email]').should('be.empty')
         .get('input[id=english]').should('have.value', '')
         .get('input[id=spanish]').should('have.value', '')
