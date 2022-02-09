@@ -35,7 +35,23 @@ describe('Mi Voz, Mi Voto email notification form user flow', () => {
       .get('button[class="submit-button"]').should('contain', 'Submit')
   });
 
-  
+  it('Should be able to submit the form & see a message confirming successful subscription', () => {
+    cy.fixture('user1.json').as('user1').then((user1) => {
+      cy.get('input[id=first_name]').type(user1.first_name)
+        .get('input[id=last_name]').type(user1.last_name)
+        .get('select[id=state_name]').select(user1.state_name)
+        .get('input[id=email]').type(user1.email)
+        .get('input[id=english]').click()
+        .get('input[id=agree_to_emails]').click()
+        .get('.submit-button').click()
+        .intercept('POST', 'http://localhost:3001/api/v1/users', {
+        body: user1
+      })
+        .get('.success-message').should('contain', `You are now registered to receive notifications about upcoming elections in your state. A confirmation email has been sent to ${user.email}.`)
+    })
+  });
+
+
 
   it('Should display a loading image while the submitting the form', () => {
     cy.fixture('user1.json').as('user1').then((user1) => {
