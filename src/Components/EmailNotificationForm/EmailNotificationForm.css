@@ -39,11 +39,11 @@ em {
 .form-container {
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 3px 1px 6px 5px rgb(0 0 0 / 20%);
+  box-shadow: 3px 1px 6px 5px rgb(0 0 0 / 0.2);
   height: 500px;
 }
 
-.missing-input-message {
+.missing-input-message, .success-message {
   color: #fd3535;
   font-size: 20px;
   margin-top: 5px;

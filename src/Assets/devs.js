@@ -20,8 +20,8 @@ const devs = [
     photo: '',
     title: 'Back-End Software Developer',
     github: 'https://github.com/AlexMMcConnell',
-    linkedin: 'https://www.linkedin.com/in/ivonne-hernandez-107b0324/',
-    bio: ''
+    linkedin: 'https://www.linkedin.com/in/alex-m-mcconnell/',
+    bio: '"Voter empowerment has always been something important to me as larger companies have been continually taking over the entire political hemisphere. This project is another opportunity to do just that; empower voters who may not know how to use their voices."'
   },
   {
     name: 'Luis Arroyo',
@@ -29,7 +29,7 @@ const devs = [
     title: 'Back-End Software Developer',
     github: 'https://github.com/larroyo1',
     linkedin: 'https://www.linkedin.com/in/luis-arroyo-65a954181/',
-    bio: ''
+    bio: '"Being a Latino myself, I wanted to help create a tool that encourages and helps people in my family to get out and vote."'
   }
 ]
 

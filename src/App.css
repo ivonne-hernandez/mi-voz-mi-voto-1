@@ -1,5 +1,28 @@
+/*
+  COLOR PALETTE:
+    SpaceCadet: #2B2D42 rgb(43,45,66)
+    DodgerBlue: #1990FF rgb(25,144,255)
+    LtDodgerBlue: #339CFF rgb(51,156,255)
+    TartOrange: #FD3535 rgb(253,53,53)
+    LtTartOrange: #FD3D3D rgb(253,61,61)
+    AliceBlue: #EDF2F4 rgb(237,242,244)
+*/
+
+
 * {
   box-sizing: border-box;
   margin: 0;
   font-family: 'Roboto', sans-serif;
+}
+
+html {
+  font-size: 15px;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  cursor: pointer;
 }
