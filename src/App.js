@@ -12,9 +12,9 @@ class App extends Component {
       <main className="App">
         <Header />
         <Routes>
-          <Route path="/get-notifications" element={<MainContainer />}/>
-          <Route path="/register-to-vote" element={<RegisterToVote />}/>
           <Route path="/" element={<HomePageRoutingComponent />}/>
+          <Route path="/register-to-vote" element={<RegisterToVote />}/>
+          <Route path="/get-notifications" element={<MainContainer />}/>
         </Routes>
       </main>
 
