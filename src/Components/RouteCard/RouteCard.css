@@ -1,0 +1,22 @@
+.route-card-article {
+  background-color: white;
+  box-shadow: 3px 3px 8px 0px rgb(0 0 0 / 20%);
+  border-radius: 8px;
+  height: 150px;
+  width: 60%;
+  font-size: 20px;
+  overflow: hidden;
+}
+
+.link-item:hover {
+  cursor: pointer;
+  transform: scale(1.01);
+  font-weight: bold;
+}
+
+.route-card-header {
+  font-family: 'DM Serif Display', serif;
+  padding: 12px 0px 12px 12px;
+  background-color: #2E538E;
+  color: white;
+}
