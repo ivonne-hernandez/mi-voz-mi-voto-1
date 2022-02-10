@@ -1,4 +1,6 @@
 {
-  "error": "#{user.email} is already susbscribed to receive election notifications.",
-  "status": "400"
+  "body": {
+    "error": "is already susbscribed to receive election notifications."
+  },
+  "status": 400
 }
