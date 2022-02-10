@@ -35,7 +35,7 @@ describe('Mi Voz, Mi Voto email notification form user flow', () => {
       .get('button[class="submit-button"]').should('contain', 'Submit')
   });
 
-  xit('Should be able to submit the form & see a message confirming successful subscription', () => {
+  it('Should be able to submit the form & see a message confirming successful subscription', () => {
     cy.fixture('user1.json').as('user1').then((user1) => {
       cy.get('input[id=first_name]').type(user1.first_name)
         .get('input[id=last_name]').type(user1.last_name)
@@ -44,8 +44,16 @@ describe('Mi Voz, Mi Voto email notification form user flow', () => {
         .get('input[id=english]').click()
         .get('input[id=agree_to_emails]').click()
         .get('.submit-button').click()
-        .intercept('POST', 'http://localhost:3001/api/v1/users', {body: user1})
-        .get('.success-message').should('contain', `You are now registered to receive notifications about upcoming elections in your state. A confirmation email has been sent to ${user1.email}.`)
+        .intercept('http://localhost:3001/api/v1/users', {
+          mode: 'cors',
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: {user1}
+        })
+        .get('.server-message').should('contain', `You are now registered to receive notifications about upcoming elections in your state. A confirmation email has been sent to ${user1.email}.`)
     })
   });
 
@@ -75,12 +83,15 @@ describe('Mi Voz, Mi Voto email notification form user flow', () => {
         .get('input[id=agree_to_emails]').should('have.value', 'true')
         .realPress('Tab')
         .realPress('Enter')
-        .intercept('POST', 'http://localhost:3001/api/v1/users', {body: user1})
-        .get('.success-message').should('contain', `You are now registered to receive notifications about upcoming elections in your state. A confirmation email has been sent to ${user1.email}.`)
+        .intercept('POST', 'http://localhost:3001/api/v1/users', {
+          headers: {'Content-Type': 'application/json'},
+          body: user1
+        })
+        .get('.server-message').should('contain', `You are now registered to receive notifications about upcoming elections in your state. A confirmation email has been sent to ${user1.email}.`)
     })
   });
 
-  xit('Should clear all inputs and selections once the form is submitted', () => {
+  it('Should clear all inputs and selections once the form is submitted', () => {
     cy.fixture('user1.json').as('user1').then((user1) => {
       cy.get('input[id=first_name]').type(user1.first_name)
         .get('input[id=last_name]').type(user1.last_name)
@@ -88,19 +99,11 @@ describe('Mi Voz, Mi Voto email notification form user flow', () => {
         .get('input[id=email]').type(user1.email)
         .get('input[id=english]').click()
         .get('input[id=agree_to_emails]').click()
-        /*
-          Manually clear inputs
-        */
-        .get('input[id=first_name]').clear()
-        .get('input[id=last_name]').clear()
-        .get('select[id=state_name]').clear()
-        .get('input[id=email]').clear()
-        .get('input[id=english]').clear()
-        .get('input[id=agree_to_emails]').clear()
-        /*
-          .get('.submit-button').click()
-          .intercept('POST', 'http://localhost:3001/api/v1/users', {body: user1})
-        */
+        .get('.submit-button').click()
+        .intercept('POST', 'http://localhost:3001/api/v1/users', {
+          headers: {'Content-Type': 'application/json'},
+          body: user1
+        })
         .get('input[id=first_name]').should('be.empty')
         .get('input[id=last_name]').should('be.empty')
         .get('select[id=state_name]').should('have.value', 'Select')
@@ -111,7 +114,7 @@ describe('Mi Voz, Mi Voto email notification form user flow', () => {
     })
   });
 
-  xit('Should show a prompt if any of the required inputs are missing', () => {
+  it('Should show a prompt if any of the required inputs are missing', () => {
     cy.fixture('user1.json').as('user1').then((user1) => {
       cy.get('.submit-button').click()
         .get('.missing-input-message-container').should('contain', 'Please enter your first and last name.')
@@ -134,23 +137,24 @@ describe('Mi Voz, Mi Voto email notification form user flow', () => {
     })
   });
 
-  xit('Should display a loading image while the submitting the form', () => {
-    cy.fixture('user1.json').as('user1').then((user1) => {
-      cy.get('input[id=first_name]').type(user1.first_name)
-        .get('input[id=last_name]').type(user1.last_name)
-        .get('select[id=state_name]').select(user1.state_name)
-        .get('input[id=email]').type(user1.email)
+  it('Should display a loading image while the submitting the form', () => {
+    cy.fixture('user3.json').as('user1').then((user3) => {
+      cy.get('input[id=first_name]').type(user3.first_name)
+        .get('input[id=last_name]').type(user3.last_name)
+        .get('select[id=state_name]').select(user3.state_name)
+        .get('input[id=email]').type(user3.email)
         .get('input[id=english]').click()
         .get('input[id=agree_to_emails]').click()
         .get('.submit-button').click()
         .intercept('POST', 'http://localhost:3001/api/v1/users', {
-        body: user1
-      })
+          headers: {'Content-Type': 'application/json'},
+          body: user3
+        })
     })
       .get('.loading-icon').should('be.visible')
   });
 
-  xit('Should display an error message if the email is already subscribed', () => {
+  it('Should display an error message if the email is already subscribed', () => {
     cy.fixture('user1.json').as('user1').then((user1) => {
       cy.get('input[id=first_name]').type(user1.first_name)
         .get('input[id=last_name]').type(user1.last_name)
@@ -160,13 +164,14 @@ describe('Mi Voz, Mi Voto email notification form user flow', () => {
         .get('input[id=agree_to_emails]').click()
         .get('.submit-button').click()
         .intercept('POST', 'http://localhost:3001/api/v1/users', {
-        body: user1
-      })
+          headers: {'Content-Type': 'application/json'},
+          body: user1
+        })
+        .get('.server-message').should('contain', `${user1.email} is already subscribed to receive election notifications.`)
     })
-      .get('.error-text').should('contain', 'This email is already susbscribed to receive election notifications.')
   });
 
-  xit('Should display a message confirming the subscription to election notifications', () => {
+  it('Should display a message confirming the subscription to election notifications', () => {
     cy.fixture('user2.json').as('user2').then((user2) => {
       cy.get('input[id=first_name]').type(user2.first_name)
         .get('input[id=last_name]').type(user2.last_name)
@@ -176,13 +181,14 @@ describe('Mi Voz, Mi Voto email notification form user flow', () => {
         .get('input[id=agree_to_emails]').click()
         .get('.submit-button').click()
         .intercept('POST', 'http://localhost:3001/api/v1/users', {
-        body: user2
-      })
-      .get('.success-message').should('contain', `You are now registered to receive notifications about upcoming elections in your state. A confirmation email has been sent to ${user2.email}.`)
+          headers: {'Content-Type': 'application/json'},
+          body: user2
+        })
+        .get('.server-message').should('contain', `You are now registered to receive notifications about upcoming elections in your state. A confirmation email has been sent to ${user2.email}.`)
     })
   });
 
-  xit('Should display an error image & error message if the server can\'t complete the request', () => {
+  it('Should display an error image & error message if the server can\'t complete the request', () => {
     cy.fixture('user1.json').as('user1').then((user1) => {
       cy.get('input[id=first_name]').type(user1.first_name)
         .get('input[id=last_name]').type(user1.last_name)
@@ -192,10 +198,11 @@ describe('Mi Voz, Mi Voto email notification form user flow', () => {
         .get('input[id=agree_to_emails]').click()
         .get('.submit-button').click()
         .intercept('POST', 'http://localhost:3001/api/v1/users', {
-        body: {"first_name": "Elise"}
-      })
+          headers: {'Content-Type': 'application/json'},
+          body: {"first_name": "Elise"}
+        })
     })
-    cy.get('.error-text').should('contain', 'Error creating subscriber.')
+    cy.get('.server-message').should('contain', 'Error creating subscriber.')
   });
 
   it.skip('Should display a button to send the user back to the form', () => {
