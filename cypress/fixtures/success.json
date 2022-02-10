@@ -1,0 +1,4 @@
+{
+  "success": "You are now registered to receive notifications about upcoming elections in your state. A confirmation email has been sent to #{user.email}.",
+  "status": "200"
+}
