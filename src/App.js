@@ -3,7 +3,7 @@ import { Component } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Header from './Components/Header/Header';
 import EmailNotificationForm from './Components/EmailNotificationForm/EmailNotificationForm';
-import HomePageRoutingComponent from './Components/HomePageRoutingComponent/HomePageRoutingComponent';
+import HomePageRouting from './Components/HomePageRouting/HomePageRouting';
 import RegisterToVote from './Components/RegisterToVote/RegisterToVote';
 
 class App extends Component {
@@ -12,7 +12,7 @@ class App extends Component {
       <main className="App">
         <Header />
         <Routes>
-          <Route path="/" element={<HomePageRoutingComponent />}/>
+          <Route path="/" element={<HomePageRouting />}/>
           <Route path="/register-to-vote" element={<RegisterToVote />}/>
           <Route path="/get-notifications" element={<EmailNotificationForm />}/>
         </Routes>

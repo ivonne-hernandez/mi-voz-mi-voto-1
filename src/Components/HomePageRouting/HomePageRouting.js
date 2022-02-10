@@ -1,4 +1,4 @@
-import './HomePageRoutingComponent.css';
+import './HomePageRouting.css';
 import RouteCard from '../RouteCard/RouteCard';
 
 const HomePageRoutingComponent = () => {
