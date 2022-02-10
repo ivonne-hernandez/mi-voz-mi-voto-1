@@ -18,21 +18,25 @@ em {
 }
 
 .submit-button {
-  background-color: #fd3535;
+  background-color: #e31c3d;
   font-size: 20px;
   border-radius: 8px;
   font-weight: bold;
   width: 150px;
+  color: white;
+  border: 0px;
 }
 
 .submit-button:hover {
-  color: white;
+  cursor: pointer;
+  background-color: #2E538E;
 }
 
 .form-header {
   font-family: 'DM Serif Display', serif;
   font-size: 28px;
-  background-color: #1990ff;
+  background-color: #2E538E;
+  color: white;
   text-align: center;
 }
 
