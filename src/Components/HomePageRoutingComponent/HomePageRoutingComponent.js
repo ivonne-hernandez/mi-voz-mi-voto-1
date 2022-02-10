@@ -3,10 +3,10 @@ import RouteCard from '../RouteCard/RouteCard';
 
 const HomePageRoutingComponent = () => {
   const routes = [
-    { header: 'VOTE', listItems: ['Register to vote', 'Check my voter registration', 'Find a polling place near me'], linksTo: ['/register-to-vote', '/check-registration', '/find-polling-place'] },
-    { header: 'KNOW MY RIGHTS', listItems: ['Find out about Election Protection, and Voter Identification Laws in my state'], linksTo: ['/election-protection']},
-    { header: 'KNOW WHAT FORMS OF ID I\'LL NEED', listItems:['Find out what types of ID I\'ll need in order to vote'], linksTo: ['/required-forms-of-id']},
-    { header: 'GET NOTIFICATIONS', listItems:['Get notifications about upcoming elections in my state'], linksTo: ['/get-notifications']}
+    { header: 'Vote', listItems: ['Register to vote', 'Check my voter registration', 'Find a polling place near me'], linksTo: ['/register-to-vote', '/check-registration', '/find-polling-place'] },
+    { header: 'Know My Rights', listItems: ['Find out about Election Protection, and Voter Identification Laws in my state'], linksTo: ['/election-protection']},
+    { header: 'Know What Forms of ID I\'ll Need', listItems:['Find out what types of ID I\'ll need in order to vote'], linksTo: ['/required-forms-of-id']},
+    { header: 'Get Notifications', listItems:['Get notifications about upcoming elections in my state'], linksTo: ['/get-notifications']}
   ];
 
   const displayRouteCards = () => {
