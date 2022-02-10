@@ -14,6 +14,7 @@ class App extends Component {
         <Routes>
           <Route path="/" element={<HomePageRouting />}/>
           <Route path="/register-to-vote" element={<RegisterToVote />}/>
+          <Route path="/check-my-registration" element={<RegisterToVote />}/>
           <Route path="/get-notifications" element={<EmailNotificationForm />}/>
         </Routes>
       </main>
