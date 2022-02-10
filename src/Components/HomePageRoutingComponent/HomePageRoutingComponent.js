@@ -25,8 +25,10 @@ const HomePageRoutingComponent = () => {
 
   return (
     <main className='home-page-routing-component-container'>
-      <h3 className='i-want-to-header'>I WANT TO...</h3>
+      <p className='i-want-to-header'>I want to...</p>
+      <div className='home-page-route-cards-container'>
       {displayRouteCards()}
+      </div>
     </main>
   );
 }

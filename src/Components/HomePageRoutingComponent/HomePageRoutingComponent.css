@@ -1,0 +1,18 @@
+.home-page-routing-component-container {
+  background-color: #1990ff;
+}
+
+.home-page-route-cards-container {
+  display: grid;
+  grid-template-rows: repeat(auto-fill, 1fr);
+  grid-gap: 1rem;
+  padding: 20px;
+  justify-items: center;
+  width: 100%;
+}
+
+.i-want-to-header {
+  font-family: 'DM Serif Display', serif;
+  padding: 20px 0px 10px 100px;
+  font-size: 32px;
+}
