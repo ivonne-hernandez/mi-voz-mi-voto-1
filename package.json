@@ -38,6 +38,7 @@
     ]
   },
   "devDependencies": {
+    "@cypress/code-coverage": "^3.9.12",
     "cypress": "^9.4.1",
     "start-server-and-test": "^1.14.0"
   }
