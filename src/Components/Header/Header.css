@@ -23,13 +23,15 @@
 }
 
 .header-button {
-  background-color: #fd3535;
+  background-color: #e31c3d;
   font-size: 20px;
   border-radius: 8px;
   font-weight: bold;
+  color: white;
+  border: 0px;
 }
 
 .header-button:hover {
-  color: white;
   cursor: pointer;
+  background-color: #2E538E;
 }
