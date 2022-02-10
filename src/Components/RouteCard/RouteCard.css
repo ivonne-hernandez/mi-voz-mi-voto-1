@@ -9,10 +9,15 @@
   line-height: 30px;
 }
 
+.link-item {
+  text-decoration: none;
+  color: #2b2d42;
+}
+
 .link-item:hover {
   cursor: pointer;
-  transform: scale(1.01);
   font-weight: bold;
+  text-decoration: underline;
 }
 
 .route-card-header {
