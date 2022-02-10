@@ -38,6 +38,8 @@ em {
   background-color: #2E538E;
   color: white;
   text-align: center;
+  height: 52px;
+  padding: 8px 0px 12px 12px;
 }
 
 .form-container {

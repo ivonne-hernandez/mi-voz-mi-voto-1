@@ -6,6 +6,7 @@
   width: 60%;
   font-size: 20px;
   overflow: hidden;
+  line-height: 30px;
 }
 
 .link-item:hover {
@@ -19,4 +20,5 @@
   padding: 12px 0px 12px 12px;
   background-color: #2E538E;
   color: white;
+  font-size: 28px;
 }
