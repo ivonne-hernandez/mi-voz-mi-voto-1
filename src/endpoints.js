@@ -22,7 +22,7 @@ const endpoints = {
       }
       EMAIL ALREADY EXISTS:
       {
-        error: "This email is already susbscribed to receive election notifications.",
+        error: "#{user.email} is already susbscribed to receive election notifications.",
         status: 400
       }
       GENERAL ERROR:
