@@ -17,7 +17,7 @@ class EmailNotificationForm extends Component {
       agree_to_emails: false,
       displayMissingInput: false,
       isSubmitting: false,
-      serverResponse: null,
+      serverMessage: null,
       error: null
     }
   }
@@ -50,23 +50,19 @@ class EmailNotificationForm extends Component {
           if (response.status !== 400 && response.status !== 200) {
             throw new Error (`${response.status}: ${response.statusText}. Something has gone wrong, please try again.`)
           }
-          // if (!response.ok) {
-            // throw new Error()
-          // }
           return response.json()
         })
         .then(message => {
-          console.log(message)
           this.setState({
             isSubmitting: false,
-            serverResponse: message.success || message.error,
+            serverMessage: message.success || message.error,
             error: null
           });
         })
         .catch(error => {
           this.setState({
             isSubmitting: false,
-            serverResponse: null,
+            serverMessage: null,
             error: error.message
           });
         })
@@ -243,7 +239,7 @@ class EmailNotificationForm extends Component {
                   </div>
                   <div className="missing-input-message-container">
                     {this.state.displayMissingInput ? this.displayMissingInputMessage() : null}
-                    <p className="success-message">{this.state.serverResponse}</p>
+                    <p className="server-message">{this.state.serverMessage}</p>
                   </div>
                 </div>
               </form>
