@@ -1,6 +1,3 @@
 {
-  "body": {
-    "error": "is already susbscribed to receive election notifications."
-  },
-  "status": 400
+  "error": "is already susbscribed to receive election notifications."
 }
