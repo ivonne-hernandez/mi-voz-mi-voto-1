@@ -5,7 +5,7 @@ const HomePageRoutingComponent = () => {
   const routes = [
     { header: 'Vote', listItems: ['Register to vote', 'Check my voter registration'], linksTo: ['/register-to-vote', '/check-my-registration'] },
     { header: 'Know My Rights', listItems: ['Find out about Election Protection'], linksTo: ['/election-protection']},
-    { header: 'Know What Forms of ID I\'ll Need', listItems:['Find out what types of ID I\'ll need in order to vote'], linksTo: ['/voter-id-laws']},
+    { header: 'Know What Forms of ID I\'ll Need', listItems:['Find out about Voter ID Laws'], linksTo: ['/voter-id-laws']},
     { header: 'Get Notifications', listItems:['Get notifications about upcoming elections in my state'], linksTo: ['/get-notifications']}
   ];
 
