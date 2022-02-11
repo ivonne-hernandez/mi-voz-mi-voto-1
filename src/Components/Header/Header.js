@@ -10,7 +10,7 @@ const Header = ()  => {
         src={voteImage}
         alt="vote"/>
       <p className="app-name">My Voice, My Vote</p>
-      <Link path="/about">
+      <Link to="/about">
         <button
           className="our-story-button header-button">
           Our Story
