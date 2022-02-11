@@ -76,14 +76,14 @@ describe('Mi Voz, Mi Voto email notification form user flow', () => {
         .get('input[id=agree_to_emails]').click()
         .get('.submit-button').click()
         .wait('@successfulPost')
-        .get('.server-message').should('contain', `You are now registered to receive notifications about upcoming elections in your state. A confirmation email has been sent to ${user1.email}.`)
+        .get('.server-message').should('contain', 'You are now registered to receive notifications about upcoming elections in your state.')
     })
   });
 
-  it('Should be able to navigate & submit the form using only the keyboard', () => {
+  xit('Should be able to navigate & submit the form using only the keyboard', () => {
     cy.intercept('POST', 'http://localhost:3001/api/v1/users', (req) => {
         req.reply({
-          fixture: success
+          fixture: 'success.json'
         })
       }).as('sucessfulPost')
 
@@ -97,7 +97,7 @@ describe('Mi Voz, Mi Voto email notification form user flow', () => {
         .type(user2.last_name)
         .realPress('Tab')
         .focused().should('have.id', 'state_name')
-        .type(`${user2.state_name}`)
+        .realType(`${user2.state_name}`)
         .realPress('Tab')
         .focused().should('have.id', 'email')
         .type(user2.email)
@@ -113,14 +113,14 @@ describe('Mi Voz, Mi Voto email notification form user flow', () => {
         .realPress('Tab')
         .realPress('Enter')
         .wait('@successfulPost')
-        .get('.server-message').should('contain', `You are now registered to receive notifications about upcoming elections in your state. A confirmation email has been sent to ${user2.email}.`)
+        .get('.server-message').should('contain', 'You are now registered to receive notifications about upcoming elections in your state.')
     })
   });
 
-  xit('Should clear all inputs and selections once the form is submitted', () => {
+  it('Should clear all inputs and selections once the form is submitted', () => {
     cy.intercept('POST', 'http://localhost:3001/api/v1/users', (req) => {
       req.reply({
-        fixture: success
+        fixture: 'success.json'
       })
     }).as('successfulPost')
 
@@ -128,54 +128,62 @@ describe('Mi Voz, Mi Voto email notification form user flow', () => {
       cy.get('input[id=first_name]').type(user1.first_name)
         .get('input[id=last_name]').type(user1.last_name)
         .get('select[id=state_name]').select(user1.state_name)
-        .get('input[id=email]').should(user1.email)
+        .get('input[id=email]').type(user1.email)
         .get('input[id=english]').click()
         .get('input[id=agree_to_emails]').click()
         .get('.submit-button').click()
         .wait('@successfulPost')
         .get('input[id=first_name]').should('be.empty')
         .get('input[id=last_name]').should('be.empty')
-        .get('select[id=state_name]').should('have.value', 'Select')
+        .get('select[id=state_name]').should('have.value', null)
         .get('input[id=email]').should('be.empty')
-        .get('input[id=english]').should('have.value', '')
-        .get('input[id=spanish]').should('have.value', '')
+        .get('input[id=english]').should('not.be.checked')
+        .get('input[id=spanish]').should('not.be.checked')
         .get('input[id=agree_to_emails]').should('have.value', 'false')
     })
   });
 
-  xit('Should display a loading image while the submitting the form', () => {
-    cy.fixture('user3.json').as('user3').then((user3) => {
-      cy.fixture('success.json').as('success').then((success) => {
-        cy.intercept({
-          method: 'POST',
-          url: 'http://localhost:3001/api/v1/users',
-          headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-          },
-          body: user3
-        }, success).as('loadingImage')
+  it('Should display a loading image while the submitting the form', () => {
+    cy.intercept('POST', 'http://localhost:3001/api/v1/users', (req) => {
+      req.reply({
+        delay: 1000,
+        fixture: 'success.json'
       })
     })
-      .wait('@userRequest')
-      .get('.loading-icon').should('be.visible')
-  });
 
-  xit('Should display an error message if the email is already subscribed', () => {
-    // can possibly remove fixture?
-    cy.fixture('user1.json').as('user1').then((user1) => {
-      cy.intercept('POST', 'http://localhost:3001/api/v1/users', (req) => {
-        req.reply({
-          fixture: errorDuplicate
-        })
-      }).as('duplicatePost')
-
-      cy.wait('@duplicatePost')
-      cy.get('.server-message').should('contain', `is already subscribed to receive election notifications.`)
+    cy.fixture('user3.json').as('user3').then((user3) => {
+      cy.get('input[id=first_name]').type(user3.first_name)
+        .get('input[id=last_name]').type(user3.last_name)
+        .get('select[id=state_name]').select(user3.state_name)
+        .get('input[id=email]').type(user3.email)
+        .get('input[id=english]').click()
+        .get('input[id=agree_to_emails]').click()
+        .get('.submit-button').click()
+        .get('.loading-icon').should('be.visible')
     })
   });
 
-  xit('Should display an error image & error message if the server can\'t complete the request', () => {
+  it('Should display an error message if the email is already subscribed', () => {
+    cy.intercept('POST', 'http://localhost:3001/api/v1/users', (req) => {
+      req.reply({
+        fixture: 'errorDuplicate.json'
+      })
+    }).as('duplicatePost')
+
+    cy.fixture('user1.json').as('user1').then((user1) => {
+      cy.get('input[id=first_name]').type(user1.first_name)
+        .get('input[id=last_name]').type(user1.last_name)
+        .get('select[id=state_name]').select(user1.state_name)
+        .get('input[id=email]').type(user1.email)
+        .get('input[id=english]').click()
+        .get('input[id=agree_to_emails]').click()
+        .get('.submit-button').click()
+        .wait('@duplicatePost')
+        .get('.server-message').should('contain', `${user1.email} is already subscribed to receive election notifications.`)
+    })
+  });
+
+  it('Should display an error image & error message if the server can\'t complete the request', () => {
     cy.intercept('POST', 'http://localhost:3001/api/v1/users', {statusCode: 500}).as('getServerFailure')
 
     cy.fixture('user1.json').as('user1').then((user1) => {
@@ -191,12 +199,7 @@ describe('Mi Voz, Mi Voto email notification form user flow', () => {
     cy.get('.error-text').should('contain', 'We\'re sorry, please try again.')
   });
 
-  it.skip('Should display a button to send the user back to the form', () => {
+  xit('Should display a button to send the user back to the form', () => {
 
   });
-
-  it.skip('', () => {
-
-  });
-
 })
