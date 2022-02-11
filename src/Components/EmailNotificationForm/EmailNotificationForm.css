@@ -43,8 +43,14 @@ em {
   height: 500px;
 }
 
-.missing-input-message, .server-message {
+.missing-input-message, .fail-message {
   color: #fd3535;
+  font-size: 20px;
+  margin-top: 5px;
+}
+
+.success-message {
+  color: #2B2D42;
   font-size: 20px;
   margin-top: 5px;
 }
