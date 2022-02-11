@@ -3,12 +3,12 @@ import './Header.css';
 
 const Header = ()  => {
   return (
-    <div className="header-container">
+    <header className="header-container">
       <img
         className="vote-image"
         src={voteImage}
         alt="vote"/>
-      <p className="app-name">My Voice, My Vote</p>
+      <h1 className="app-name">My Voice, My Vote</h1>
       <button
         className="our-story-button header-button">
         Our Story
@@ -17,7 +17,7 @@ const Header = ()  => {
         className="en-espanol-button header-button">
         En Español
       </button>
-    </div>
+    </header>
   );
 }
 
