@@ -1,9 +1,16 @@
 .election-protection-container {
-  padding: 20px 100px 0px 100px;
+  padding: 20px 100px 0px 133px;
 }
 
 .election-protection-title {
   font-size: 32px;
+  font-family: 'DM Serif Display', serif;
+  color: #2b2d42;
+  margin-bottom: 0.5em;
+}
+
+.election-protection-sub-title {
+  font-size: 24px;
   font-family: 'DM Serif Display', serif;
   color: #2b2d42;
   margin-bottom: 0.5em;
