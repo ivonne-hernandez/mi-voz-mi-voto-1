@@ -6,6 +6,7 @@ import EmailNotificationForm from './Components/EmailNotificationForm/EmailNotif
 import HomePageRouting from './Components/HomePageRouting/HomePageRouting';
 import RegisterToVote from './Components/RegisterToVote/RegisterToVote';
 import ElectionProtection from './Components/ElectionProtection/ElectionProtection';
+import VoterIdLaws from './Components/VoterIdLaws/VoterIdLaws';
 
 class App extends Component {
   render = () => {
@@ -17,6 +18,7 @@ class App extends Component {
           <Route path="/register-to-vote" element={<RegisterToVote />}/>
           <Route path="/check-my-registration" element={<RegisterToVote />}/>
           <Route path="/election-protection" element={<ElectionProtection />}/>
+          <Route path="/voter-id-laws" element={<VoterIdLaws />}/>
           <Route path="/get-notifications" element={<EmailNotificationForm />}/>
         </Routes>
       </main>
