@@ -17,7 +17,8 @@ class EmailNotificationForm extends Component {
       agree_to_emails: false,
       displayMissingInput: false,
       isSubmitting: false,
-      serverMessage: null,
+      successMessage: null,
+      failMessage: null,
       error: null
     }
   }
@@ -55,7 +56,8 @@ class EmailNotificationForm extends Component {
         .then(message => {
           this.setState({
             isSubmitting: false,
-            serverMessage: message.success || message.error,
+            successMessage: message.success,
+            failMessage: message.error,
             error: null
           });
         })
@@ -239,7 +241,8 @@ class EmailNotificationForm extends Component {
                   </div>
                   <div className="missing-input-message-container">
                     {this.state.displayMissingInput ? this.displayMissingInputMessage() : null}
-                    <p className="server-message">{this.state.serverMessage}</p>
+                    {this.state.successMessage ? <p className="success-message">{this.state.successMessage}</p>
+                    : <p className="fail-message">{this.state.failMessage}</p>}
                   </div>
                 </div>
               </form>
