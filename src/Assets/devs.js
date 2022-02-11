@@ -5,7 +5,7 @@ const devs = [
     title: 'Front-End Software Developer',
     github: 'https://github.com/elisebeall',
     linkedin: 'https://www.linkedin.com/in/elisejbeall',
-    bio: ''
+    bio: '"As a former volunteer coordinator & field organizer of local & national political campaigns, I have seen first hand the divide created by language barriers & technical challenges.  Working on this application allowed me to focus on creating a tool to help level the playing field of electoral politics."'
   },
   {
     name: 'Ivonne Hernandez',
@@ -13,7 +13,7 @@ const devs = [
     title: 'Front-End Software Developer',
     github: 'https://github.com/ivonne-hernandez',
     linkedin: 'https://www.linkedin.com/in/ivonne-hernandez-107b0324/',
-    bio: ''
+    bio: '"The goal of this application is to remove the language barrier that keeps a lot of Latinos from showing up to the polls. It’s meant to empower the Latino community by providing election resources and information in a language they know and understand so that they too, can have their voices be heard through their vote."'
   },
   {
     name: 'Alex McConnell',
