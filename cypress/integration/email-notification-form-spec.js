@@ -1,7 +1,6 @@
 describe('Mi Voz, Mi Voto email notification form user flow', () => {
   beforeEach(() => {
-    //cy.checkPageA11y('http://localhost:3000')
-    cy.visit('http://localhost:3000')
+    cy.checkPageA11y('http://localhost:3000')
   });
 
   it('Should include text-based labels for each input', () => {
@@ -76,7 +75,7 @@ describe('Mi Voz, Mi Voto email notification form user flow', () => {
         .get('input[id=agree_to_emails]').click()
         .get('.submit-button').click()
         .wait('@successfulPost')
-        .get('.server-message').should('contain', 'You are now registered to receive notifications about upcoming elections in your state.')
+        .get('.success-message').should('contain', 'A confirmation email for state election reminders has been sent to ')
     })
   });
 
@@ -90,12 +89,12 @@ describe('Mi Voz, Mi Voto email notification form user flow', () => {
     })
   });
 
-  xit('Should be able to navigate & submit the form using only the keyboard', () => {
+  it('Should be able to navigate & submit the form using only the keyboard', () => {
     cy.intercept('POST', 'http://localhost:3001/api/v1/users', (req) => {
         req.reply({
           fixture: 'success.json'
         })
-      }).as('sucessfulPost')
+      }).as('successfulPost')
 
     cy.fixture('user2.json').as('user2').then((user2) => {
       cy.get('form')
@@ -107,7 +106,8 @@ describe('Mi Voz, Mi Voto email notification form user flow', () => {
         .type(user2.last_name)
         .realPress('Tab')
         .focused().should('have.id', 'state_name')
-        .realType(`${user2.state_name}`)
+        .realPress('Space')
+        .realType(`${user2.state_name}`, {force: true})
         .realPress('Tab')
         .focused().should('have.id', 'email')
         .type(user2.email)
@@ -121,9 +121,10 @@ describe('Mi Voz, Mi Voto email notification form user flow', () => {
         .realPress('Space')
         .get('input[id=agree_to_emails]').should('have.value', 'true')
         .realPress('Tab')
+        .focused().should('contain', 'Submit')
         .realPress('Enter')
         .wait('@successfulPost')
-        .get('.server-message').should('contain', 'You are now registered to receive notifications about upcoming elections in your state.')
+        .get('.success-message').should('contain', 'A confirmation email for state election reminders has been sent to ')
     })
   });
 
@@ -189,7 +190,7 @@ describe('Mi Voz, Mi Voto email notification form user flow', () => {
         .get('input[id=agree_to_emails]').click()
         .get('.submit-button').click()
         .wait('@duplicatePost')
-        .get('.server-message').should('contain', `${user1.email} is already subscribed to receive election notifications.`)
+        .get('.fail-message').should('contain', `${user1.email} is already subscribed to receive election notifications.`)
     })
   });
 
@@ -207,9 +208,5 @@ describe('Mi Voz, Mi Voto email notification form user flow', () => {
         .wait('@getServerFailure')
     })
     cy.get('.error-text').should('contain', 'We\'re sorry, please try again.')
-  });
-
-  xit('Should display a button to send the user back to the form', () => {
-
   });
 })
