@@ -80,7 +80,7 @@ describe('Mi Voz, Mi Voto email notification form user flow', () => {
     })
   });
 
-  it('Should be given a list of fifty states upon selecting the dropdown menu.', () => {
+  it('Should be given a list of fifty states upon selecting the dropdown menu', () => {
     cy.get('#state_name option').then(options => {
       const actual = [...options].map(option => option.value);
       cy.fixture('states.json').as('states').then((states) => {
