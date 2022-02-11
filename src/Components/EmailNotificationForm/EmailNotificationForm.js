@@ -205,7 +205,7 @@ class EmailNotificationForm extends Component {
                       className="input-radio"
                       checked={this.state.language === "en"}
                       onChange={(event) => this.handleInputChange(event)}/>
-                    <label className="label-radio" htmlFor="en">English</label>
+                    <label className="label-radio" htmlFor="english">English</label>
                   </div>
                   <div className="label-input-container">
                     <input type="radio"
@@ -216,7 +216,7 @@ class EmailNotificationForm extends Component {
                       className="input-radio"
                       checked={this.state.language === "es"}
                       onChange={(event) => this.handleInputChange(event)}/>
-                    <label className="label-radio" htmlFor="es">Spanish</label>
+                    <label className="label-radio" htmlFor="spanish">Spanish</label>
                   </div>
                   <div className="label-input-container">
                     <input type="checkbox"
