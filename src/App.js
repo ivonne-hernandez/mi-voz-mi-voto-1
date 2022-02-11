@@ -5,6 +5,7 @@ import Header from './Components/Header/Header';
 import EmailNotificationForm from './Components/EmailNotificationForm/EmailNotificationForm';
 import HomePageRouting from './Components/HomePageRouting/HomePageRouting';
 import RegisterToVote from './Components/RegisterToVote/RegisterToVote';
+import ElectionProtection from './Components/ElectionProtection/ElectionProtection';
 
 class App extends Component {
   render = () => {
@@ -15,6 +16,7 @@ class App extends Component {
           <Route path="/" element={<HomePageRouting />}/>
           <Route path="/register-to-vote" element={<RegisterToVote />}/>
           <Route path="/check-my-registration" element={<RegisterToVote />}/>
+          <Route path="/election-protection" element={<ElectionProtection />}/>
           <Route path="/get-notifications" element={<EmailNotificationForm />}/>
         </Routes>
       </main>
