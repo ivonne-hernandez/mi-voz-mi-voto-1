@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import voteImage from '../../Assets/vote.png';
 import './Header.css';
 
@@ -9,10 +10,12 @@ const Header = ()  => {
         src={voteImage}
         alt="vote"/>
       <p className="app-name">My Voice, My Vote</p>
-      <button
-        className="our-story-button header-button">
-        Our Story
-      </button>
+      <Link path="/about">
+        <button
+          className="our-story-button header-button">
+          Our Story
+        </button>
+      </Link>
       <button
         className="en-espanol-button header-button">
         En Español
