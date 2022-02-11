@@ -80,6 +80,16 @@ describe('Mi Voz, Mi Voto email notification form user flow', () => {
     })
   });
 
+  it('Should be given a list of fifty states upon selecting the dropdown menu.', () => {
+    cy.get('#state_name option').then(options => {
+      const actual = [...options].map(option => option.value);
+      cy.fixture('states.json').as('states').then((states) => {
+        const statesValue = states.map(state => state.value)
+        expect(actual).to.deep.eq(statesValue)
+      })
+    })
+  });
+
   xit('Should be able to navigate & submit the form using only the keyboard', () => {
     cy.intercept('POST', 'http://localhost:3001/api/v1/users', (req) => {
         req.reply({
