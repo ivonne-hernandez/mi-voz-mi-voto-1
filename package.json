@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@datlas/instrument-cra": "^1.4.0-alpha",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
@@ -13,12 +14,15 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "react-scripts -r @datlas/instrument-cra start",
     "build": "react-scripts build",
-    "test": "start-server-and-test start http://localhost:3000 cy:run",
-    "coverage": "nyc npm run cypress",
+    "test": "cypress run",
+    "eject": "react-scripts eject",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "dev": "start-test 3000 cy:open",
     "cypress": "cypress open",
-    "eject": "react-scripts eject"
+    "e2e": "start-test 3000"
   },
   "eslintConfig": {
     "extends": [
