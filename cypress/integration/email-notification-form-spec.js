@@ -90,6 +90,14 @@ describe('Mi Voz, Mi Voto email notification form user flow', () => {
     })
   });
 
+  it('Should allow the user to change their email language preference', () => {
+    .get('input[id=english]').click()
+    .get('input[id=english]').should('be.checked')
+    .get('input[id=spanish]').click()
+    .get('input[id=english]').should('not.be.checked')
+    .get('input[id=spanish]').should('be.checked')
+  });
+
   it('Should be able to navigate & submit the form using only the keyboard', () => {
     cy.intercept('POST', 'http://localhost:3001/api/v1/users', (req) => {
         req.reply({
