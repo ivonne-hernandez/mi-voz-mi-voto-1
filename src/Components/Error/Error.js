@@ -1,7 +1,5 @@
-import { Fragment } from 'react';
 import './Error.css';
 import noVoice1 from '../../Assets/no-voice1.png';
-import noVoice2 from '../../Assets/no-voice2.png';
 
 const Error = ({ error }) => {
   return (
