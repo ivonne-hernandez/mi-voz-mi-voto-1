@@ -58,6 +58,35 @@ describe('Mi Voz, Mi Voto email notification form user flow', () => {
     })
   });
 
+  it('Should remove the missing input messages as soon as the user starts to fill it in', () => {
+    cy.fixture('user1.json').as('user1').then((user1) => {
+      cy.get('.submit-button').click()
+        .get('.missing-input-message-container').should('contain', 'Please enter your first and last name.')
+        .get('input[id=first_name]').type(user1.first_name)
+        .get('.missing-input-message').should('contain', '')
+        .get('.submit-button').click()
+        .get('.missing-input-message-container').should('contain', 'Please enter your first and last name.')
+        .get('input[id=last_name]').type(user1.last_name)
+        .get('.missing-input-message').should('contain', '')
+        .get('.submit-button').click()
+        .get('.missing-input-message-container').should('contain', 'Please select a state.')
+        .get('select[id=state_name]').select(user1.state_name)
+        .get('.missing-input-message').should('contain', '')
+        .get('.submit-button').click()
+        .get('.missing-input-message-container').should('contain', 'Please enter a valid email.')
+        .get('input[id=email]').type(user1.email)
+        .get('.missing-input-message').should('contain', '')
+        .get('.submit-button').click()
+        .get('.missing-input-message-container').should('contain', 'Please select your preferred language.')
+        .get('input[id=english]').click()
+        .get('.missing-input-message').should('contain', '')
+        .get('.submit-button').click()
+        .get('.missing-input-message-container').should('contain', 'Please check the "Sign up for email notifications" box.')
+        .get('input[id=agree_to_emails]').click()
+        .get('.missing-input-message-container').should('contain', '')
+      })
+  });
+
   it('Should be able to submit the form, see a confirmation message & related icon', () => {
     cy.intercept('POST', 'http://localhost:3001/api/v1/users', (req) => {
       req.reply({
@@ -91,11 +120,11 @@ describe('Mi Voz, Mi Voto email notification form user flow', () => {
   });
 
   it('Should allow the user to change their email language preference', () => {
-    .get('input[id=english]').click()
-    .get('input[id=english]').should('be.checked')
-    .get('input[id=spanish]').click()
-    .get('input[id=english]').should('not.be.checked')
-    .get('input[id=spanish]').should('be.checked')
+    cy.get('input[id=english]').click()
+      .get('input[id=english]').should('be.checked')
+      .get('input[id=spanish]').click()
+      .get('input[id=english]').should('not.be.checked')
+      .get('input[id=spanish]').should('be.checked')
   });
 
   it('Should be able to navigate & submit the form using only the keyboard', () => {
