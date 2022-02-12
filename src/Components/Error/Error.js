@@ -8,7 +8,8 @@ const Error = ({ error }) => {
     <div className="error-container">
       <img className="error-image" src={noVoice1}
         alt="microphone with horizontal strikethrough" />
-      <h3 className="error-text">{error}</h3>
+      <h3 className="error-text">We're sorry, please try again.</h3>
+      <h4 className="error-text">{error}</h4>
     </div>
   )
 }

@@ -4,6 +4,8 @@ import Loading from '../Loading/Loading';
 import Error from '../Error/Error';
 import { states } from './states';
 import { postNewEmailSubscriber } from '../../apiCalls.js';
+import success from '../../Assets/success.png';
+import fail from '../../Assets/fail.png';
 
 class EmailNotificationForm extends Component {
   constructor() {
@@ -18,8 +20,27 @@ class EmailNotificationForm extends Component {
       displayMissingInput: false,
       isSubmitting: false,
       successMessage: null,
+      failMessage: null,
       error: null
     }
+  }
+
+  handleSuccess = () => {
+    return (
+      <>
+        <img className="server-reply-icon green" src={success} alt="green check" aria-hidden="true" />
+        <p className="success-message">{this.state.successMessage}</p>
+      </>
+    )
+  }
+
+  handleFailure = () => {
+    return (
+      <>
+        {this.state.failMessage ? <img className="server-reply-icon red" src={fail} alt="red x" aria-hidden="true" /> : null}
+        <p className="fail-message">{this.state.failMessage}</p>
+      </>
+    )
   }
 
   handleInputChange = (event) => {
@@ -47,11 +68,8 @@ class EmailNotificationForm extends Component {
       postNewEmailSubscriber(newEmailSubscriber)
         .then(response => {
           this.setState({ isSubmitting: true });
-          if (response.status !== 200) {
-            throw new Error (`${response.status} : Sorry, cannot fetch the data.`)
-          }
-          if (!response.ok) {
-            throw new Error ('Something has gone wrong, please try again.')
+          if (response.status !== 400 && response.status !== 200) {
+            throw new Error (`${response.status}: ${response.statusText}. Something has gone wrong, please try again.`)
           }
           return response.json()
         })
@@ -59,13 +77,14 @@ class EmailNotificationForm extends Component {
           this.setState({
             isSubmitting: false,
             successMessage: message.success,
+            failMessage: message.error,
             error: null
           });
         })
         .catch(error => {
           this.setState({
             isSubmitting: false,
-            successMessage: null,
+            serverMessage: null,
             error: error.message
           });
         })
@@ -206,7 +225,7 @@ class EmailNotificationForm extends Component {
                       className="input-radio"
                       checked={this.state.language === "en"}
                       onChange={(event) => this.handleInputChange(event)}/>
-                    <label className="label-radio" htmlFor="en">English</label>
+                    <label className="label-radio" htmlFor="english">English</label>
                   </div>
                   <div className="label-input-container">
                     <input type="radio"
@@ -217,7 +236,7 @@ class EmailNotificationForm extends Component {
                       className="input-radio"
                       checked={this.state.language === "es"}
                       onChange={(event) => this.handleInputChange(event)}/>
-                    <label className="label-radio" htmlFor="es">Spanish</label>
+                    <label className="label-radio" htmlFor="spanish">Spanish</label>
                   </div>
                   <div className="label-input-container">
                     <input type="checkbox"
@@ -241,8 +260,14 @@ class EmailNotificationForm extends Component {
                     </button>
                   </div>
                   <div className="missing-input-message-container">
-                    {this.state.displayMissingInput ? this.displayMissingInputMessage() : null}
-                    <p className="success-message">{this.state.successMessage}</p>
+                    {this.state.displayMissingInput ?
+                      <>
+                        {this.state.displayMissingInput && this.displayMissingInputMessage()}
+                      </> :
+                      <>
+                        {this.state.successMessage ? this.handleSuccess() : this.handleFailure()}
+                      </>
+                    }
                   </div>
                 </div>
               </form>
