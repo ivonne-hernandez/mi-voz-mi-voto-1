@@ -4,23 +4,24 @@ import './Header.css';
 
 const Header = ()  => {
   return (
-    <div className="header-container">
+    <header className="header-container">
       <img
         className="vote-image"
         src={voteImage}
         alt="vote"/>
-      <p className="app-name">My Voice, My Vote</p>
-      <Link to="/about">
-        <button
-          className="our-story-button header-button">
-          Our Story
-        </button>
+      <Link className="app-name"
+        to="/">
+        My Voice, My Vote
       </Link>
+      <button
+        className="our-story-button header-button">
+        Our Story
+      </button>
       <button
         className="en-espanol-button header-button">
         En Español
       </button>
-    </div>
+    </header>
   );
 }
 
