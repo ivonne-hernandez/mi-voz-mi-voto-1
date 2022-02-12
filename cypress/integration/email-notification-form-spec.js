@@ -58,7 +58,7 @@ describe('Mi Voz, Mi Voto email notification form user flow', () => {
     })
   });
 
-  it('Should be able to submit the form & see a message confirming successful subscription', () => {
+  it('Should be able to submit the form, see a confirmation message & related icon', () => {
     cy.intercept('POST', 'http://localhost:3001/api/v1/users', (req) => {
       req.reply({
         statusCode: 200,
@@ -76,6 +76,7 @@ describe('Mi Voz, Mi Voto email notification form user flow', () => {
         .get('.submit-button').click()
         .wait('@successfulPost')
         .get('.success-message').should('contain', 'A confirmation email for state election reminders has been sent to ')
+        .get('.green').should('be.visible')
     })
   });
 
@@ -174,7 +175,7 @@ describe('Mi Voz, Mi Voto email notification form user flow', () => {
     })
   });
 
-  it('Should display an error message if the email is already subscribed', () => {
+  it('Should display an error message & related icon if the email is already subscribed', () => {
     cy.intercept('POST', 'http://localhost:3001/api/v1/users', (req) => {
       req.reply({
         fixture: 'errorDuplicate.json'
@@ -191,6 +192,7 @@ describe('Mi Voz, Mi Voto email notification form user flow', () => {
         .get('.submit-button').click()
         .wait('@duplicatePost')
         .get('.fail-message').should('contain', `${user1.email} is already subscribed to receive election notifications.`)
+        .get('.red').should('be.visible')
     })
   });
 
