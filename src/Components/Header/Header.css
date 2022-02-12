@@ -8,6 +8,7 @@
   margin-left: 8px;
   font-family: 'DM Serif Display', serif;
   color: #2b2d42;
+  text-decoration: none;
 }
 
 .app-name:hover {

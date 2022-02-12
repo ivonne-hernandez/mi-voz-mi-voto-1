@@ -1,20 +1,18 @@
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import voteImage from '../../Assets/vote.png';
 import './Header.css';
 
 const Header = ()  => {
-  let navigate = useNavigate();
-
   return (
     <div className="header-container">
       <img
         className="vote-image"
         src={voteImage}
         alt="vote"/>
-      <p className="app-name" 
-        onClick={() => navigate("/")}>
+      <Link className="app-name" 
+        to="/">
         My Voice, My Vote
-      </p>
+      </Link>
       <button
         className="our-story-button header-button">
         Our Story
