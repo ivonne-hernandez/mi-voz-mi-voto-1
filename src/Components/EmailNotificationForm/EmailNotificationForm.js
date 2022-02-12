@@ -4,6 +4,8 @@ import Loading from '../Loading/Loading';
 import Error from '../Error/Error';
 import { states } from './states';
 import { postNewEmailSubscriber } from '../../apiCalls.js';
+import success from '../../Assets/success.png';
+import fail from '../../Assets/fail.png';
 
 class EmailNotificationForm extends Component {
   constructor() {
@@ -21,6 +23,24 @@ class EmailNotificationForm extends Component {
       failMessage: null,
       error: null
     }
+  }
+
+  handleSuccess = () => {
+    return (
+      <>
+        <img className="server-reply-icon green" src={success} alt="green check" aria-hidden="true" />
+        <p className="success-message">{this.state.successMessage}</p>
+      </>
+    )
+  }
+
+  handleFailure = () => {
+    return (
+      <>
+        {this.state.failMessage ? <img className="server-reply-icon red" src={fail} alt="red x" aria-hidden="true" /> : null}
+        <p className="fail-message">{this.state.failMessage}</p>
+      </>
+    )
   }
 
   handleInputChange = (event) => {
@@ -240,9 +260,14 @@ class EmailNotificationForm extends Component {
                     </button>
                   </div>
                   <div className="missing-input-message-container">
-                    {this.state.displayMissingInput ? this.displayMissingInputMessage() : null}
-                    {this.state.successMessage ? <p className="success-message">{this.state.successMessage}</p>
-                    : <p className="fail-message">{this.state.failMessage}</p>}
+                    {this.state.displayMissingInput ?
+                      <>
+                        {this.state.displayMissingInput ? this.displayMissingInputMessage() : null}
+                      </> :
+                      <>
+                        {this.state.successMessage ? this.handleSuccess() : this.handleFailure()}
+                      </>
+                    }
                   </div>
                 </div>
               </form>
