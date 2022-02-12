@@ -1,13 +1,9 @@
 /*
   COLOR PALETTE:
-    SpaceCadet: #2B2D42 rgb(43,45,66)
-    DodgerBlue: #1990FF rgb(25,144,255)
-    LtDodgerBlue: #339CFF rgb(51,156,255)
-    TartOrange: #FD3535 rgb(253,53,53)
-    LtTartOrange: #FD3D3D rgb(253,61,61)
-    AliceBlue: #EDF2F4 rgb(237,242,244)
+    Blue: #2e538e rgb(46,83,142)
+    Black: #2b2d42 rgb(43,45,66)
+    Red: #e31c3d rgb(227,28,61)
 */
-
 
 * {
   box-sizing: border-box;

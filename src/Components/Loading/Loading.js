@@ -1,4 +1,3 @@
-import { Fragment } from 'react';
 import './Loading.css';
 import loading from '../../Assets/loading.png';
 
