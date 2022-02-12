@@ -3,8 +3,8 @@ import './ElectionProtection.css';
 const ElectionProtection = () => {
   return (
     <div className="election-protection-container">
-      <p className="election-protection-title">Election Protection</p>
-      <p className="election-protection-sub-title">Protect your right to vote by following these basic guidelines:</p>
+      <h2 className="election-protection-title">Election Protection</h2>
+      <h3 className="election-protection-sub-title">Protect your right to vote by following these basic guidelines:</h3>
       <article className="article-content">
         <ol>
           <li className="list-item">
