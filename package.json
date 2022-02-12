@@ -3,9 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@datlas/instrument-cra": "^1.4.0-alpha",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
+    "cypress-real-events": "^1.6.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-router-dom": "^6.2.1",
@@ -13,10 +15,15 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "react-scripts -r @datlas/instrument-cra start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "cypress run",
+    "eject": "react-scripts eject",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "dev": "start-test 3000 cy:open",
+    "cypress": "cypress open",
+    "e2e": "start-test 3000"
   },
   "eslintConfig": {
     "extends": [
@@ -35,5 +42,13 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@cypress/code-coverage": "^3.9.12",
+    "axe-core": "^4.4.1",
+    "cypress": "^9.4.1",
+    "cypress-axe": "^0.14.0",
+    "nyc": "^15.1.0",
+    "start-server-and-test": "^1.14.0"
   }
 }

@@ -4,7 +4,7 @@ import './Header.css';
 
 const Header = ()  => {
   return (
-    <div className="header-container">
+    <header className="header-container">
       <img
         className="vote-image"
         src={voteImage}
@@ -21,7 +21,7 @@ const Header = ()  => {
         className="en-espanol-button header-button">
         En Español
       </button>
-    </div>
+    </header>
   );
 }
 

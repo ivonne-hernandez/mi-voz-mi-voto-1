@@ -20,9 +20,14 @@ const endpoints = {
         error: "Error creating subscriber. A valid email must be provided.",
         status: 400
       }
+      EMAIL ALREADY EXISTS:
+      {
+        error: "#{user.email} is already susbscribed to receive election notifications.",
+        status: 400
+      }
       GENERAL ERROR:
       {
-        error: "Error creating subscriber.",
+        error: "Error creating subscriber. Please ensure all elements in the form are filled out correctly.",
         status: 400
       }
       SUCCESSFULLY REMOVED:
@@ -32,6 +37,9 @@ const endpoints = {
       }
   */
   elections: 'http://localhost:3001/api/v1/elections',
+  /*
+    QUERY PARAMS? LOCATION? STATE?  I.E. CO?
+  */
   referendums: 'http://localhost:3001/api/v1/referendums',
   state: 'http://localhost:3001/api/v1/state'
 }
