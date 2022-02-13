@@ -3,7 +3,7 @@
   "header.ourStoryButton": "Our Story",
   "header.languageButton": "En Español",
   "homePageRouting.header": "I want to...",
-  "homePageRouting.header1": "Vote",
-  "homePageRouting.listItem1": "Register to vote",
-  "homePageRouting.listItem2": "Check my voter registration"
+  "homePageRouting.route1.header": "Vote",
+  "homePageRouting.route1.listItem1": "Register to vote",
+  "homePageRouting.route1.listItem2": "Check my voter registration"
 }

@@ -3,14 +3,14 @@ import { FormattedMessage } from 'react-intl';
 const routes = [
   { header: 
       <FormattedMessage 
-        id="homePageRouting.header1" 
+        id="homePageRouting.route1.header" 
         defaultMessage="Vote"/>, 
     listItems: [
       <FormattedMessage
-        id="homePageRouting.listItem1"
+        id="homePageRouting.route1.listItem1"
         defaultMessage="Register to vote" />, 
       <FormattedMessage
-        id="homePageRouting.listItem2"
+        id="homePageRouting.route1.listItem2"
         defaultMessage="Check my voter registration" />
     ], 
     linksTo: ['/register-to-vote', '/check-my-registration'] 
