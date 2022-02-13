@@ -9,5 +9,7 @@
   "homePageRouting.route2.header": "Know My Rights",
   "homePageRouting.route2.listItem1": "Find out about Election Protection",
   "homePageRouting.route3.header": "Know What Forms of ID I'll Need",
-  "homePageRouting.route3.listItem1": "Find out about Voter ID Laws"
+  "homePageRouting.route3.listItem1": "Find out about Voter ID Laws",
+  "homePageRouting.route4.header": "Get Notifications",
+  "homePageRouting.route4.listItem1": "Get notifications about upcoming elections in my state"
 }
