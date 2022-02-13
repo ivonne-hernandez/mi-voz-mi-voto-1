@@ -11,5 +11,9 @@
   "homePageRouting.route3.header": "Know What Forms of ID I'll Need",
   "homePageRouting.route3.listItem1": "Find out about Voter ID Laws",
   "homePageRouting.route4.header": "Get Notifications",
-  "homePageRouting.route4.listItem1": "Get notifications about upcoming elections in my state"
+  "homePageRouting.route4.listItem1": "Get notifications about upcoming elections in my state",
+  "electionProtection.title": "Election Protection",
+  "electionProtection.subtitle": "Protect your right to vote by following these basic guidelines:",
+  "electionProtection.listItem1": "Before heading out to the polls, make sure to check what forms of ID will be required in order to be able to vote in your specific state. You can verify the valid forms of ID that are accepted in your state",
+  "electionProtection.hereLink" : "here"
 }
