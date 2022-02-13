@@ -5,5 +5,7 @@
   "homePageRouting.header": "Yo quiero...",
   "homePageRouting.route1.header": "Votar",
   "homePageRouting.route1.listItem1": "Registrarme para votar",
-  "homePageRouting.route1.listItem2": "Revisar mi registro de votante"
+  "homePageRouting.route1.listItem2": "Revisar mi registro de votante",
+  "homePageRouting.route2.header": "Saber mis derechos",
+  "homePageRouting.route2.listItem1": "Infórmese sobre la Protección Electoral"
 }
