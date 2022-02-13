@@ -1,5 +1,9 @@
 {
   "header.appName": "Mi Voz, Mi Voto",
   "header.ourStoryButton": "Nuesta Historia",
-  "header.languageButton": "En Inglés"
+  "header.languageButton": "En Inglés",
+  "homePageRouting.header": "Yo quiero...",
+  "homePageRouting.header1": "Votar",
+  "homePageRouting.listItem1": "Registrarme para votar",
+  "homePageRouting.listItem2": "Revisar mi registro de votante"
 }
