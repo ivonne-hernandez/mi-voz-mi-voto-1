@@ -1,9 +1,14 @@
+import { FormattedMessage } from 'react-intl';
 import './VoterIdLaws.css';
 
 const VoterIdLaws = () => {
   return (
     <div className="voter-id-laws-container">
-      <h2 className="voter-id-laws-title">Voter ID Laws</h2>
+      <h2 className="voter-id-laws-title">
+        <FormattedMessage
+          id="voterIdLaws.title"
+          defaultMessage="Voter ID Laws" />
+      </h2>
       <h3 className="voter-id-laws-sub-title">If someone is preventing you from being able to vote for not having the proper ID:</h3>
       <article className="article-content">
         <ul>
