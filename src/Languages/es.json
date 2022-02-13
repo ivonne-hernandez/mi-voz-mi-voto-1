@@ -11,5 +11,9 @@
   "homePageRouting.route3.header": "Saber que formas de identificación necesitaré",
   "homePageRouting.route3.listItem1": "Infórmarme sobre las Leyes de Identificación Para Votantes",
   "homePageRouting.route4.header": "Recibir Notificaciones",
-  "homePageRouting.route4.listItem1": "Recibir notificaciones sobre las próximas elecciones en mi estado"
+  "homePageRouting.route4.listItem1": "Recibir notificaciones sobre las próximas elecciones en mi estado",
+  "electionProtection.title": "Protección Electoral",
+  "electionProtection.subtitle": "Proteje su derecho al voto siguiendo estas instrucciones básicas:",   
+  "electionProtection.listItem1": "Antes de dirigirse a las encuestas, asegúrese de verificar qué formas de identificación se requerirán para poder votar en su estado. Puede verificar las formas válidas de identificación que se aceptan en su estado",
+  "electionProtection.hereLink" : "aqui"
 }
