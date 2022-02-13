@@ -9,5 +9,7 @@
   "homePageRouting.route2.header": "Saber mis derechos",
   "homePageRouting.route2.listItem1": "Infórmarme sobre la Protección Electoral",
   "homePageRouting.route3.header": "Saber que formas de identificación necesitaré",
-  "homePageRouting.route3.listItem1": "Infórmarme sobre las Leyes de Identificación Para Votantes"
+  "homePageRouting.route3.listItem1": "Infórmarme sobre las Leyes de Identificación Para Votantes",
+  "homePageRouting.route4.header": "Recibir Notificaciones",
+  "homePageRouting.route4.listItem1": "Recibir notificaciones sobre las próximas elecciones en mi estado"
 }
