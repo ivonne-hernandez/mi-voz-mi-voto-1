@@ -26,7 +26,8 @@ const HomePageRoutingComponent = () => {
 
   return (
     <main className='home-page-routing-component-container'>
-      <p className='i-want-to-header'>I want to...</p>
+      <p className='i-want-to-header'>
+        <FormattedMessage id="homePageRouting.header" defaultMessage="I want to..."/></p>
       <div className='home-page-route-cards-container'>
       {displayRouteCards()}
       </div>
