@@ -127,45 +127,6 @@ describe('Mi Voz, Mi Voto email notification form user flow', () => {
       .get('input[id=spanish]').should('be.checked')
   });
 
-  it('Should be able to navigate & submit the form using only the keyboard', () => {
-    cy.intercept('POST', 'http://localhost:3001/api/v1/users', (req) => {
-        req.reply({
-          fixture: 'success.json'
-        })
-      }).as('successfulPost')
-
-    cy.fixture('user2.json').as('user2').then((user2) => {
-      cy.get('form')
-        .realPress('Tab').realPress('Tab').realPress('Tab')
-        .focused().should('have.id', 'first_name')
-        .type(user2.first_name)
-        .realPress('Tab')
-        .focused().should('have.id', 'last_name')
-        .type(user2.last_name)
-        .realPress('Tab')
-        .focused().should('have.id', 'state_name')
-        .realPress('Space')
-        .realType(`${user2.state_name}`, {force: true})
-        .realPress('Tab')
-        .focused().should('have.id', 'email')
-        .type(user2.email)
-        .realPress('Tab')
-        .focused().should('have.id', 'english')
-        .realPress('Space')
-        .get(`input[value=${user2.language}]`).should('have.value', user2.language)
-        .realPress('Tab')
-        .focused().should('have.id', 'agree_to_emails')
-        .get('input[id=agree_to_emails]').should('have.value', 'false')
-        .realPress('Space')
-        .get('input[id=agree_to_emails]').should('have.value', 'true')
-        .realPress('Tab')
-        .focused().should('contain', 'Submit')
-        .realPress('Enter')
-        .wait('@successfulPost')
-        .get('.success-message').should('contain', 'A confirmation email for state election reminders has been sent to ')
-    })
-  });
-
   it('Should clear all inputs and selections once the form is submitted', () => {
     cy.intercept('POST', 'http://localhost:3001/api/v1/users', (req) => {
       req.reply({
