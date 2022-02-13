@@ -5,20 +5,14 @@ import './Header.css';
 const Header = ()  => {
   return (
     <header className="header-container">
-      <img
-        className="vote-image"
-        src={voteImage}
-        alt="vote"/>
-      <Link className="app-name" 
-        to="/">
-        My Voice, My Vote
+      <img className="vote-image" src={voteImage} alt="vote" />
+      <Link className="app-name" to="/">
+        <h1>My Voice, My Vote</h1>
       </Link>
-      <button
-        className="our-story-button header-button">
+      <button className="our-story-button header-button">
         Our Story
       </button>
-      <button
-        className="en-espanol-button header-button">
+      <button className="en-espanol-button header-button">
         En Español
       </button>
     </header>
