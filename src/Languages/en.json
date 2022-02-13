@@ -7,5 +7,7 @@
   "homePageRouting.route1.listItem1": "Register to vote",
   "homePageRouting.route1.listItem2": "Check my voter registration",
   "homePageRouting.route2.header": "Know My Rights",
-  "homePageRouting.route2.listItem1": "Find out about Election Protection"
+  "homePageRouting.route2.listItem1": "Find out about Election Protection",
+  "homePageRouting.route3.header": "Know What Forms of ID I'll Need",
+  "homePageRouting.route3.listItem1": "Find out about Voter ID Laws"
 }
