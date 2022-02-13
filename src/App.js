@@ -24,7 +24,6 @@ class App extends Component {
           <Route path="/get-notifications" element={<EmailNotificationForm />}/>
         </Routes>
       </main>
-
     );
   }
 }
