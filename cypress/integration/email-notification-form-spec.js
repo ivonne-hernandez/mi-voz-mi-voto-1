@@ -1,6 +1,6 @@
 describe('Mi Voz, Mi Voto email notification form user flow', () => {
   beforeEach(() => {
-    cy.checkPageA11y('http://localhost:3000')
+    cy.checkPageA11y('/')
   });
 
   it('Should include text-based labels for each input', () => {
