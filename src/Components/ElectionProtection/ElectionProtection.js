@@ -29,10 +29,14 @@ const ElectionProtection = () => {
               </a>.  
           </li>
           <li className="list-item">
-            Make sure to bring your phone with you so that you're able to call the election protection hotline at 866-687-8683 if necessary, and record any illegal activities that you witness.
+            <FormattedMessage 
+              id="electionProtection.listItem2"
+              defaultMessage="Make sure to bring your phone with you so that you're able to call the election protection hotline at 866-687-8683 if necessary, and record any illegal activities that you witness." />
           </li>
           <li className="list-item">
-            Try your best to keep your place in line. You are allowed to cast your ballot as long as you're in line before the polls close, but if you leave the line you may not be allowed to vote upon your return. 
+            <FormattedMessage
+              id="electionProtection.listItem3"
+              defaultMessage="Try your best to keep your place in line. You are allowed to cast your ballot as long as you're in line before the polls close, but if you leave the line you may not be allowed to vote upon your return." /> 
           </li>
           <li className="list-item">
             Try your best to vote on a regular ballot. Only cast a provisional ballot if you don't have any other option. Unfortunately, many states will not count a provisional ballot if it was casted at the wrong polling location.
