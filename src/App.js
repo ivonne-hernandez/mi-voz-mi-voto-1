@@ -8,6 +8,7 @@ import HomePageRouting from './Components/HomePageRouting/HomePageRouting';
 import RegisterToVote from './Components/RegisterToVote/RegisterToVote';
 import ElectionProtection from './Components/ElectionProtection/ElectionProtection';
 import VoterIdLaws from './Components/VoterIdLaws/VoterIdLaws';
+import PageNotFound from './Components/PageNotFound/PageNotFound';
 
 class App extends Component {
   render = () => {
@@ -22,6 +23,7 @@ class App extends Component {
           <Route path="/election-protection" element={<ElectionProtection />}/>
           <Route path="/voter-id-laws" element={<VoterIdLaws />}/>
           <Route path="/get-notifications" element={<EmailNotificationForm />}/>
+          <Route path="*" element={<PageNotFound />} />
         </Routes>
       </main>
     );
