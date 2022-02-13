@@ -7,11 +7,23 @@ import { IntlProvider } from 'react-intl';
 import Spanish from './Languages/es.json';
 import English from './Languages/en.json';
 
-ReactDOM.render(
-  <BrowserRouter>
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
-  </BrowserRouter>,
+const local = navigator.language;
+
+let language;
+
+if (local === "en") {
+  language = English;
+} else {
+  language = Spanish;
+}
+
+ReactDOM.render (
+  <IntlProvider locale={local} messages={Spanish}>
+     <BrowserRouter>
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
+    </BrowserRouter>
+  </IntlProvider>,
   document.getElementById('root')
 );
