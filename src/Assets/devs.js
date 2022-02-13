@@ -1,10 +1,11 @@
-import elise from './placeholder.jpeg';
-import ivonne from './placeholder.jpeg';
-import alex from './placeholder.jpeg';
-import luis from './placeholder.jpeg';
+import elise from './elise.png';
+import ivonne from './ivonne.jpg';
+import alex from './alex.jpg';
+import luis from './luis.png';
 
 const devs = [
   {
+    key: '1',
     name: 'Ivonne Hernandez',
     photo: ivonne,
     title: 'Front-End Software Developer',
@@ -13,6 +14,7 @@ const devs = [
     story: '"The goal of this application is to remove the language barrier that keeps a lot of Latinos from showing up to the polls. It’s meant to empower the Latino community by providing election resources and information in a language they know and understand so that they too, can have their voices be heard through their vote."'
   },
   {
+    key: '2',
     name: 'Alex McConnell',
     photo: alex,
     title: 'Back-End Software Developer',
@@ -21,6 +23,7 @@ const devs = [
     story: '"Voter empowerment has always been something important to me as larger companies have been continually taking over the entire political hemisphere. This project is another opportunity to do just that; empower voters who may not know how to use their voices."'
   },
   {
+    key: '3',
     name: 'Luis Arroyo',
     photo: luis,
     title: 'Back-End Software Developer',
@@ -29,6 +32,7 @@ const devs = [
     story: '"Being a Latino myself, I wanted to help create a tool that encourages and helps people in my family to get out and vote."'
   },
   {
+    key: '4',
     name: 'Elise Beall',
     photo: elise,
     title: 'Front-End Software Developer',
