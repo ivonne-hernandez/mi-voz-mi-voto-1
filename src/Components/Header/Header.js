@@ -21,7 +21,10 @@ const Header = ()  => {
       </button>
       <button
         className="en-espanol-button header-button">
-        En Español
+        <FormattedMessage
+          id="header.languageButton"
+          defaultMessage="En Español"
+        />
       </button>
     </header>
   );
