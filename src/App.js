@@ -16,7 +16,7 @@ class App extends Component {
         <Header />
         <Routes>
           <Route path="/" element={<HomePageRouting />}/>
-          <Route path="/about-us" element={<DevStories />}/>
+          <Route path="/our-story" element={<DevStories />}/>
           <Route path="/register-to-vote" element={<RegisterToVote />}/>
           <Route path="/check-my-registration" element={<RegisterToVote />}/>
           <Route path="/election-protection" element={<ElectionProtection />}/>
