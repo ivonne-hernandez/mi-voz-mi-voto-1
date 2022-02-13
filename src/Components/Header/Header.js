@@ -1,3 +1,4 @@
+import { FormattedMessage } from 'react-intl';
 import { Link } from 'react-router-dom';
 import voteImage from '../../Assets/vote.png';
 import './Header.css';
