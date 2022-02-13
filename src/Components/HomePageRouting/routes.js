@@ -37,7 +37,17 @@ const routes = [
     ], 
     linksTo: ['/voter-id-laws']
   },
-  { header: 'Get Notifications', listItems:['Get notifications about upcoming elections in my state'], linksTo: ['/get-notifications']}
+  { header: 
+      <FormattedMessage
+        id="homePageRouting.route4.header"
+        defaultMessage="Get Notifications" />, 
+    listItems: [
+      <FormattedMessage
+        id="homePageRouting.route4.listItem1"
+        defaultMessage="Get notifications about upcoming elections in my state" />
+    ], 
+    linksTo: ['/get-notifications']
+  }
 ];
 
 export default routes;
