@@ -15,7 +15,10 @@
   "electionProtection.title": "Protección Electoral",
   "electionProtection.subtitle": "Proteje su derecho al voto siguiendo estas instrucciones básicas:",   
   "electionProtection.listItem1": "Antes de dirigirse a las urnas, asegúrese de verificar qué formas de identificación se requerirán para poder votar en su estado. Puede verificar las formas válidas de identificación que se aceptan en su estado",
-  "electionProtection.hereLink" : "aqui",
-  "electionProtection.listItem2" : "Asegúrese de llevar su teléfono con usted para poder llamar a la línea directa de protección electoral al 866-687-8683 si es necesario, y registrar cualquier actividad ilegal de la que sea testigo.",
-  "electionProtection.listItem3":  "Haga su mejor esfuerzo para mantener su lugar en línea. Puede emitir su voto siempre y cuando esté en la fila antes de que cierren las urnas, pero si abandona la fila, es posible que no se le permita votar cuando regrese."
+  "electionProtection.hereLink": "aqui",
+  "electionProtection.listItem2": "Asegúrese de llevar su teléfono con usted para poder llamar a la línea directa de protección electoral al 866-687-8683 si es necesario, y registrar cualquier actividad ilegal de la que sea testigo.",
+  "electionProtection.listItem3":  "Haga su mejor esfuerzo para mantener su lugar en línea. Puede emitir su voto siempre y cuando esté en la fila antes de que cierren las urnas, pero si abandona la fila, es posible que no se le permita votar cuando regrese.",
+  "electionProtection.listItem4": "Haga su mejor esfuerzo para votar en una boleta regular. Solo emita una boleta provisional si no tiene otra opción. Desafortunadamente, muchos estados no contarán una boleta provisional si se emitió en el lugar de votación incorrecto.",
+  "electionProtection.listItem5": "Si surge algún problema en el sitio de votación, haga todo lo posible para resolverlo allí mismo. Tenga en cuenta que la mayoría de los trabajadores electorales realmente están haciendo todo lo posible, pero también son humanos y los humanos a veces cometen errores.",
+  "voterIdLaws.title": "Leyes de Identificación Para Votantes"
 }
