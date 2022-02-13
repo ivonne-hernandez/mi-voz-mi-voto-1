@@ -15,5 +15,8 @@
   "electionProtection.title": "Election Protection",
   "electionProtection.subtitle": "Protect your right to vote by following these basic guidelines:",
   "electionProtection.listItem1": "Before heading out to the polls, make sure to check what forms of ID will be required in order to be able to vote in your specific state. You can verify the valid forms of ID that are accepted in your state",
-  "electionProtection.hereLink" : "here"
+  "electionProtection.hereLink": "here",
+  "electionProtection.listItem2": "Make sure to bring your phone with you so that you're able to call the election protection hotline at 866-687-8683 if necessary, and record any illegal activities that you witness.",
+  "electionProtection.listItem3":  "Try your best to keep your place in line. You are allowed to cast your ballot as long as you're in line before the polls close, but if you leave the line you may not be allowed to vote upon your return."
+  
 }
