@@ -13,9 +13,11 @@ const Header = ()  => {
           defaultMessage="My Voice, My Vote"
         />
       </Link>
-      <button
-        className="our-story-button header-button">
-        Our Story
+      <button className="our-story-button header-button">
+        <FormattedMessage
+          id="header.ourStoryButton"
+          defaultMessage="Our Story"
+        />
       </button>
       <button
         className="en-espanol-button header-button">
