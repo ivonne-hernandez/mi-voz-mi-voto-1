@@ -85,13 +85,13 @@
   .app-name {
     margin: 1rem;
     grid-column: 1 / span 2;
-    font-size: 2.5rem;
+    font-size: 3.6rem;
     text-align: center;
   }
 
   .vote-image {
-    border: 1px solid red;
-    transform: scale(120%);
+    transform: scale(160%);
+    margin-left: 5rem;
     grid-column: 1;
     grid-row: 2 / span 2;
   }

@@ -20,7 +20,7 @@ const DevStories = () => {
             <h3 className="dev-title">{dev.title}</h3>
           </div>
           <p className="dev-story">{dev.story}</p>
-          <div className="dev-links">
+          <div className="dev-links-container">
             <a href={dev.linkedin} target="_blank" rel="noopener">
               <img className="dev-linkedin" src={linkedin} alt={`linkedin for ${dev.name}`} />
             </a>
