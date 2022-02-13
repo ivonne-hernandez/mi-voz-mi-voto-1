@@ -1,17 +1,31 @@
+import { FormattedMessage } from 'react-intl';
 import './ElectionProtection.css';
 
 const ElectionProtection = () => {
   return (
     <div className="election-protection-container">
-      <h2 className="election-protection-title">Election Protection</h2>
-      <h3 className="election-protection-sub-title">Protect your right to vote by following these basic guidelines:</h3>
+      <h2 className="election-protection-title">
+        <FormattedMessage
+          id="electionProtection.title"
+          defaultMessage="Election Protection" />
+      </h2>
+      <h3 className="election-protection-sub-title">
+        <FormattedMessage
+          id="electionProtection.subtitle"
+          defaultMessage="Protect your right to vote by following these basic guidelines:" />
+      </h3>
       <article className="article-content">
         <ol>
           <li className="list-item">
-            Before heading out to the polls, make sure to check what forms of ID will be required in order to be able to vote in your specific state. You can verify the valid forms of ID that are accepted in your state
+            <FormattedMessage 
+              id="electionProtection.listItem1"
+              defaultMessage="Before heading out to the polls, make sure to check what forms of ID will be required in order to be able to vote in your specific state. You can verify the valid forms of ID that are accepted in your state"
+            />
               <a className="link-to-voter-id-laws"
                 href="https://www.vote.org/voter-id-laws/">
-                here
+                <FormattedMessage
+                  id="electionProtection.hereLink"
+                  defaultMessage="here" />
               </a>.  
           </li>
           <li className="list-item">
