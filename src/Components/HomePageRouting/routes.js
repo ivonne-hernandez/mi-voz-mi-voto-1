@@ -26,7 +26,17 @@ const routes = [
     ], 
     linksTo: ['/election-protection']
   },
-  { header: 'Know What Forms of ID I\'ll Need', listItems:['Find out about Voter ID Laws'], linksTo: ['/voter-id-laws']},
+  { header: 
+      <FormattedMessage
+        id="homePageRouting.route3.header"
+        defaultMessage="Know What Forms of ID I\'ll Need" />, 
+    listItems: [
+      <FormattedMessage
+        id="homePageRouting.route3.listItem1"
+        defaultMessage="Find out about Voter ID Laws" />
+    ], 
+    linksTo: ['/voter-id-laws']
+  },
   { header: 'Get Notifications', listItems:['Get notifications about upcoming elections in my state'], linksTo: ['/get-notifications']}
 ];
 
