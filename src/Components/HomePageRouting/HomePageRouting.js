@@ -1,5 +1,6 @@
-import './HomePageRouting.css';
+import { FormattedMessage } from 'react-intl';
 import RouteCard from '../RouteCard/RouteCard';
+import './HomePageRouting.css';
 
 const HomePageRoutingComponent = () => {
   const routes = [
