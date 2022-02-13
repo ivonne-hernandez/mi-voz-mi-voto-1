@@ -1,43 +1,61 @@
 import { Fragment } from 'react';
 import devs from '../../Assets/devs.js';
+import appStory from '../../Assets/appStory.js';
 import linkedin from '../../Assets/linkedin.png';
 import github from '../../Assets/github.png';
 import githubOcto from '../../Assets/github-octo.png';
 import './DevStories.css';
 
 const DevStories = () => {
-  const devSquares = devs.map(dev => {
+
+  const devDetails = devs.map(dev => {
     return (
-      <article className="dev-container">
-        <img className="dev-photo" src={dev.photo} alt={dev.name} />
-        <div className="dev-bio">
-          <h2 className="dev-name">{dev.name}</h2>
-          <h3 className="dev-title">{dev.title}</h3>
-          <a className="dev-linkedin icon" href={dev.linkedin}>
-            <img src={linkedin} alt={`linkedin for ${dev.name}`} />
-          </a>
-          <a className="dev-github icon" href={dev.github}>
-            {dev.name === 'Ivonne Hernandez' ?
-              <img src={githubOcto} alt={`github for ${dev.name}`} /> :
-              <img src={github} alt={`github for ${dev.name}`} />
-            }
-          </a>
+      <article className="dev-container" key={dev.key}>
+        <div className="dev-photo-container">
+          <img className="dev-photo" src={dev.photo} alt={dev.name} />
         </div>
-        <p className="dev-story">{dev.story}</p>
+        <div className="dev-bio-container">
+          <div className="dev-header">
+            <h2 className="dev-name">{dev.name}</h2>
+            <h3 className="dev-title">{dev.title}</h3>
+          </div>
+          <p className="dev-story">{dev.story}</p>
+          <div className="dev-links">
+            <a href={dev.linkedin} target="_blank" rel="noopener">
+              <img className="dev-linkedin" src={linkedin} alt={`linkedin for ${dev.name}`} />
+            </a>
+            <a href={dev.github} target="_blank" rel="noopener">
+              {dev.name === 'Ivonne Hernandez' ?
+                <img className="dev-github" src={githubOcto} alt={`github for ${dev.name}`} /> :
+                <img className="dev-github" src={github} alt={`github for ${dev.name}`} />
+              }
+            </a>
+          </div>
+        </div>
       </article>
     )
   })
 
+  const appDetails = () => {
+    const { title, text } = appStory;
+
+    return (
+      <>
+        <h1>{title}</h1>
+        <p className="app-story-text">{text}</p>
+      </>
+    )
+  }
+
   return(
-    <>
-      <section>
-        <h1>The Story Behind 'Mi Voz, Mi Voto'</h1>
-        <p className="app-story">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus dictum dapibus enim at sollicitudin. Proin ac mattis risus. Maecenas iaculis eros vitae enim semper, at egestas massa mattis. Maecenas mattis pharetra magna, viverra sollicitudin tellus pharetra quis. Vestibulum tincidunt congue arcu in laoreet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ac malesuada sapien. Aliquam consectetur felis semper velit ullamcorper, sit amet porttitor sem semper. Duis vehicula et nisi vel tempus. Suspendisse nunc diam, porta vulputate ultrices quis, consequat eu leo. Proin nisi quam, semper nec arcu in, semper interdum magna. Cras aliquet fermentum lacus vel posuere.</p>
+    <div className="our-story-container">
+      <section className="app-story-container">
+        {appDetails()}
       </section>
       <section className="all-devs-container">
-        {devSquares}
+        {devDetails}
       </section>
-    </>
+    </div>
   )
 }
 
