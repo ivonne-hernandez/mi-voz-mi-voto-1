@@ -24,12 +24,12 @@ const HomePageRoutingComponent = () => {
   }
 
   return (
-    <body className='home-page-routing-component-container'>
+    <section className='home-page-routing-component-container'>
       <p className='i-want-to-header'>I want to...</p>
       <div className='home-page-route-cards-container'>
         {displayRouteCards()}
       </div>
-    </body>
+    </section>
   );
 }
 

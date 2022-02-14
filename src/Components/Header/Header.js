@@ -22,8 +22,7 @@ const Header = ()  => {
         onClick={() => navigate('/our-story')}>
         Our Story
       </button>
-      <button
-        className="en-espanol-button header-button">
+      <button className="en-espanol-button header-button">
         En Español
       </button>
     </header>
