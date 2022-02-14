@@ -21,5 +21,6 @@
   "electionProtection.listItem4": "Haga su mejor esfuerzo para votar en una boleta regular. Solo emita una boleta provisional si no tiene otra opción. Desafortunadamente, muchos estados no contarán una boleta provisional si se emitió en el lugar de votación incorrecto.",
   "electionProtection.listItem5": "Si surge algún problema en el sitio de votación, haga todo lo posible para resolverlo allí mismo. Tenga en cuenta que la mayoría de los trabajadores electorales realmente están haciendo todo lo posible, pero también son humanos y los humanos a veces cometen errores.",
   "voterIdLaws.title": "Leyes de Identificación Para Votantes",
-  "voterIdLaws.subtitle": "Si alguien le impide poder votar por no tener la identificación adecuada:"
+  "voterIdLaws.subtitle": "Si alguien le impide poder votar por no tener la identificación adecuada:",
+  "voterIdLaws.listItem1": "Verifique qué formas de identificación se requieren en su estado."
 }
