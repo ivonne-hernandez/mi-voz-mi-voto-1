@@ -5,18 +5,25 @@ import luis from './luis.png';
 import linkedin from './linkedin.png';
 import github from './github.png';
 import githubOcto from './github-octo.png';
+import { FormattedMessage } from 'react-intl';
 
 const devs = [
   {
     key: '1',
     name: 'Ivonne Hernandez',
     photo: ivonne,
-    title: 'Front-End Software Developer',
+    title: 
+      <FormattedMessage
+        id="devs1.title"
+        defaultMessage="Front-End Software Developer" />,
     github: 'https://github.com/ivonne-hernandez',
     githubImg: githubOcto,
     linkedin: 'https://www.linkedin.com/in/ivonne-hernandez-107b0324/',
     linkedinImg: linkedin,
-    story: '"The goal of this application is to remove the language barrier that keeps a lot of Latinos from showing up to the polls. It’s meant to empower the Latino community by providing election resources and information in a language they know and understand so that they too, can have their voices be heard through their vote."'
+    story: 
+      <FormattedMessage
+        id="devs1.story"
+        defaultMessage="The goal of this application is to remove the language barrier that keeps a lot of Latinos from showing up to the polls. It's meant to empower the Latino community by providing election resources and information in a language they know and understand so that they too, can have their voices be heard through their vote." />
   },
   {
     key: '2',
