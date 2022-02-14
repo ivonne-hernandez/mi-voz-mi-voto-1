@@ -27,7 +27,7 @@ const HomePageRoutingComponent = () => {
     <main className='home-page-routing-component-container'>
       <p className='i-want-to-header'>I want to...</p>
       <div className='home-page-route-cards-container'>
-      {displayRouteCards()}
+        {displayRouteCards()}
       </div>
     </main>
   );
