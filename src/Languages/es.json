@@ -29,5 +29,8 @@
   "emailNotificationForm.title": "Recordatorios de Elecciones Estatales",
   "emailNotificationForm.firstNameLabel": "Nombre",
   "emailNotificationForm.lastNameLabel": "Apellido",
-  "emailNotificationForm.stateLabel": "El Estado",
+  "emailNotificationForm.stateLabel": "Estado",
+  "emailNotificationForm.selectLabel": "Seleccione",
+  "emailNotificationForm.emailLabel": "Correo electrónico",
+
 }
