@@ -30,4 +30,6 @@
   "emailNotificationForm.firstNameLabel": "First Name",
   "emailNotificationForm.lastNameLabel": "Last Name",
   "emailNotificationForm.stateLabel": "State",
+  "emailNotificationForm.selectLabel": "Select",
+  "emailNotificationForm.emailLabel": "Email address",
 }
