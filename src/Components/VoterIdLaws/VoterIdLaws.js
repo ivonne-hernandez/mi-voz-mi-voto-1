@@ -9,7 +9,9 @@ const VoterIdLaws = () => {
         <ul>
           <li className="list-item">
             <a className="link-to-voter-id-laws"
-              href="https://www.vote.org/voter-id-laws/">
+              href="https://www.vote.org/voter-id-laws/"
+              target="_blank"
+              rel="noopener">
               Check what forms of ID are required in your state.
             </a>
           </li>
