@@ -1,25 +1,25 @@
-## [Mi Voz, Mi Voto] 🗳
+# [Mi Voz, Mi Voto] 🗳
 
-- [ ] - Feature PR [🧩]
-- [ ] - Refactor PR [⚙️]
-- [ ] - BugFix PR [🐞]
-- [ ] - User Interface PR [🖍]
-- [ ] - Error Handling PR [⚠️]
-- [ ] - Testing PR [🧑‍💻]
+- [ ] Feature PR [🧩]
+- [ ] Refactor PR [⚙️]
+- [ ] BugFix PR [🐞]
+- [ ] User Interface PR [🖍]
+- [ ] Error Handling PR [⚠️]
+- [ ] Testing PR [🧑‍💻]
 
-**What (if any) features are you implementing?**
+## **What (if any) features are you implementing?**
  - (NA)
 
-**What (if anything) did you refactor?**
+## **What (if anything) did you refactor?**
  - (NA)
 
-**Were there any issues that arose?**
+## **Were there any issues that arose?**
  - (NA)
 
-**Is there anything needs to be prioritized/errors to be addressed?**
+## **Is there anything needs to be prioritized/errors to be addressed?**
  - (NA)
 
-**Goals? Next steps?**
+## **Goals? Next steps?**
  - (NA)
 
-**⬇︎ Current Screenshots ⬇︎**
+## **⬇︎ Current Screenshots ⬇︎**
