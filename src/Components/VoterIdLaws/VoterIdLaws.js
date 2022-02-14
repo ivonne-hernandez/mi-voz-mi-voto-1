@@ -19,7 +19,9 @@ const VoterIdLaws = () => {
           <li className="list-item">
             <a className="link-to-voter-id-laws"
               href="https://www.vote.org/voter-id-laws/">
-              Check what forms of ID are required in your state.
+              <FormattedMessage 
+                id="voterIdLaws.listItem1"
+                defaultMessage="Check what forms of ID are required in your state." />
             </a>
           </li>
           <li className="list-item">
