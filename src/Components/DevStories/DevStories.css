@@ -1,34 +1,3 @@
-.our-story-container {
-  width: 100%;
-  padding: 2rem 0 5rem 0;
-  background-color: rgb(227,28,61);
-}
-
-.app-story-container {
-  width: 100%;
-  margin-top: 5rem;
-  background-color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.app-story-container > h1 {
-  color: rgb(43,45,66);
-  text-align: center;
-  font-size: 2.3rem;
-  margin-top: 3rem;
-}
-
-.app-story-text {
-  width: 80%;
-  margin: 1rem 1rem 5rem 1rem;
-  font-weight: 400;
-  font-size: 2rem;
-  color: rgb(43,45,66);
-}
-
 .all-devs-container {
   margin: 0;
   display: flex;
@@ -41,7 +10,7 @@
   width: 70%;
   background-color: white;
   border-radius: 2rem;
-  box-shadow: 0 1px 9px rgba(43,45,66,0.8);
+  box-shadow: 0 1px 9px rgba(43,45,66,0.5);
   margin-top: 5rem;
   padding: 4rem;
   display: flex;
@@ -75,7 +44,7 @@
   font-size: 1.5rem;
   font-weight: 500;
   font-style: italic;
-  color: rgb(227,28,61);
+  color: rgb(46,83,142);
 }
 
 .dev-story {
@@ -93,13 +62,13 @@
   grid-row: 3;
   margin: 0;
   padding: 0;
-  filter: drop-shadow(3px 3px 5px rgba(227,28,61,0.8));
   display: flex;
   justify-content: flex-start;
 }
 
 .dev-linkedin, .dev-github {
   height: 5rem;
+  filter: drop-shadow(2px 1px 4px rgba(46,83,142,0.8));
 }
 
 .dev-photo-container {
@@ -230,20 +199,6 @@
     padding-top: 3rem;
   }
 
-  h1 {
-    font-size: 2rem;
-  }
-
-  .app-story-container {
-    margin: 0;
-    padding: 0;
-  }
-
-  .app-story-text {
-    font-size: 1.3rem;
-    margin: 2rem 0 4rem 0;
-  }
-
   .dev-container {
     margin: 3rem 2rem 2rem 2rem;
     padding: 1rem;
@@ -290,12 +245,7 @@
   }
 }
 
-@media screen and (max-width: 500px) {
-  .app-story-container > h1 {
-    padding: 0 5rem 1rem 5rem;
-    font-size: 2rem;
-  }
-
+@media screen and (max-width: 700px) {
   .dev-container {
     display: flex;
     flex-direction: column;
