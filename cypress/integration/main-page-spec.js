@@ -34,7 +34,7 @@ describe('Mi Voz, Mi Voto main page user flow', () => {
       .get('img').should('be.visible')
       .get('h2').should('contain', 'Sorry, we can\'t seem to find the page you\'re looking for, please try again.')
       .get('.page-not-found-container')
-      .get('button').click()
+      .get('button').contains('Home').click()
       .url().should('contain', '/')
   });
 })
