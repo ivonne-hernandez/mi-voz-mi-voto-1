@@ -26,6 +26,15 @@ describe('Mi Voz, Mi Voto main page user flow', () => {
               .url().should('contain', '/')
           })
       })
-    });
+    })
+  });
+
+  it('Should display \'404 page not found\' if the user types in a wrong URL & should be able to navigate to the main page', () => {
+    cy.visit('/squirrels')
+      .get('img').should('be.visible')
+      .get('h2').should('contain', 'Sorry, we can\'t seem to find the page you\'re looking for, please try again.')
+      .get('.page-not-found-container')
+      .get('button').click()
+      .url().should('contain', '/')
   });
 })
