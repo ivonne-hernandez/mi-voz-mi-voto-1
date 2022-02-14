@@ -1,9 +1,12 @@
+import { useContext } from 'react';
+import { Context } from '../Wrapper';
 import { FormattedMessage } from 'react-intl';
 import { Link, useNavigate } from 'react-router-dom';
 import voteImage from '../../Assets/vote.png';
 import './Header.css';
 
 const Header = ()  => {
+  const context = useContext(Context);
   const navigate = useNavigate();
 
   return (
@@ -31,13 +34,13 @@ const Header = ()  => {
           defaultMessage="Our Story"
         />
       </button>
-      <button
-        className="en-espanol-button header-button">
-        <FormattedMessage
-          id="header.languageButton"
-          defaultMessage="En Español"
-        />
-      </button>
+      <select
+        className="en-espanol-button header-button"
+        value={context.locale}
+        onChange={context.selectLanguage}>
+          <option value="en">English</option>
+          <option value="es">Español</option>
+      </select>
     </header>
   );
 }
