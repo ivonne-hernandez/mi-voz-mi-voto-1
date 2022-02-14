@@ -37,5 +37,9 @@
   "emailNotificationForm.spanishLabel": "Spanish",
   "emailNotificationForm.agreeToEmailsMessage": "Sign up for email notifications about upcoming elections in my state.",
   "emailNotificationForm.submitButton": "Submit",
-
+  "emailNotificationForm.missingNames": "Please enter your first and last name.",
+  "emailNotificationForm.missingState": "Please select a state.",
+  "emailNotificationForm.missingEmail": "Please enter a valid email.",
+  "emailNotificationForm.missingLanguage": "Please select your preferred language.",
+  "emailNotificationForm.missingCheckbox": "Please check the 'Sign up for email notifications' box."
 }

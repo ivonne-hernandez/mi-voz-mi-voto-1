@@ -37,5 +37,9 @@
   "emailNotificationForm.spanishLabel": "Español",
   "emailNotificationForm.agreeToEmailsMessage": "Recibir notificaciones sobre las próximas elecciones en mi estado.",
   "emailNotificationForm.submitButton": "Someter",
-
+  "emailNotificationForm.missingNames": "Por favor introduzca su nombre y apellido.",
+  "emailNotificationForm.missingState": "Por favor seleccione un estado.",
+  "emailNotificationForm.missingEmail": "Por favor introduzca un correo electrónico válido.",
+  "emailNotificationForm.missingLanguage": "Seleccione su idioma preferido.",
+  "emailNotificationForm.missingCheckbox": "Marque la casilla 'Recibir notificaciones sobre las próximas elecciones en mi estado'."
 }
