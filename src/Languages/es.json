@@ -27,4 +27,7 @@
   "voterIdLaws.listItem3": "Si no tiene una identificación válida a la mano, pregúntele al trabajador electoral si su estado le permite votar sin una identificación firmando algo bajo juramento. Los estados como CT, ID, IA, LA, MI, MT, NH, SD, TN lo permiten en lugar de una identificación.",
   "voterIdLaws.listItem4": "Si no tiene otra opción, emita un voto provisional. Algunos estados que requieren identificación contarán su boleta provisional si su firma coincide con lo que está archivado en el registro de votantes.",
   "emailNotificationForm.title": "Recordatorios de Elecciones Estatales",
+  "emailNotificationForm.firstNameLabel": "Nombre",
+  "emailNotificationForm.lastNameLabel": "Apellido",
+  "emailNotificationForm.stateLabel": "El Estado",
 }
