@@ -121,15 +121,35 @@ class EmailNotificationForm extends Component {
 
   displayMissingInputMessage = () => {
     if (!this.validateNames()) {
-      return <p className="missing-input-message">Please enter your first and last name.</p>;
+      return <p className="missing-input-message">
+          <FormattedMessage
+            id="emailNotificationForm.missingNames"
+            defaultMessage="Please enter your first and last name." />
+        </p>;
     } else if (!this.validateState()) {
-      return <p className="missing-input-message">Please select a state.</p>;
+      return <p className="missing-input-message">
+          <FormattedMessage
+            id="emailNotificationForm.missingState"
+            defaultMessage="Please select a state." />
+        </p>;
     } else if (!this.validateEmail()) {
-      return <p className="missing-input-message">Please enter a valid email.</p>;
+      return <p className="missing-input-message">
+          <FormattedMessage
+            id="emailNotificationForm.missingEmail"
+            defaultMessage="Please enter a valid email." />
+        </p>;
     } else if (!this.validateLanguage()) {
-      return <p className="missing-input-message">Please select your preferred language.</p>;
+      return <p className="missing-input-message">
+          <FormattedMessage
+            id="emailNotificationForm.missingLanguage"
+            defaultMessage="Please select your preferred language." />
+        </p>;
     } else if (!this.validateAcknowledgement()) {
-      return <p className="missing-input-message">Please check the "Sign up for email notifications" box.</p>;
+      return <p className="missing-input-message">
+          <FormattedMessage
+            id="emailNotificationForm.missingCheckbox"
+            defaultMessage="Please check the 'Sign up for email notifications' box." />
+        </p>;
     }
   }
 
