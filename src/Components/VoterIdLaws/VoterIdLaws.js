@@ -35,7 +35,9 @@ const VoterIdLaws = () => {
               defaultMessage="If you don't have a valid form of ID on hand, ask the poll worker if your state allows you to vote without an ID by signing something under oath. States like CT, ID, IA, LA, MI, MT, NH, SD, TN allow this in lieu of an ID." />
           </li>
           <li className="list-item">
-            If you have no other choice, cast a provisional ballot. Some states that require ID will count your provisional ballot if your signature matches what's on file in the voter registry.
+            <FormattedMessage 
+              id="voterIdLaws.listItem4"
+              defaultMessage="If you have no other choice, cast a provisional ballot. Some states that require ID will count your provisional ballot if your signature matches what's on file in the voter registry." />
           </li>
         </ul>
       </article>
