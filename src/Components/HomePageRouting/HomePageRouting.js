@@ -19,14 +19,14 @@ const HomePageRoutingComponent = () => {
   }
 
   return (
-    <body className='home-page-routing-component-container'>
+    <section className='home-page-routing-component-container'>
       <h2 className='i-want-to-header'>
         <FormattedMessage id="homePageRouting.header" defaultMessage="I want to..."/>
       </h2>
       <div className='home-page-route-cards-container'>
-      {displayRouteCards()}
+        {displayRouteCards()}
       </div>
-    </body>
+    </section>
   );
 }
 
