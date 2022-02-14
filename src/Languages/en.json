@@ -43,5 +43,7 @@
   "emailNotificationForm.missingLanguage": "Please select your preferred language.",
   "emailNotificationForm.missingCheckbox": "Please check the 'Sign up for email notifications' box.",
   "devs1.title": "Front-End Software Developer",
-  "devs1.story": "The goal of this application is to remove the language barrier that keeps a lot of Latinos from showing up to the polls. It's meant to empower the Latino community by providing election resources and information in a language they know and understand so that they too, can have their voices be heard through their vote."
+  "devs1.story": "The goal of this application is to remove the language barrier that keeps a lot of Latinos from showing up to the polls. It's meant to empower the Latino community by providing election resources and information in a language they know and understand so that they too, can have their voices be heard through their vote.",
+  "devs2.title": "Back-End Software Developer",
+  "devs2.story": "Voter empowerment has always been something important to me as larger companies have been continually taking over the entire political hemisphere. This project is another opportunity to do just that: empower voters who may not know how to use their voices."
 }

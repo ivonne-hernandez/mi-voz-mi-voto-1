@@ -43,6 +43,8 @@
   "emailNotificationForm.missingLanguage": "Seleccione su idioma preferido.",
   "emailNotificationForm.missingCheckbox": "Marque la casilla 'Recibir notificaciones sobre las próximas elecciones en mi estado'.",
   "devs1.title": "Desarrolladora de Software",
-  "devs1.story": "El objetivo de esta aplicación es eliminar la barrera del idioma que impide que muchos Latinos se presenten a las urnas. Su objetivo es empoderar a la comunidad Latina atraves de proporcionar recursos y información electoral en el idioma que conocen y entienden para que ellos también puedan hacer oír su voz a través de su voto."
+  "devs1.story": "El objetivo de esta aplicación es eliminar la barrera del idioma que impide que muchos Latinos se presenten a las urnas. Su objetivo es empoderar a la comunidad Latina atraves de proporcionar recursos y información electoral en el idioma que conocen y entienden para que ellos también puedan hacer oír su voz a través de su voto.",
+  "devs2.title": "Desarrollador de Software",
+  "devs2.story": "El empoderamiento de los votantes siempre ha sido algo importante para mí, ya que las empresas más grandes se han apoderado continuamente de todo el hemisferio político. Este proyecto es otra oportunidad para hacer justamente eso: empoderar a los votantes que tal vez no sepan cómo usar sus voces."
 
 }
