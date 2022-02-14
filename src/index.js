@@ -1,29 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
-import { IntlProvider } from 'react-intl';
-import Spanish from './Languages/es.json';
-import English from './Languages/en.json';
+import Wrapper from './Components/Wrapper';
 import App from './App';
 import './index.css';
 
-const local = navigator.language;
-
-let language;
-
-if (local === "en") {
-  language = English;
-} else {
-  language = Spanish;
-}
-
 ReactDOM.render (
-  <IntlProvider locale={local} messages={Spanish}>
-     <BrowserRouter>
+  <Wrapper>
+    <BrowserRouter>
       <React.StrictMode>
         <App />
       </React.StrictMode>
     </BrowserRouter>
-  </IntlProvider>,
+  </Wrapper>,
   document.getElementById('root')
 );
