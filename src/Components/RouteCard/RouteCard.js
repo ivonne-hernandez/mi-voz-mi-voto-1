@@ -4,7 +4,7 @@ import './RouteCard.css';
 const RouteCard = ({ header, listItems, linksTo }) => {
   const linkTags = listItems.map((link, index) => {
     return (
-      <li key={link}>
+      <li key={index}>
         <Link to={linksTo[index]} className="link-item">{link}</Link>
       </li>
     );
