@@ -63,13 +63,19 @@ const devs = [
     key: '4',
     name: 'Elise Beall',
     photo: elise,
-    title: 'Front-End Software Developer',
+    title: 
+      <FormattedMessage
+        id="devs4.title"
+        defaultMessage="Front-End Software Developer" />,
     github: 'https://github.com/elisebeall',
     githubImg: github,
     linkedin: 'https://www.linkedin.com/in/elisejbeall',
     linkedinImg: linkedin,
-    story: '"As a former volunteer coordinator & field organizer of local & national political campaigns, I have seen first hand the divide created by language barriers & technical challenges.  Working on this application allowed me to focus on creating a tool to help level the playing field of electoral politics."'
+    story: 
+      <FormattedMessage
+        id="devs4.story"
+        defaultMessage="As a former volunteer coordinator & field organizer of local & national political campaigns, I have seen first hand the divide created by language barriers & technical challenges.  Working on this application allowed me to focus on creating a tool to help level the playing field of electoral politics." />
   }
-]
+];
 
 export default devs;
