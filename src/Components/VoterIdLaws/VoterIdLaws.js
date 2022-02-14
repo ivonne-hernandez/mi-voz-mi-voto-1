@@ -9,7 +9,11 @@ const VoterIdLaws = () => {
           id="voterIdLaws.title"
           defaultMessage="Voter ID Laws" />
       </h2>
-      <h3 className="voter-id-laws-sub-title">If someone is preventing you from being able to vote for not having the proper ID:</h3>
+      <h3 className="voter-id-laws-sub-title">
+        <FormattedMessage
+          id="voterIdLaws.subtitle"
+          defaultMessage="If someone is preventing you from being able to vote for not having the proper ID:" />
+      </h3>
       <article className="article-content">
         <ul>
           <li className="list-item">
