@@ -178,15 +178,20 @@ class EmailNotificationForm extends Component {
                 </div>
                 <div className="form-content-container">
                   <div className="label-input-container">
-                      <label className="label" htmlFor="first_name">First Name<em>*</em></label>
-                      <input type="text"
-                        name="first_name"
-                        value={this.state.first_name}
-                        id="first_name"
-                        required="required"
-                        aria-required="true"
-                        className="input"
-                        onChange={(event) => this.handleInputChange(event)}/>
+                    <label className="label" htmlFor="first_name">
+                      <FormattedMessage
+                        id="emailNotificationForm.firstNameLabel"
+                        defaultMessage="First Name" />
+                      <em>*</em>
+                    </label>
+                    <input type="text"
+                      name="first_name"
+                      value={this.state.first_name}
+                      id="first_name"
+                      required="required"
+                      aria-required="true"
+                      className="input"
+                      onChange={(event) => this.handleInputChange(event)}/>
                   </div>
                   <div className="label-input-container">
                     <label className="label" htmlFor="last_name">Last Name<em>*</em></label>
