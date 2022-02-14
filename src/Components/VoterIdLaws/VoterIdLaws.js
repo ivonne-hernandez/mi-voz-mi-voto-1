@@ -11,7 +11,8 @@ const VoterIdLaws = () => {
             <a className="link-to-voter-id-laws"
               href="https://www.vote.org/voter-id-laws/"
               target="_blank"
-              rel="noopener">
+              rel="noopener"
+              aria-describedby="new-window-2">
               Check what forms of ID are required in your state.
             </a>
           </li>

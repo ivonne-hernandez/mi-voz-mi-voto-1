@@ -12,7 +12,8 @@ const ElectionProtection = () => {
               <a className="link-to-voter-id-laws"
                 href="https://www.vote.org/voter-id-laws/"
                 target="_blank"
-                rel="noopener">
+                rel="noopener"
+                aria-describedby="new-window-2">
                 here
               </a>.
           </li>
