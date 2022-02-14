@@ -194,7 +194,12 @@ class EmailNotificationForm extends Component {
                       onChange={(event) => this.handleInputChange(event)}/>
                   </div>
                   <div className="label-input-container">
-                    <label className="label" htmlFor="last_name">Last Name<em>*</em></label>
+                    <label className="label" htmlFor="last_name">
+                      <FormattedMessage
+                        id="emailNotificationForm.lastNameLabel"
+                        defaultMessage="Last Name" />
+                        <em>*</em>
+                    </label>
                     <input type="text"
                       name="last_name"
                       value={this.state.last_name}
