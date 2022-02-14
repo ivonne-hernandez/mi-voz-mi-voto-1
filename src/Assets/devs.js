@@ -29,12 +29,18 @@ const devs = [
     key: '2',
     name: 'Alex McConnell',
     photo: alex,
-    title: 'Back-End Software Developer',
+    title: 
+      <FormattedMessage
+        id="devs2.title"
+        defaultMessage="Back-End Software Developer" />,
     github: 'https://github.com/AlexMMcConnell',
     githubImg: github,
     linkedin: 'https://www.linkedin.com/in/alex-m-mcconnell/',
     linkedinImg: linkedin,
-    story: '"Voter empowerment has always been something important to me as larger companies have been continually taking over the entire political hemisphere. This project is another opportunity to do just that; empower voters who may not know how to use their voices."'
+    story: 
+      <FormattedMessage
+        id="devs2.story"
+        defaultMessage="Voter empowerment has always been something important to me as larger companies have been continually taking over the entire political hemisphere. This project is another opportunity to do just that: empower voters who may not know how to use their voices." />
   },
   {
     key: '3',
