@@ -225,7 +225,12 @@ class EmailNotificationForm extends Component {
                     </select>
                   </div>
                   <div className="label-input-container email-label">
-                    <label className="label" htmlFor="email">Email address<em>*</em></label>
+                    <label className="label" htmlFor="email">
+                      <FormattedMessage
+                        id="emailNotificationForm.emailLabel"
+                        defaultMessage="Email address" />
+                        <em>*</em>
+                    </label>
                     <input type="email"
                       name="email"
                       value={this.state.email}
