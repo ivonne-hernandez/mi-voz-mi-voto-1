@@ -255,7 +255,11 @@ class EmailNotificationForm extends Component {
                       className="input-radio"
                       checked={this.state.language === "en"}
                       onChange={(event) => this.handleInputChange(event)}/>
-                    <label className="label-radio" htmlFor="english">English</label>
+                    <label className="label-radio" htmlFor="english">
+                      <FormattedMessage
+                        id="emailNotificationForm.englishLabel"
+                        defaultMessage="English" />
+                    </label>
                   </div>
                   <div className="label-input-container">
                     <input type="radio"
@@ -266,7 +270,11 @@ class EmailNotificationForm extends Component {
                       className="input-radio"
                       checked={this.state.language === "es"}
                       onChange={(event) => this.handleInputChange(event)}/>
-                    <label className="label-radio" htmlFor="spanish">Spanish</label>
+                    <label className="label-radio" htmlFor="spanish">
+                      <FormattedMessage
+                        id="emailNotificationForm.spanishLabel"
+                        defaultMessage="Spanish" />
+                    </label>
                   </div>
                   <div className="label-input-container">
                     <input type="checkbox"
@@ -279,14 +287,18 @@ class EmailNotificationForm extends Component {
                       checked={this.state.agree_to_emails}
                       onChange={() => this.handleCheckboxInput()}/>
                     <label className="agree-to-emails-checkbox label" htmlFor="agree_to_emails">
-                      Sign up for email notifications about upcoming elections in my state.
+                      <FormattedMessage
+                        id="emailNotificationForm.agreeToEmailsMessage"
+                        defaultMessage="Sign up for email notifications about upcoming elections in my state." />
                     </label>
                   </div>
                   <div className="submit-button-container">
                     <button
                       className="submit-button"
                       onClick={(event) => this.handleSubmit(event)}>
-                        Submit
+                        <FormattedMessage
+                          id="emailNotificationForm.submitButton"
+                          defaultMessage="Submit" />
                     </button>
                   </div>
                   <div className="missing-input-message-container">
