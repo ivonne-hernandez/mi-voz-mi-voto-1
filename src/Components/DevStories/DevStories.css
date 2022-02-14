@@ -68,7 +68,7 @@
 
 .dev-linkedin, .dev-github {
   height: 5rem;
-  filter: drop-shadow(2px 1px 4px rgba(46,83,142,0.8));
+  filter: drop-shadow(2px 1px 4px rgba(46,83,142,1));
 }
 
 .dev-photo-container {
