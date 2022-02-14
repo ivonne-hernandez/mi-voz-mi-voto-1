@@ -1,7 +1,6 @@
 describe('Mi Voz, Mi Voto main page user flow', () => {
   beforeEach(() => {
-    //cy.checkPageA11y('http://localhost:3000')
-    cy.visit('/')
+    cy.checkPageA11y('/')
   });
 
   it('Should see a header with a title and related icon', () => {
@@ -33,7 +32,13 @@ describe('Mi Voz, Mi Voto main page user flow', () => {
     });
   });
 
-  it('Stub a network error here maybe?', () => {
-
+  it('Should display an error message if the network is down', () => {
+    cy.intercept('GET', '/our-story', {
+      forceNetworkError: true
+    }).as('getNetworkFailure')
+      .get('.our-story-button')
+      .should('be.visible').click()
+      .wait('@getNetworkFailure')
+      .get('.error-text').should('contain', 'We\'re sorry, please try again.')
   });
 })
