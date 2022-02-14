@@ -240,7 +240,12 @@ class EmailNotificationForm extends Component {
                       className="input"
                       onChange={(event) => this.handleInputChange(event)}/>
                   </div>
-                  <label className="preferred-lang-p label" htmlFor="language">Preferred language<em>*</em></label>
+                  <label className="preferred-lang-p label" htmlFor="language">
+                    <FormattedMessage
+                      id="emailNotificationForm.preferredLanguageLabel"
+                      defaultMessage="Preferred language" />
+                      <em>*</em>
+                  </label>
                   <div className="label-input-container">
                     <input type="radio"
                       name="language"
