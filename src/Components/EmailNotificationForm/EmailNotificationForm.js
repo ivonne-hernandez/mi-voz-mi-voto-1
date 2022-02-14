@@ -1,3 +1,4 @@
+import { FormattedMessage } from 'react-intl';
 import { Component, Fragment } from 'react';
 import './EmailNotificationForm.css';
 import Loading from '../Loading/Loading';
@@ -169,7 +170,11 @@ class EmailNotificationForm extends Component {
             {this.state.error ? <Error error={this.state.error} /> :
               <form className="form-container">
                 <div className="form-header-container">
-                  <p className="form-header">State Election Reminders</p>
+                  <p className="form-header">
+                    <FormattedMessage
+                      id="emailNotificationForm.title"
+                      defaultMessage="State Election Reminders" />
+                  </p>
                 </div>
                 <div className="form-content-container">
                   <div className="label-input-container">
