@@ -32,4 +32,6 @@
   "emailNotificationForm.stateLabel": "State",
   "emailNotificationForm.selectLabel": "Select",
   "emailNotificationForm.emailLabel": "Email address",
+  "emailNotificationForm.preferredLanguageLabel": "Preferred language",
+
 }
