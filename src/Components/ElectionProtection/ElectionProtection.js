@@ -22,7 +22,10 @@ const ElectionProtection = () => {
               defaultMessage="Before heading out to the polls, make sure to check what forms of ID will be required in order to be able to vote in your specific state. You can verify the valid forms of ID that are accepted in your state"
             />
               <a className="link-to-voter-id-laws"
-                href="https://www.vote.org/voter-id-laws/">
+                href="https://www.vote.org/voter-id-laws/"
+                target="_blank"
+                rel="noopener"
+                aria-describedby="new-window-2">
                 <FormattedMessage
                   id="electionProtection.hereLink"
                   defaultMessage="here" />
