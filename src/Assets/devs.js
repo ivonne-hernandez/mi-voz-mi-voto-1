@@ -46,12 +46,18 @@ const devs = [
     key: '3',
     name: 'Luis Arroyo',
     photo: luis,
-    title: 'Back-End Software Developer',
+    title: 
+      <FormattedMessage
+        id="devs3.title"
+        defaultMessage="Back-End Software Developer" />,
     github: 'https://github.com/larroyo1',
     githubImg: github,
     linkedin: 'https://www.linkedin.com/in/luis-arroyo-65a954181/',
     linkedinImg: linkedin,
-    story: '"Being a Latino myself, I wanted to help create a tool that encourages and helps people in my family to get out and vote."'
+    story: 
+      <FormattedMessage
+        id="devs3.story"
+        defaultMessage="Being a Latino myself, I wanted to help create a tool that encourages and helps people in my family to get out and vote." />
   },
   {
     key: '4',
