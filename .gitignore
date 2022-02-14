@@ -7,7 +7,7 @@
 
 # testing
 /coverage
-/instrumented
+/cypress/downloads
 .nyc_output
 /cypress/screenshots
 /cypress/videos
