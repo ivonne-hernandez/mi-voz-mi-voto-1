@@ -33,6 +33,9 @@
   "emailNotificationForm.selectLabel": "Seleccione",
   "emailNotificationForm.emailLabel": "Correo electrónico",
   "emailNotificationForm.preferredLanguageLabel": "Idioma preferido",
-
+  "emailNotificationForm.englishLabel": "Inglés",
+  "emailNotificationForm.spanishLabel": "Español",
+  "emailNotificationForm.agreeToEmailsMessage": "Recibir notificaciones sobre las próximas elecciones en mi estado.",
+  "emailNotificationForm.submitButton": "Someter",
 
 }
