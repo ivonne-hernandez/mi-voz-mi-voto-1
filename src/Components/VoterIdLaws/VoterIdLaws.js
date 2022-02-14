@@ -25,7 +25,9 @@ const VoterIdLaws = () => {
             </a>
           </li>
           <li className="list-item">
-            Ask the poll worker if there are other forms of ID that they'll accept. Some states accept a paystub or utility bill with your name and address as a valid form of ID. If you need to retrieve your ID from home, ask the poll worker if you can skip the line upon your return to the polling site. If you're not able to return the same day, ask the poll worker if your state allows you to come back and show your ID following Election Day and still have your vote counted.
+            <FormattedMessage 
+              id="voterIdLaws.listItem2"
+              defaultMessage="Ask the poll worker if there are other forms of ID that they'll accept. Some states accept a paystub or utility bill with your name and address as a valid form of ID. If you need to retrieve your ID from home, ask the poll worker if you can skip the line upon your return to the polling site. If you're not able to return the same day, ask the poll worker if your state allows you to come back and show your ID following Election Day and still have your vote counted." />
           </li>
           <li className="list-item">
             If you don't have a valid form of ID on hand, ask the poll worker if your state allows you to vote without an ID by signing something under oath. States like CT, ID, IA, LA, MI, MT, NH, SD, TN allow this in lieu of an ID.
