@@ -8,10 +8,10 @@ describe('Voter Id Laws page user flow', () => {
       const { header2, header3, listItems } = voterIdLaws;
       cy.get('h2').should('contain', header2)
         .get('h3').should('contain', header3)
-        .get('li').should('contain', listItems[0])
-        .get('li').should('contain', listItems[1])
-        .get('li').should('contain', listItems[2])
-        .get('li').should('contain', listItems[3])
+        const checkListItems = listItems.map((listItem, index) => {
+          cy.get('ul')
+            .get('li').eq(index).should('contain', listItem[index])
+        })
     })
   });
 
