@@ -5,7 +5,7 @@ describe('Mi Voz, Mi Voto email notification form user flow', () => {
 
   it('Should include text-based labels for each input', () => {
     cy.get('form[class="form-container"]').should('have.length', 1)
-      .get('p[class="form-header"]').contains('State Election Reminders')
+      .get('h2[class="form-header"]').contains('State Election Reminders')
       .get('label[class="label"]').contains('First Name')
       .get('label[class="label"]').contains('Last Name')
       .get('label[class="label"]').contains('State')

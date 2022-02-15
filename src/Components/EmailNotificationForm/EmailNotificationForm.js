@@ -68,24 +68,23 @@ class EmailNotificationForm extends Component {
       postNewEmailSubscriber(newEmailSubscriber)
         .then(response => {
           this.setState({ isSubmitting: true });
-          if (response.status !== 400 && response.status !== 200) {
-            throw new Error (`${response.status}: ${response.statusText}. Something has gone wrong, please try again.`)
+          if (response.status !== 404 && response.status !== 200) {
+            throw new Error (`${response.status}: ${response.statusText}.`)
           }
           return response.json()
         })
         .then(message => {
           this.setState({
-            isSubmitting: false,
             successMessage: message.success,
             failMessage: message.error,
-            error: null
+            error: null,
+            isSubmitting: false
           });
         })
         .catch(error => {
           this.setState({
-            isSubmitting: false,
-            serverMessage: null,
-            error: error.message
+            error: error.message,
+            isSubmitting: false
           });
         })
 
@@ -169,19 +168,19 @@ class EmailNotificationForm extends Component {
             {this.state.error ? <Error error={this.state.error} /> :
               <form className="form-container">
                 <div className="form-header-container">
-                  <p className="form-header">State Election Reminders</p>
+                  <h2 className="form-header">State Election Reminders</h2>
                 </div>
                 <div className="form-content-container">
                   <div className="label-input-container">
-                      <label className="label" htmlFor="first_name">First Name<em>*</em></label>
-                      <input type="text"
-                        name="first_name"
-                        value={this.state.first_name}
-                        id="first_name"
-                        required="required"
-                        aria-required="true"
-                        className="input"
-                        onChange={(event) => this.handleInputChange(event)}/>
+                    <label className="label" htmlFor="first_name">First Name<em>*</em></label>
+                    <input type="text"
+                      name="first_name"
+                      value={this.state.first_name}
+                      id="first_name"
+                      required="required"
+                      aria-required="true"
+                      className="input"
+                      onChange={(event) => this.handleInputChange(event)}/>
                   </div>
                   <div className="label-input-container">
                     <label className="label" htmlFor="last_name">Last Name<em>*</em></label>

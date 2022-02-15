@@ -1,23 +1,20 @@
-.label-input-container, .preferred-lang-p, .form-header {
+.unsubscribe-label-input-container, .unsubscribe-form-header {
   font-size: 20px;
   color: #2b2d42;
   display: block;
-}
-
-.state-name-select {
-  font-size: 1.1rem;
 }
 
 em {
   color: #fd3535;
 }
 
-.input {
+.unsubscribe-input {
   display: block;
   width: 177px;
+  margin: 0 auto;
 }
 
-.submit-button {
+.unsubscribe-button {
   background-color: #e31c3d;
   font-size: 20px;
   border-radius: 8px;
@@ -25,14 +22,9 @@ em {
   width: 150px;
   color: white;
   border: 0px;
-}
+} 
 
-.submit-button:hover {
-  cursor: pointer;
-  background-color: #2E538E;
-}
-
-.form-header {
+.unsubscribe-form-header {
   font-family: 'DM Serif Display', serif;
   font-size: 28px;
   font-weight: 200;
@@ -41,66 +33,59 @@ em {
   text-align: center;
   height: 52px;
   padding: 8px 0px 12px 12px;
-}
+} 
 
-.form-container {
+.unsubscribe-form-container {
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 3px 1px 6px 5px rgb(0 0 0 / 0.2);
-  height: 500px;
+  height: 250px;
   margin: 20px auto;
-  max-width: 700px;
-}
+  width: 60%;
+} 
 
-.missing-input-message-container {
+.unsubscribe-missing-input-message-container {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   align-self: stretch;
 }
 
-.missing-input-message {
-  align-text: left;
+.unsubscribe-missing-input-message {
+  text-align: left;
   color: #fd3535;
   font-size: 20px;
   margin: 1rem 0 1rem 0;
 }
 
-.fail-message {
+.unsubscribe-fail-message {
   color: #fd3535;
   font-size: 20px;
   margin: 1rem;
-}
+} 
 
-.success-message {
+.unsubscribe-success-message {
   color: #2B2D42;
   font-size: 20px;
   margin: 1rem;
-}
+} 
 
-.server-reply-icon {
+.unsubscribe-server-reply-icon {
   height: 1.7rem;
-}
+} 
 
-.label {
+.unsubscribe-label {
   line-height: 32px;
-}
+} 
 
-.label-radio, .agree-to-emails-checkbox {
-  margin: 5px;
-}
-
-.email-label, .preferred-lang-p, .agree-to-emails-checkbox, .submit-button-container {
+.unsubscribe-email-label, .unsubscribe-button-container {
   margin-top: 5px;
-}
+} 
 
-.form-content-container {
+.unsubscribe-form-content-container {
   width: 90%;
   margin: 0 auto;
   padding-top: 10px;
   padding-bottom: 10px;
-}
-
-.state-name-select:hover, .submit-button:hover, .input-radio:hover, .input-checkbox:hover {
-  cursor: pointer;
+  text-align: center;
 }
