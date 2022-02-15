@@ -11,3 +11,15 @@ export const postNewEmailSubscriber = (newEmailSubscriber) => {
     body: JSON.stringify(newEmailSubscriber)
   })
 }
+
+export const deleteSubscriber = (email) => {
+  return fetch(endpoints.unsubscribe, {
+    mode: 'cors',
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    },
+    body: JSON.stringify(email)
+  })
+}
