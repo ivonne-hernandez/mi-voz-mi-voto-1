@@ -35,6 +35,7 @@ em {
 .form-header {
   font-family: 'DM Serif Display', serif;
   font-size: 28px;
+  font-weight: 200;
   background-color: #2E538E;
   color: white;
   text-align: center;
