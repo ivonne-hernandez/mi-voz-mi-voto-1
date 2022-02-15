@@ -1,17 +1,16 @@
-import { Component, Fragment } from 'react';
+import { Component } from 'react';
+import { deleteSubscriber } from '../../apiCalls.js';
 import Loading from '../Loading/Loading';
 import Error from '../Error/Error';
-import { deleteSubscriber } from '../../apiCalls.js';
-import './Unsubscribe.css';
 import success from '../../Assets/success.png';
 import fail from '../../Assets/fail.png';
+import './Unsubscribe.css';
 
 class Unsubscribe extends Component {
   constructor() {
     super();
     this.state = {
       email: '',
-      agree_to_unsubscribe: false,
       displayMissingInput: false,
       isSubmitting: false,
       successMessage: null,
@@ -24,39 +23,31 @@ class Unsubscribe extends Component {
     return /^.+@(?:[a-zA-Z0-9]+\.)+[A-Za-z]+$/.test(this.state.email);
   }
 
-  validateAcknowledgement = () => {
-    return this.state.agree_to_unsubscribe;
-  }
-
   displayMissingInputMessage = () => {
     if (!this.validateEmail()) {
       return <p className="missing-input-message">Please enter a valid email.</p>;
     }
-    if (!this.validateAcknowledgement() ) {
-      return <p className="missing-input-message">Are you sure you want to unsubscribe?</p>;
-    }
-  }
-
-  handleCheckboxInput = () => {
-    const updatedValue = !this.state.agree_to_unsubscribe;
-    return this.setState({ agree_to_unsubscribe: updatedValue });
   }
 
   handleInputChange = (event) => {
-    this.setState({
-      email: event.target.value
-    });
+    this.setState({ email: event.target.value });
   }
 
   handleSubmit = (event) => {
-    if (!this.validateEmail(event.target.value)) {
-      this.setState({ displayMissingInput: true })
-    } else {
-      deleteSubscriber()
+    event.preventDefault();
+    this.setState({ displayMissingInput: true })
+    if (this.validateEmail()) {
+      this.setState({ displayMissingInput: false });
+      
+      const email = {
+        email: this.state.email
+      }
+
+      deleteSubscriber(email)
         .then(response => {
           this.setState({ isSubmitting: true });
           if(!response.ok) {
-            throw new Error(`${response.status}: ${response.statusText}.  We can't process your request right now, please try again.`)
+            throw new Error(`${response.status}: ${response.statusText}.`)
           }
           return response.json();
         })
@@ -70,7 +61,6 @@ class Unsubscribe extends Component {
         })
         .catch(error => {
           this.setState({
-            serverMessage: null,
             error: error.message,
             isSubmitting: false
           })
@@ -109,29 +99,11 @@ class Unsubscribe extends Component {
                   <h2 className="form-header">Unsubscribe from Election Reminders</h2>
                 </div>
                 <div className="form-content-container">
-                  <div className="label-input-container">
-                    <input
-                      type="checkbox"
-                      name="agree-to-unsubscribe"
-                      id="agree-to-unsubscribe"
-                      value={this.state.agree_to_unsubscribe}
-                      required="required"
-                      aria-required="true"
-                      className="input-checkbox"
-                      checked={this.state.agree_to_unsubscribe}
-                      onChange={() => this.handleCheckboxInput()} />
-                    <label
-                      className="agree-to-unsubscribe-checkbox label"
-                      htmlFor="agree-to-unsubscribe">
-                        I no longer wish to receive election notifications <em>*</em>
-                    </label>
-                  </div>
                   <div className="label-input-container email-label">
                     <label className="label" htmlFor="email">Email Address<em>*</em></label>
                     <input
-                      type="text"
+                      type="email"
                       name="email"
-                      placeholder="please enter your email"
                       value={this.state.email}
                       id="email"
                       required="required"
