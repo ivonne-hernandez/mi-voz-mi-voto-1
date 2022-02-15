@@ -25,7 +25,7 @@ class Unsubscribe extends Component {
 
   displayMissingInputMessage = () => {
     if (!this.validateEmail()) {
-      return <p className="missing-input-message">Please enter a valid email.</p>;
+      return <p className="unsubscribe-missing-input-message">Please enter a valid email.</p>;
     }
   }
 
@@ -57,13 +57,13 @@ class Unsubscribe extends Component {
             failMessage: message.error,
             error: null,
             isSubmitting: false
-          })
+          });
         })
         .catch(error => {
           this.setState({
             error: error.message,
             isSubmitting: false
-          })
+          });
         })
 
       this.setState({ email: '' });
@@ -73,8 +73,8 @@ class Unsubscribe extends Component {
   handleSuccess = () => {
     return (
       <>
-        <img className="server-reply-icon green" src={success} alt="green check" aria-hidden="true" />
-        <p className="success-message">{this.state.successMessage}</p>
+        <img className="unsubscribe-server-reply-icon green" src={success} alt="green check" aria-hidden="true" />
+        <p className="unsubscribe-success-message">{this.state.successMessage}</p>
       </>
     )
   }
@@ -82,8 +82,8 @@ class Unsubscribe extends Component {
   handleFailure = () => {
     return (
       <>
-        {this.state.failMessage ? <img className="server-reply-icon red" src={fail} alt="red x" aria-hidden="true" /> : null}
-        <p className="fail-message">{this.state.failMessage}</p>
+        {this.state.failMessage ? <img className="unsubscribe-server-reply-icon red" src={fail} alt="red x" aria-hidden="true" /> : null}
+        <p className="unsubscribe-fail-message">{this.state.failMessage}</p>
       </>
     )
   }
@@ -94,13 +94,13 @@ class Unsubscribe extends Component {
         {this.state.isSubmitting ? <Loading /> :
           <>
             {this.state.error ? <Error error={this.state.error} /> :
-              <form className="form-container">
-                <div className="form-header-container">
-                  <h2 className="form-header">Unsubscribe from Election Reminders</h2>
+              <form className="unsubscribe-form-container">
+                <div className="unsubscribe-form-header-container">
+                  <h2 className="unsubscribe-form-header">Unsubscribe from Election Reminders</h2>
                 </div>
-                <div className="form-content-container">
-                  <div className="label-input-container email-label">
-                    <label className="label" htmlFor="email">Email Address<em>*</em></label>
+                <div className="unsubscribe-form-content-container">
+                  <div className="unsubscribe-label-input-container unsubscribe-email-label">
+                    <label className="unsubscribe-label" htmlFor="email">Email Address<em>*</em></label>
                     <input
                       type="email"
                       name="email"
@@ -108,7 +108,7 @@ class Unsubscribe extends Component {
                       id="email"
                       required="required"
                       aria-required="true"
-                      className="input"
+                      className="unsubscribe-input"
                       onChange={(event) => this.handleInputChange(event)}
                     />
                   </div>
@@ -119,7 +119,7 @@ class Unsubscribe extends Component {
                         Unsubscribe
                     </button>
                   </div>
-                  <div className="missing-input-message-container">
+                  <div className="unsubscribe-missing-input-message-container">
                     {this.state.displayMissingInput ?
                       <>
                         {this.state.displayMissingInput && this.displayMissingInputMessage()}
