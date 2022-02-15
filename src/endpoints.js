@@ -1,6 +1,6 @@
 const endpoints = {
   users: 'http://localhost:3001/api/v1/users',
-  /* POST to API:
+  /* POST newEmailSubscriber:
     REQUEST OBJECT:
       {
         first_name: 'string',
@@ -35,6 +35,17 @@ const endpoints = {
         success: "You have successfully unsubscribed from Mi Voto, Mi Voz's email list. You will no longer receive email notifications at #{user.email}."},
         status: 200
       }
+  */
+  unsubscribe: 'http://localhost:3001/api/v1/delete',
+  /* DELETE subscriber:
+    SUCCESS:
+    {
+      success: "You have successfully unsubscribed from Mi Voz, Mi Voto's email list. You will no longer receive email notifications at #{user.email}."
+    }
+    FAILURE:
+    {
+      error: "#{user.email} is not currently subscribed to receive election notifications."
+    }
   */
   elections: 'http://localhost:3001/api/v1/elections',
   /*
