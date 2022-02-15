@@ -75,17 +75,17 @@ class EmailNotificationForm extends Component {
         })
         .then(message => {
           this.setState({
-            isSubmitting: false,
             successMessage: message.success,
             failMessage: message.error,
-            error: null
+            error: null,
+            isSubmitting: false
           });
         })
         .catch(error => {
           this.setState({
-            isSubmitting: false,
             serverMessage: null,
-            error: error.message
+            error: error.message,
+            isSubmitting: false
           });
         })
 
