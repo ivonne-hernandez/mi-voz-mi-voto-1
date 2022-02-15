@@ -36,7 +36,7 @@ const endpoints = {
         status: 200
       }
   */
-  unsubscribe: 'http://localhost:3001/api/v1/delete',
+  delete: 'http://localhost:3001/api/v1/delete',
   /* DELETE subscriber:
     SUCCESS:
     {

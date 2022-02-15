@@ -13,7 +13,7 @@ export const postNewEmailSubscriber = (newEmailSubscriber) => {
 }
 
 export const deleteSubscriber = (email) => {
-  return fetch(endpoints.unsubscribe, {
+  return fetch(endpoints.delete, {
     mode: 'cors',
     method: 'DELETE',
     headers: {
