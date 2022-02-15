@@ -48,5 +48,6 @@
   "devs3.title": "Back-End Software Developer",
   "devs3.story": "Being a Latino myself, I wanted to help create a tool that encourages and helps people in my family to get out and vote.",
   "devs4.title": "Front-End Software Developer",
-  "devs4.story": "As a former volunteer coordinator & field organizer of local & national political campaigns, I have seen first hand the divide created by language barriers & technical challenges.  Working on this application allowed me to focus on creating a tool to help level the playing field of electoral politics."
+  "devs4.story": "As a former volunteer coordinator & field organizer of local & national political campaigns, I have seen first hand the divide created by language barriers & technical challenges.  Working on this application allowed me to focus on creating a tool to help level the playing field of electoral politics.",
+  "unsubscribe.missingInputMessage": "Please enter a valid email."
 }

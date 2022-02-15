@@ -48,5 +48,7 @@
   "devs3.title": "Desarrollador de Software",
   "devs3.story": "Siendo Latino quería ayudar a crear una herramienta que aliente y ayude a las personas de mi familia a salir y votar.",
   "devs4.title":  "Desarrolladora de Software",
-  "devs4.story": "Como ex coordinadora voluntaria y organizadora de campo de campañas políticas locales y nacionales, he visto de primera mano la división creada por las barreras del idioma y los desafíos técnicos. Trabajar en esta aplicación me permitió concentrarme en crear una herramienta para ayudar a nivelar el campo de juego de la política electoral."
+  "devs4.story": "Como ex coordinadora voluntaria y organizadora de campo de campañas políticas locales y nacionales, he visto de primera mano la división creada por las barreras del idioma y los desafíos técnicos. Trabajar en esta aplicación me permitió concentrarme en crear una herramienta para ayudar a nivelar el campo de juego de la política electoral.",
+  "unsubscribe.missingInputMessage": "Por favor introduzca un correo electrónico válido."
+
 }
