@@ -69,7 +69,7 @@ class EmailNotificationForm extends Component {
         .then(response => {
           this.setState({ isSubmitting: true });
           if (response.status !== 404 && response.status !== 200) {
-            throw new Error (`${response.status}: ${response.statusText}. Something has gone wrong, please try again.`)
+            throw new Error (`${response.status}: ${response.statusText}.`)
           }
           return response.json()
         })
@@ -83,7 +83,6 @@ class EmailNotificationForm extends Component {
         })
         .catch(error => {
           this.setState({
-            serverMessage: null,
             error: error.message,
             isSubmitting: false
           });
