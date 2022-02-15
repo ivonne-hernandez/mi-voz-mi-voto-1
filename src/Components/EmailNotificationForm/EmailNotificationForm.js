@@ -1,5 +1,5 @@
 import { FormattedMessage } from 'react-intl';
-import { Component, Fragment } from 'react';
+import { Component } from 'react';
 import './EmailNotificationForm.css';
 import Loading from '../Loading/Loading';
 import Error from '../Error/Error';
@@ -69,24 +69,23 @@ class EmailNotificationForm extends Component {
       postNewEmailSubscriber(newEmailSubscriber)
         .then(response => {
           this.setState({ isSubmitting: true });
-          if (response.status !== 400 && response.status !== 200) {
-            throw new Error (`${response.status}: ${response.statusText}. Something has gone wrong, please try again.`)
+          if (response.status !== 404 && response.status !== 200) {
+            throw new Error (`${response.status}: ${response.statusText}.`)
           }
           return response.json()
         })
         .then(message => {
           this.setState({
-            isSubmitting: false,
             successMessage: message.success,
             failMessage: message.error,
-            error: null
+            error: null,
+            isSubmitting: false
           });
         })
         .catch(error => {
           this.setState({
-            isSubmitting: false,
-            serverMessage: null,
-            error: error.message
+            error: error.message,
+            isSubmitting: false
           });
         })
 
@@ -190,11 +189,11 @@ class EmailNotificationForm extends Component {
             {this.state.error ? <Error error={this.state.error} /> :
               <form className="form-container">
                 <div className="form-header-container">
-                  <p className="form-header">
+                  <h2 className="form-header">
                     <FormattedMessage
                       id="emailNotificationForm.title"
                       defaultMessage="State Election Reminders" />
-                  </p>
+                  </h2>
                 </div>
                 <div className="form-content-container">
                   <div className="label-input-container">

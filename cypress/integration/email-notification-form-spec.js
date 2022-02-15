@@ -8,7 +8,7 @@ describe('Mi Voz, Mi Voto email notification form user flow', () => {
     cy.get('.en-espanol-button').select('English')
     cy.fixture('english.json').as('english').then((english) => {
       cy.get('form[class="form-container"]').should('have.length', 1)
-        .get('p[class="form-header"]').contains(english['emailNotificationForm.title'])
+        .get('h2[class="form-header"]').contains(english['emailNotificationForm.title'])
         .get('label[class="label"]').contains(english['emailNotificationForm.firstNameLabel'])
         .get('label[class="label"]').contains(english['emailNotificationForm.lastNameLabel'])
         .get('label[class="label"]').contains(english['emailNotificationForm.stateLabel'])
@@ -25,7 +25,7 @@ describe('Mi Voz, Mi Voto email notification form user flow', () => {
     cy.get('.en-espanol-button').select('Español')
     cy.fixture('spanish.json').as('spanish').then((spanish) => {
       cy.get('form[class="form-container"]').should('have.length', 1)
-        .get('p[class="form-header"]').contains(spanish['emailNotificationForm.title'])
+        .get('h2[class="form-header"]').contains(spanish['emailNotificationForm.title'])
         .get('label[class="label"]').contains(spanish['emailNotificationForm.firstNameLabel'])
         .get('label[class="label"]').contains(spanish['emailNotificationForm.lastNameLabel'])
         .get('label[class="label"]').contains(spanish['emailNotificationForm.stateLabel'])
