@@ -56,6 +56,24 @@ describe('Mi Voz, Mi Voto email notification form user flow', () => {
     })
   });
 
+  it('Should be given a list of fifty states upon selecting the dropdown menu', () => {
+    cy.get('#state_name option').then(options => {
+      const actual = [...options].map(option => option.value);
+      cy.fixture('states.json').as('states').then((states) => {
+        const statesValue = states.map(state => state.value)
+        expect(actual).to.deep.eq(statesValue)
+      })
+    })
+  });
+
+  it('Should allow the user to change their email language preference', () => {
+    cy.get('input[id=english]').click()
+      .get('input[id=english]').should('be.checked')
+      .get('input[id=spanish]').click()
+      .get('input[id=english]').should('not.be.checked')
+      .get('input[id=spanish]').should('be.checked')
+  });
+
   it('Should show a prompt, in English, if any of the required inputs are missing', () => {
     cy.get('.en-espanol-button').select('English')
     cy.fixture('user1.json').as('user1').then((user1) => {
@@ -171,46 +189,6 @@ describe('Mi Voz, Mi Voto email notification form user flow', () => {
     })
   });
 
-  it('Should be able to submit the form, see a confirmation message & related icon', () => {
-    cy.intercept('POST', 'http://localhost:3001/api/v1/users', (req) => {
-      req.reply({
-        statusCode: 200,
-        fixture: 'success.json'
-      })
-    }).as('successfulPost')
-
-    cy.fixture('user1.json').as('user1').then((user1) => {
-      cy.get('input[id=first_name]').type(user1.first_name)
-        .get('input[id=last_name]').type(user1.last_name)
-        .get('select[id=state_name]').select(user1.state_name)
-        .get('input[id=email]').type(user1.email)
-        .get('input[id=english]').click()
-        .get('input[id=agree_to_emails]').click()
-        .get('.submit-button').click()
-        .wait('@successfulPost')
-        .get('.success-message').should('contain', 'A confirmation email for state election reminders has been sent to ')
-        .get('.green').should('be.visible')
-    })
-  });
-
-  it('Should be given a list of fifty states upon selecting the dropdown menu', () => {
-    cy.get('#state_name option').then(options => {
-      const actual = [...options].map(option => option.value);
-      cy.fixture('states.json').as('states').then((states) => {
-        const statesValue = states.map(state => state.value)
-        expect(actual).to.deep.eq(statesValue)
-      })
-    })
-  });
-
-  it('Should allow the user to change their email language preference', () => {
-    cy.get('input[id=english]').click()
-      .get('input[id=english]').should('be.checked')
-      .get('input[id=spanish]').click()
-      .get('input[id=english]').should('not.be.checked')
-      .get('input[id=spanish]').should('be.checked')
-  });
-
   it('Should clear all inputs and selections once the form is submitted', () => {
     cy.intercept('POST', 'http://localhost:3001/api/v1/users', (req) => {
       req.reply({
@@ -237,7 +215,7 @@ describe('Mi Voz, Mi Voto email notification form user flow', () => {
     })
   });
 
-  it('Should display a loading image while the submitting the form', () => {
+  it('Should display a loading image while the form is submitting', () => {
     cy.intercept('POST', 'http://localhost:3001/api/v1/users', (req) => {
       req.reply({
         delay: 1000,
@@ -254,6 +232,30 @@ describe('Mi Voz, Mi Voto email notification form user flow', () => {
         .get('input[id=agree_to_emails]').click()
         .get('.submit-button').click()
         .get('.loading-icon').should('be.visible')
+    })
+  });
+
+  it('Should be able to submit the form, see a confirmation message & related icon', () => {
+    cy.intercept('POST', 'http://localhost:3001/api/v1/users', (req) => {
+      req.reply({
+        statusCode: 200,
+        fixture: 'success.json'
+      })
+    }).as('successfulPost')
+
+    cy.fixture('user1.json').as('user1').then((user1) => {
+      cy.get('input[id=first_name]').type(user1.first_name)
+        .get('input[id=last_name]').type(user1.last_name)
+        .get('select[id=state_name]').select(user1.state_name)
+        .get('input[id=email]').type(user1.email)
+        .get('input[id=english]').click()
+        .get('input[id=agree_to_emails]').click()
+        .get('.submit-button').click()
+        .wait('@successfulPost')
+      cy.fixture('success.json').as('success').then((success) => {
+        cy.get('.success-message').should('contain', success.success)
+          .get('.green').should('be.visible')
+      })
     })
   });
 
