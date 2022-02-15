@@ -1,6 +1,7 @@
 describe('Mi Voz, Mi Voto main page user flow', () => {
   beforeEach(() => {
     cy.checkPageA11y('/')
+    cy.get('.en-espanol-button').select('English')
   });
 
   it('Should see a header with a title and related icon', () => {
@@ -8,9 +9,23 @@ describe('Mi Voz, Mi Voto main page user flow', () => {
       .get('.vote-image').should('be.visible')
   });
 
-  it('Should see a link to Our Story and En Espanol & the paths should update when clicked', () => {
+  it('Should see a link to \'Our Story\' the path should update when clicked', () => {
     cy.get('.our-story-button').click()
       .url().should('include', 'our-story')
+      .get('.en-espanol-button').select('en')
+  });
+
+  it('Should see a selector which changes languages between english & spanish', () => {
+    cy.fixture('english.json').as('english').then((english) => {
+      cy.get('.en-espanol-button').select('English')
+        .get('.en-espanol-button').should('have.value', 'en')
+        .get('.app-name').should('contain', english['header.appName'])
+    })
+    cy.fixture('spanish.json').as('spanish').then((spanish) => {
+      cy.get('.en-espanol-button').select('Español')
+        .get('.en-espanol-button').should('have.value', 'es')
+        .get('.app-name').should('contain', spanish['header.appName'])
+    })
   });
 
   it('Should be able to visit each card, click the links in the list & the path should update', () => {
