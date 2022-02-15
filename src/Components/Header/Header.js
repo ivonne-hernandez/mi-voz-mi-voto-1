@@ -11,22 +11,22 @@ const Header = ()  => {
 
   return (
     <header className="header-container">
-      <img 
-        className="vote-image" 
-        src={voteImage} 
+      <img
+        className="vote-image"
+        src={voteImage}
         alt="vote"
         role="button"
         focusable="true"
         onClick={() => navigate('/')} />
       <Link to="/">
         <h1 className="app-name">
-          <FormattedMessage 
+          <FormattedMessage
             id="header.appName"
             defaultMessage="My Voice, My Vote"
           />
         </h1>
       </Link>
-      <button 
+      <button
         className="our-story-button header-button"
         onClick={() => navigate('/our-story')}>
         <FormattedMessage
@@ -35,11 +35,14 @@ const Header = ()  => {
         />
       </button>
       <select
+        name="language-select"
+        id="language-select"
         className="en-espanol-button header-button"
+        aria-label="select a language"
         value={context.locale}
         onChange={context.selectLanguage}>
-          <option value="en">English</option>
-          <option value="es">Español</option>
+          <option name="english" value="en">English</option>
+          <option name="español" value="es">Español</option>
       </select>
     </header>
   );
