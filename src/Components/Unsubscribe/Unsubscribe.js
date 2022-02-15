@@ -1,3 +1,4 @@
+import { FormattedMessage } from 'react-intl';
 import { Component } from 'react';
 import { deleteSubscriber } from '../../apiCalls.js';
 import Loading from '../Loading/Loading';
@@ -25,7 +26,11 @@ class Unsubscribe extends Component {
 
   displayMissingInputMessage = () => {
     if (!this.validateEmail()) {
-      return <p className="unsubscribe-missing-input-message">Please enter a valid email.</p>;
+      return <p className="unsubscribe-missing-input-message">
+          <FormattedMessage
+            id="unsubscribe.missingInputMessage"
+            defaultMessage="Please enter a valid email." />
+        </p>;
     }
   }
 
