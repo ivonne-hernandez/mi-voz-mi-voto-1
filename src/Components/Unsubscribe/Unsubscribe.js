@@ -27,10 +27,10 @@ class Unsubscribe extends Component {
   displayMissingInputMessage = () => {
     if (!this.validateEmail()) {
       return <p className="unsubscribe-missing-input-message">
-          <FormattedMessage
-            id="unsubscribe.missingInputMessage"
-            defaultMessage="Please enter a valid email." />
-        </p>;
+        <FormattedMessage
+          id="unsubscribe.missingInputMessage"
+          defaultMessage="Please enter a valid email." />
+      </p>;
     }
   }
 
@@ -43,7 +43,7 @@ class Unsubscribe extends Component {
     this.setState({ displayMissingInput: true })
     if (this.validateEmail()) {
       this.setState({ displayMissingInput: false });
-      
+
       const email = {
         email: this.state.email
       }
@@ -51,7 +51,7 @@ class Unsubscribe extends Component {
       deleteSubscriber(email)
         .then(response => {
           this.setState({ isSubmitting: true });
-          if(!response.ok) {
+          if (response.status !== 404 && response.status !== 200) {
             throw new Error(`${response.status}: ${response.statusText}.`)
           }
           return response.json();
@@ -67,6 +67,8 @@ class Unsubscribe extends Component {
         .catch(error => {
           this.setState({
             error: error.message,
+            isSubmitting: false,
+            failMessage: null,
             isSubmitting: false
           });
         })
