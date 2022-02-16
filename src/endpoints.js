@@ -41,7 +41,7 @@ const endpoints = {
         status: 200
       }
   */
-  delete: 'https://mi-voz-api.herokuapp.com/api/v1/delete',
+  delete: 'https://mi-voz-api.herokuapp.com/api/v1/users',
   /* DELETE subscriber:
     SUCCESS:
     {
