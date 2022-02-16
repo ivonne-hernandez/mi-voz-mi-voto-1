@@ -52,5 +52,7 @@
   "unsubscribe.missingInputMessage": "Por favor introduzca un correo electrónico válido.",
   "unsubscribe.formHeader": "Cancelar Notificaciones de Elecciones",
   "unsubscribe.emailLabel": "Correo electrónico",
-  "unsubscribe.button": "Cancelar"
+  "unsubscribe.button": "Cancelar",
+  "pageNotFound.message": "Lo sentimos, parece que no podemos encontrar la página que está buscando. Intente de nuevo.",
+  "pageNotFound.button": "Página Principal"
 }
