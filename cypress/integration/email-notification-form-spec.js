@@ -296,16 +296,16 @@ describe('Mi Voz, Mi Voto email notification form user flow', () => {
         .wait('@getServerFailure')
     })
 
-
     cy.fixture('english.json').as('english').then((english) => {
       cy.get('.error-image').should('be.visible')
-        .get('h3[class=error-text]').should('contain', english['pageNotFound.message'])
+        .get('h3[class=error-text]').should('contain', english['error.sorryMessage'])
         .get('button').should('contain', english['pageNotFound.button'])
     })
 
+    cy.get('.en-espanol-button').select('Español')
     cy.fixture('spanish.json').as('spanish').then((spanish) => {
       cy.get('.error-image').should('be.visible')
-        .get('h3[class=error-text]').should('contain', spanish['pageNotFound.message'])
+        .get('h3[class=error-text]').should('contain', spanish['error.sorryMessage'])
         .get('button').should('contain', spanish['pageNotFound.button'])
     })
 

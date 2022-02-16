@@ -79,22 +79,21 @@ describe('Mi Voz, Mi Voto main page user flow', () => {
 
   it('Should display \'404 page not found\' in English & Spanish if the user types in a wrong URL & should be able to navigate to the main page', () => {
     cy.visit('/squirrels')
-      .get('img').should('be.visible')
-      .fixture('english.json').as('english').then((english) => {
-        .get('h2').should('contain', english['error.sorryMessage'])
-        .get('.page-not-found-container')
-        .get('button').contains('Home').click()
-        .url().should('contain', '/')
-      })
+    cy.get('.en-espanol-button').select('English')
+    cy.fixture('english.json').as('english').then((english) => {
+        cy.get('h2').should('contain', english['pageNotFound.message'])
+          .get('.page-not-found-container')
+          .get('button').contains(english['pageNotFound.button']).click()
+          .url().should('contain', '/')
+    })
 
+    cy.visit('/squirrels')
     cy.get('.en-espanol-button').select('Español')
-      .visit('/squirrels')
-      .get('img').should('be.visible')
-      .fixture('spanish.json').as('spanish').then((spanish) => {
-        .get('h2').should('contain', spanish['error.sorryMessage'])
-        .get('.page-not-found-container')
-        .get('button').contains('Home').click()
-        .url().should('contain', '/')
-      })
+    cy.fixture('spanish.json').as('spanish').then((spanish) => {
+        cy.get('h2').should('contain', spanish['pageNotFound.message'])
+          .get('.page-not-found-container')
+          .get('button').contains(spanish['pageNotFound.button']).click()
+          .url().should('contain', '/')
+    })
   });
 })
