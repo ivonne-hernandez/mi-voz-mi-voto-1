@@ -52,5 +52,8 @@
   "unsubscribe.missingInputMessage": "Please enter a valid email.",
   "unsubscribe.formHeader": "Unsubscribe from Election Reminders",
   "unsubscribe.emailLabel": "Email Address",
-  "unsubscribe.button": "Unsubscribe"
+  "unsubscribe.button": "Unsubscribe",
+  "pageNotFound.message": "Sorry, we can't seem to find the page you're looking for, please try again.",
+  "pageNotFound.button": "Home",
+  "error.sorryMessage": "We're sorry, please try again."
 }
