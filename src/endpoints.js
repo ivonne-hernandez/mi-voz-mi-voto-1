@@ -4,7 +4,7 @@
 // https://mi-voz-mi-voto.herokuapp.com/
 
 const endpoints = {
-  users: 'http://localhost:3001/api/v1/users',
+  users: 'https://mi-voz-api.herokuapp.com/api/v1/users',
   /* POST newEmailSubscriber:
     REQUEST OBJECT:
       {
@@ -41,7 +41,7 @@ const endpoints = {
         status: 200
       }
   */
-  delete: 'http://localhost:3001/api/v1/delete',
+  delete: 'https://mi-voz-api.herokuapp.com/api/v1/delete',
   /* DELETE subscriber:
     SUCCESS:
     {
@@ -52,12 +52,12 @@ const endpoints = {
       error: "#{user.email} is not currently subscribed to receive election notifications."
     }
   */
-  elections: 'http://localhost:3001/api/v1/elections',
+  elections: 'https://mi-voz-api.herokuapp.com/api/v1/elections',
   /*
     QUERY PARAMS? LOCATION? STATE?  I.E. CO?
   */
-  referendums: 'http://localhost:3001/api/v1/referendums',
-  state: 'http://localhost:3001/api/v1/state'
+  referendums: 'https://mi-voz-api.herokuapp.com/api/v1/referendums',
+  state: 'https://mi-voz-api.herokuapp.com/api/v1/state'
 }
 
 export default endpoints;
