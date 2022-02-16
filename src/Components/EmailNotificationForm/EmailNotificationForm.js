@@ -172,7 +172,7 @@ class EmailNotificationForm extends Component {
 
     const stateOptions = states.map(state => {
       return (
-        <option className="state-name-option" name="state_name" value={state.value} key={state.label}>
+        <option className="state-name-option" name="state_name" value={state.label} key={state.label}>
           {state.label}
         </option>
       );
