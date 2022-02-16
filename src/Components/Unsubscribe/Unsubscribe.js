@@ -68,8 +68,7 @@ class Unsubscribe extends Component {
           this.setState({
             error: error.message,
             isSubmitting: false,
-            failMessage: null,
-            isSubmitting: false
+            failMessage: null
           });
         })
 
