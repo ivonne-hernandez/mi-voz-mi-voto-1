@@ -85,6 +85,8 @@ class EmailNotificationForm extends Component {
         .catch(error => {
           this.setState({
             error: error.message,
+            successMessage: null,
+            failMessage: null,
             isSubmitting: false
           });
         })

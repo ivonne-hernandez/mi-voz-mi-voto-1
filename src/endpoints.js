@@ -1,3 +1,8 @@
+// 🌎 BACKEND DEPLOYED LINK ⬇️
+// https://mi-voz-api.herokuapp.com/
+// 🌎 FRONTEND DEPLOYED LINK ⬇️
+// https://mi-voz-mi-voto.herokuapp.com/
+
 const endpoints = {
   users: 'http://localhost:3001/api/v1/users',
   /* POST newEmailSubscriber:
