@@ -43,7 +43,7 @@ class Unsubscribe extends Component {
     this.setState({ displayMissingInput: true })
     if (this.validateEmail()) {
       this.setState({ displayMissingInput: false });
-      
+
       const email = {
         email: this.state.email
       }
