@@ -13,6 +13,11 @@ const Error = ({ error }) => {
           defaultMessage="We're sorry, please try again." />
       </h3>
       <h4 className="error-text">{error}</h4>
+      <button onClick={() => navigate('/')}>
+        <FormattedMessage
+          id="pageNotFound.button"
+          defaultMessage="Home" />
+      </button>
     </div>
   );
 }

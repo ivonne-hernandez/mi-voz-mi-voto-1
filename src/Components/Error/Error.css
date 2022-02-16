@@ -16,3 +16,17 @@
   font-size: 2rem;
   color: #FD3535;
 }
+
+.error-container > button {
+  background-color: #e31c3d;
+  font-size: 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  width: 150px;
+  color: white;
+  border: 0px;
+}
+
+.error-container > button:hover {
+  background-color: #2E538E;
+}
