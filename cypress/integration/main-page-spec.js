@@ -81,11 +81,20 @@ describe('Mi Voz, Mi Voto main page user flow', () => {
     cy.visit('/squirrels')
       .get('img').should('be.visible')
       .fixture('english.json').as('english').then((english) => {
-        .get('h2').should('contain', 'Sorry, we can\'t seem to find the page you\'re looking for, please try again.')
+        .get('h2').should('contain', english['error.sorryMessage'])
+        .get('.page-not-found-container')
+        .get('button').contains('Home').click()
+        .url().should('contain', '/')
       })
 
-      .get('.page-not-found-container')
-      .get('button').contains('Home').click()
-      .url().should('contain', '/')
+    cy.get('.en-espanol-button').select('Español')
+      .visit('/squirrels')
+      .get('img').should('be.visible')
+      .fixture('spanish.json').as('spanish').then((spanish) => {
+        .get('h2').should('contain', spanish['error.sorryMessage'])
+        .get('.page-not-found-container')
+        .get('button').contains('Home').click()
+        .url().should('contain', '/')
+      })
   });
 })
