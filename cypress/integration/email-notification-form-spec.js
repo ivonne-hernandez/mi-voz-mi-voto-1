@@ -235,7 +235,7 @@ describe('Mi Voz, Mi Voto email notification form user flow', () => {
     })
   });
 
-  it('Should be able to submit the form, see a confirmation message & related icon', () => {
+  it('Should be able to submit the form, see a related icon, and a confirmation message in English', () => {
     cy.intercept('POST', 'http://localhost:3001/api/v1/users', (req) => {
       req.reply({
         statusCode: 200,
@@ -248,7 +248,7 @@ describe('Mi Voz, Mi Voto email notification form user flow', () => {
         .get('input[id=last_name]').type(user1.last_name)
         .get('select[id=state_name]').select(user1.state_name)
         .get('input[id=email]').type(user1.email)
-        .get('input[id=english]').click()
+        .get(`input[value=${user1.language}]`).click()
         .get('input[id=agree_to_emails]').click()
         .get('.submit-button').click()
         .wait('@successfulPost')
@@ -259,7 +259,32 @@ describe('Mi Voz, Mi Voto email notification form user flow', () => {
     })
   });
 
-  it('Should display an error message & related icon if the email is already subscribed', () => {
+  it('Should be able to submit the form, see a related icon, and a confirmation message in Spanish', () => {
+    cy.intercept('POST', 'http://localhost:3001/api/v1/users', (req) => {
+      req.reply({
+        statusCode: 200,
+        fixture: 'successES.json'
+      })
+    }).as('successfulPostES')
+
+    cy.get('.en-espanol-button').select('Español')
+    cy.fixture('user2.json').as('user2').then((user2) => {
+      cy.get('input[id=first_name]').type(user2.first_name)
+        .get('input[id=last_name]').type(user2.last_name)
+        .get('select[id=state_name]').select(user2.state_name)
+        .get('input[id=email]').type(user2.email)
+        .get(`input[value=${user2.language}]`).click()
+        .get('input[id=agree_to_emails]').click()
+        .get('.submit-button').click()
+        .wait('@successfulPostES')
+      cy.fixture('successES.json').as('successES').then((successES) => {
+        cy.get('.success-message').should('contain', successES.success)
+          .get('.green').should('be.visible')
+      })
+    })
+  });
+
+  it('Should display an icon & error message in English if the email is already subscribed', () => {
     cy.intercept('POST', 'http://localhost:3001/api/v1/users', (req) => {
       req.reply({
         fixture: 'errorDuplicate.json'
@@ -271,12 +296,36 @@ describe('Mi Voz, Mi Voto email notification form user flow', () => {
         .get('input[id=last_name]').type(user1.last_name)
         .get('select[id=state_name]').select(user1.state_name)
         .get('input[id=email]').type(user1.email)
-        .get('input[id=english]').click()
+        .get(`input[value=${user1.language}]`).click()
         .get('input[id=agree_to_emails]').click()
         .get('.submit-button').click()
         .wait('@duplicatePost')
       cy.fixture('errorDuplicate.json').as('errorDuplicate').then((errorDuplicate) => {
         cy.get('.fail-message').should('contain', errorDuplicate.error)
+          .get('.red').should('be.visible')
+      })
+    })
+  });
+
+  it('Should display an icon & error message in Spanish if the email is already subscribed', () => {
+    cy.intercept('POST', 'http://localhost:3001/api/v1/users', (req) => {
+      req.reply({
+        fixture: 'errorDuplicateES.json'
+      })
+    }).as('duplicatePostES')
+
+    cy.get('.en-espanol-button').select('Español')
+    cy.fixture('user2.json').as('user2').then((user2) => {
+      cy.get('input[id=first_name]').type(user2.first_name)
+        .get('input[id=last_name]').type(user2.last_name)
+        .get('select[id=state_name]').select(user2.state_name)
+        .get('input[id=email]').type(user2.email)
+        .get(`input[value=${user2.language}]`).click()
+        .get('input[id=agree_to_emails]').click()
+        .get('.submit-button').click()
+        .wait('@duplicatePostES')
+      cy.fixture('errorDuplicateES.json').as('errorDuplicateES').then((errorDuplicateES) => {
+        cy.get('.fail-message').should('contain', errorDuplicateES.error)
           .get('.red').should('be.visible')
       })
     })
