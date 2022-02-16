@@ -5,7 +5,7 @@ const endpoints = {
       {
         first_name: 'string',
         last_name: 'string',
-        state_name: 'string', ** two letter state abbv **
+        state_name: 'string', ** 'Colorado' or 'Maine'**
         email: 'string',
         language: 'string' ** 'en' or 'es' **
       }
