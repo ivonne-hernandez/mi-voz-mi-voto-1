@@ -295,6 +295,19 @@ describe('Mi Voz, Mi Voto email notification form user flow', () => {
         .get('.submit-button').click()
         .wait('@getServerFailure')
     })
-    cy.get('.error-text').should('contain', 'We\'re sorry, please try again.')
+
+
+    cy.fixture('english.json').as('english').then((english) => {
+      cy.get('.error-image').should('be.visible')
+        .get('h3[class=error-text]').should('contain', english['pageNotFound.message'])
+        .get('button').should('contain', english['pageNotFound.button'])
+    })
+
+    cy.fixture('spanish.json').as('spanish').then((spanish) => {
+      cy.get('.error-image').should('be.visible')
+        .get('h3[class=error-text]').should('contain', spanish['pageNotFound.message'])
+        .get('button').should('contain', spanish['pageNotFound.button'])
+    })
+
   });
 })
