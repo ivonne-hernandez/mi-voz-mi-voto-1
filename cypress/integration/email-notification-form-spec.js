@@ -1,20 +1,41 @@
 describe('Mi Voz, Mi Voto email notification form user flow', () => {
   beforeEach(() => {
     cy.checkPageA11y('/get-notifications')
+    cy.get('.en-espanol-button').select('English')
   });
 
-  it('Should include text-based labels for each input', () => {
-    cy.get('form[class="form-container"]').should('have.length', 1)
-      .get('h2[class="form-header"]').contains('State Election Reminders')
-      .get('label[class="label"]').contains('First Name')
-      .get('label[class="label"]').contains('Last Name')
-      .get('label[class="label"]').contains('State')
-      .get('label[class="label"]').contains('Email address')
-      .get('label[class="preferred-lang-p label"]').contains('Preferred language')
-      .get('label[class="label-radio"]').contains('English')
-      .get('label[class="label-radio"]').contains('Spanish')
-      .get('label[class="agree-to-emails-checkbox label"]').contains('Sign up for email notifications about upcoming elections in my state.')
-      .get('button[class="submit-button"]').should('contain', 'Submit')
+  it('Should include text-based labels for each input in English', () => {
+    cy.get('.en-espanol-button').select('English')
+    cy.fixture('english.json').as('english').then((english) => {
+      cy.get('form[class="form-container"]').should('have.length', 1)
+        .get('h2[class="form-header"]').contains(english['emailNotificationForm.title'])
+        .get('label[class="label"]').contains(english['emailNotificationForm.firstNameLabel'])
+        .get('label[class="label"]').contains(english['emailNotificationForm.lastNameLabel'])
+        .get('label[class="label"]').contains(english['emailNotificationForm.stateLabel'])
+        .get('label[class="label"]').contains(english['emailNotificationForm.emailLabel'])
+        .get('label[class="preferred-lang-p label"]').contains(english['emailNotificationForm.preferredLanguageLabel'])
+        .get('label[class="label-radio"]').contains(english['emailNotificationForm.englishLabel'])
+        .get('label[class="label-radio"]').contains(english['emailNotificationForm.englishLabel'])
+        .get('label[class="agree-to-emails-checkbox label"]').contains(english['emailNotificationForm.agreeToEmailsMessage'])
+        .get('button[class="submit-button"]').should('contain', english['emailNotificationForm.submitButton'])
+    })
+  });
+
+  it('Should include text-based labels for each input in Spanish', () => {
+    cy.get('.en-espanol-button').select('Español')
+    cy.fixture('spanish.json').as('spanish').then((spanish) => {
+      cy.get('form[class="form-container"]').should('have.length', 1)
+        .get('h2[class="form-header"]').contains(spanish['emailNotificationForm.title'])
+        .get('label[class="label"]').contains(spanish['emailNotificationForm.firstNameLabel'])
+        .get('label[class="label"]').contains(spanish['emailNotificationForm.lastNameLabel'])
+        .get('label[class="label"]').contains(spanish['emailNotificationForm.stateLabel'])
+        .get('label[class="label"]').contains(spanish['emailNotificationForm.emailLabel'])
+        .get('label[class="preferred-lang-p label"]').contains(spanish['emailNotificationForm.preferredLanguageLabel'])
+        .get('label[class="label-radio"]').contains(spanish['emailNotificationForm.englishLabel'])
+        .get('label[class="label-radio"]').contains(spanish['emailNotificationForm.spanishLabel'])
+        .get('label[class="agree-to-emails-checkbox label"]').contains(spanish['emailNotificationForm.agreeToEmailsMessage'])
+        .get('button[class="submit-button"]').should('contain', spanish['emailNotificationForm.submitButton'])
+    })
   });
 
   it('Should be able to input a first name, last name, email & select a state, language, and confirm subscription', () => {
@@ -35,85 +56,11 @@ describe('Mi Voz, Mi Voto email notification form user flow', () => {
     })
   });
 
-  it('Should show a prompt if any of the required inputs are missing', () => {
-    cy.fixture('user1.json').as('user1').then((user1) => {
-      cy.get('.submit-button').click()
-        .get('.missing-input-message-container').should('contain', 'Please enter your first and last name.')
-        .get('input[id=first_name]').type(user1.first_name)
-        .get('.submit-button').click()
-        .get('.missing-input-message-container').should('contain', 'Please enter your first and last name.')
-        .get('input[id=last_name]').type(user1.last_name)
-        .get('.submit-button').click()
-        .get('.missing-input-message-container').should('contain', 'Please select a state.')
-        .get('select[id=state_name]').select(user1.state_name)
-        .get('.submit-button').click()
-        .get('.missing-input-message-container').should('contain', 'Please enter a valid email.')
-        .get('input[id=email]').type(user1.email)
-        .get('.submit-button').click()
-        .get('.missing-input-message-container').should('contain', 'Please select your preferred language.')
-        .get('input[id=english]').click()
-        .get('.submit-button').click()
-        .get('.missing-input-message-container').should('contain', 'Please check the "Sign up for email notifications" box.')
-        .get('input[id=agree_to_emails]').click()
-    })
-  });
-
-  it('Should remove the missing input messages as soon as the user starts to fill it in', () => {
-    cy.fixture('user1.json').as('user1').then((user1) => {
-      cy.get('.submit-button').click()
-        .get('.missing-input-message-container').should('contain', 'Please enter your first and last name.')
-        .get('input[id=first_name]').type(user1.first_name)
-        .get('.missing-input-message').should('contain', '')
-        .get('.submit-button').click()
-        .get('.missing-input-message-container').should('contain', 'Please enter your first and last name.')
-        .get('input[id=last_name]').type(user1.last_name)
-        .get('.missing-input-message').should('contain', '')
-        .get('.submit-button').click()
-        .get('.missing-input-message-container').should('contain', 'Please select a state.')
-        .get('select[id=state_name]').select(user1.state_name)
-        .get('.missing-input-message').should('contain', '')
-        .get('.submit-button').click()
-        .get('.missing-input-message-container').should('contain', 'Please enter a valid email.')
-        .get('input[id=email]').type(user1.email)
-        .get('.missing-input-message').should('contain', '')
-        .get('.submit-button').click()
-        .get('.missing-input-message-container').should('contain', 'Please select your preferred language.')
-        .get('input[id=english]').click()
-        .get('.missing-input-message').should('contain', '')
-        .get('.submit-button').click()
-        .get('.missing-input-message-container').should('contain', 'Please check the "Sign up for email notifications" box.')
-        .get('input[id=agree_to_emails]').click()
-        .get('.missing-input-message-container').should('contain', '')
-      })
-  });
-
-  it('Should be able to submit the form, see a confirmation message & related icon', () => {
-    cy.intercept('POST', 'http://localhost:3001/api/v1/users', (req) => {
-      req.reply({
-        statusCode: 200,
-        fixture: 'success.json'
-      })
-    }).as('successfulPost')
-
-    cy.fixture('user1.json').as('user1').then((user1) => {
-      cy.get('input[id=first_name]').type(user1.first_name)
-        .get('input[id=last_name]').type(user1.last_name)
-        .get('select[id=state_name]').select(user1.state_name)
-        .get('input[id=email]').type(user1.email)
-        .get('input[id=english]').click()
-        .get('input[id=agree_to_emails]').click()
-        .get('.submit-button').click()
-        .wait('@successfulPost')
-        .get('.success-message').should('contain', 'A confirmation email for state election reminders has been sent to ')
-        .get('.green').should('be.visible')
-    })
-  });
-
   it('Should be given a list of fifty states upon selecting the dropdown menu', () => {
     cy.get('#state_name option').then(options => {
-      const actual = [...options].map(option => option.value);
+      const actual = [...options].map(option => option.label);
       cy.fixture('states.json').as('states').then((states) => {
-        const statesValue = states.map(state => state.value)
+        const statesValue = states.map(state => state.label)
         expect(actual).to.deep.eq(statesValue)
       })
     })
@@ -125,6 +72,121 @@ describe('Mi Voz, Mi Voto email notification form user flow', () => {
       .get('input[id=spanish]').click()
       .get('input[id=english]').should('not.be.checked')
       .get('input[id=spanish]').should('be.checked')
+  });
+
+  it('Should show a prompt, in English, if any of the required inputs are missing', () => {
+    cy.get('.en-espanol-button').select('English')
+    cy.fixture('user1.json').as('user1').then((user1) => {
+      cy.fixture('english.json').as('english').then((english) => {
+        cy.get('.submit-button').click()
+          .get('.missing-input-message-container').should('contain', english['emailNotificationForm.missingNames'])
+          .get('input[id=first_name]').type(user1.first_name)
+          .get('.submit-button').click()
+          .get('.missing-input-message-container').should('contain', english['emailNotificationForm.missingNames'])
+          .get('input[id=last_name]').type(user1.last_name)
+          .get('.submit-button').click()
+          .get('.missing-input-message-container').should('contain', english['emailNotificationForm.missingState'])
+          .get('select[id=state_name]').select(user1.state_name)
+          .get('.submit-button').click()
+          .get('.missing-input-message-container').should('contain', english['emailNotificationForm.missingEmail'])
+          .get('input[id=email]').type(user1.email)
+          .get('.submit-button').click()
+          .get('.missing-input-message-container').should('contain', english['emailNotificationForm.missingLanguage'])
+          .get('input[id=english]').click()
+          .get('.submit-button').click()
+          .get('.missing-input-message-container').should('contain', english['emailNotificationForm.missingCheckbox'])
+          .get('input[id=agree_to_emails]').click()
+      })
+    })
+  });
+
+  it('Should show a prompt, in Spanish, if any of the required inputs are missing', () => {
+    cy.get('.en-espanol-button').select('Español')
+    cy.fixture('user1.json').as('user1').then((user1) => {
+      cy.fixture('spanish.json').as('spanish').then((spanish) => {
+        cy.get('.submit-button').click()
+          .get('.missing-input-message-container').should('contain', spanish['emailNotificationForm.missingNames'])
+          .get('input[id=first_name]').type(user1.first_name)
+          .get('.submit-button').click()
+          .get('.missing-input-message-container').should('contain', spanish['emailNotificationForm.missingNames'])
+          .get('input[id=last_name]').type(user1.last_name)
+          .get('.submit-button').click()
+          .get('.missing-input-message-container').should('contain', spanish['emailNotificationForm.missingState'])
+          .get('select[id=state_name]').select(user1.state_name)
+          .get('.submit-button').click()
+          .get('.missing-input-message-container').should('contain', spanish['emailNotificationForm.missingEmail'])
+          .get('input[id=email]').type(user1.email)
+          .get('.submit-button').click()
+          .get('.missing-input-message-container').should('contain', spanish['emailNotificationForm.missingLanguage'])
+          .get('input[id=spanish]').click()
+          .get('.submit-button').click()
+          .get('.missing-input-message-container').should('contain', spanish['emailNotificationForm.missingCheckbox'])
+          .get('input[id=agree_to_emails]').click()
+      })
+    })
+  });
+
+  it('Should remove the English language missing input messages as soon as the user starts to fill it in', () => {
+    cy.fixture('user1.json').as('user1').then((user1) => {
+      cy.fixture('english.json').as('english').then((english) => {
+        cy.get('.submit-button').click()
+          .get('.missing-input-message-container').should('contain', english['emailNotificationForm.missingNames'])
+          .get('input[id=first_name]').type(user1.first_name)
+          .get('.missing-input-message').should('contain', '')
+          .get('.submit-button').click()
+          .get('.missing-input-message-container').should('contain', english['emailNotificationForm.missingNames'])
+          .get('input[id=last_name]').type(user1.last_name)
+          .get('.missing-input-message').should('contain', '')
+          .get('.submit-button').click()
+          .get('.missing-input-message-container').should('contain', english['emailNotificationForm.missingState'])
+          .get('select[id=state_name]').select(user1.state_name)
+          .get('.missing-input-message').should('contain', '')
+          .get('.submit-button').click()
+          .get('.missing-input-message-container').should('contain', english['emailNotificationForm.missingEmail'])
+          .get('input[id=email]').type(user1.email)
+          .get('.missing-input-message').should('contain', '')
+          .get('.submit-button').click()
+          .get('.missing-input-message-container').should('contain', english['emailNotificationForm.missingLanguage'])
+          .get('input[id=english]').click()
+          .get('.missing-input-message').should('contain', '')
+          .get('.submit-button').click()
+          .get('.missing-input-message-container').should('contain', english['emailNotificationForm.missingCheckbox'])
+          .get('input[id=agree_to_emails]').click()
+          .get('.missing-input-message-container').should('contain', '')
+      })
+    })
+  });
+
+  it('Should remove the Spanish language missing input messages as soon as the user starts to fill it in', () => {
+    cy.get('.en-espanol-button').select('Español')
+    cy.fixture('user1.json').as('user1').then((user1) => {
+      cy.fixture('spanish.json').as('spanish').then((spanish) => {
+        cy.get('.submit-button').click()
+          .get('.missing-input-message-container').should('contain', spanish['emailNotificationForm.missingNames'])
+          .get('input[id=first_name]').type(user1.first_name)
+          .get('.missing-input-message').should('contain', '')
+          .get('.submit-button').click()
+          .get('.missing-input-message-container').should('contain', spanish['emailNotificationForm.missingNames'])
+          .get('input[id=last_name]').type(user1.last_name)
+          .get('.missing-input-message').should('contain', '')
+          .get('.submit-button').click()
+          .get('.missing-input-message-container').should('contain', spanish['emailNotificationForm.missingState'])
+          .get('select[id=state_name]').select(user1.state_name)
+          .get('.missing-input-message').should('contain', '')
+          .get('.submit-button').click()
+          .get('.missing-input-message-container').should('contain', spanish['emailNotificationForm.missingEmail'])
+          .get('input[id=email]').type(user1.email)
+          .get('.missing-input-message').should('contain', '')
+          .get('.submit-button').click()
+          .get('.missing-input-message-container').should('contain', spanish['emailNotificationForm.missingLanguage'])
+          .get('input[id=english]').click()
+          .get('.missing-input-message').should('contain', '')
+          .get('.submit-button').click()
+          .get('.missing-input-message-container').should('contain', spanish['emailNotificationForm.missingCheckbox'])
+          .get('input[id=agree_to_emails]').click()
+          .get('.missing-input-message-container').should('contain', '')
+      })
+    })
   });
 
   it('Should clear all inputs and selections once the form is submitted', () => {
@@ -153,7 +215,7 @@ describe('Mi Voz, Mi Voto email notification form user flow', () => {
     })
   });
 
-  it('Should display a loading image while the submitting the form', () => {
+  it('Should display a loading image while the form is submitting', () => {
     cy.intercept('POST', 'http://localhost:3001/api/v1/users', (req) => {
       req.reply({
         delay: 1000,
@@ -173,6 +235,30 @@ describe('Mi Voz, Mi Voto email notification form user flow', () => {
     })
   });
 
+  it('Should be able to submit the form, see a confirmation message & related icon', () => {
+    cy.intercept('POST', 'http://localhost:3001/api/v1/users', (req) => {
+      req.reply({
+        statusCode: 200,
+        fixture: 'success.json'
+      })
+    }).as('successfulPost')
+
+    cy.fixture('user1.json').as('user1').then((user1) => {
+      cy.get('input[id=first_name]').type(user1.first_name)
+        .get('input[id=last_name]').type(user1.last_name)
+        .get('select[id=state_name]').select(user1.state_name)
+        .get('input[id=email]').type(user1.email)
+        .get('input[id=english]').click()
+        .get('input[id=agree_to_emails]').click()
+        .get('.submit-button').click()
+        .wait('@successfulPost')
+      cy.fixture('success.json').as('success').then((success) => {
+        cy.get('.success-message').should('contain', success.success)
+          .get('.green').should('be.visible')
+      })
+    })
+  });
+
   it('Should display an error message & related icon if the email is already subscribed', () => {
     cy.intercept('POST', 'http://localhost:3001/api/v1/users', (req) => {
       req.reply({
@@ -189,8 +275,10 @@ describe('Mi Voz, Mi Voto email notification form user flow', () => {
         .get('input[id=agree_to_emails]').click()
         .get('.submit-button').click()
         .wait('@duplicatePost')
-        .get('.fail-message').should('contain', `${user1.email} is already subscribed to receive election notifications.`)
-        .get('.red').should('be.visible')
+      cy.fixture('errorDuplicate.json').as('errorDuplicate').then((errorDuplicate) => {
+        cy.get('.fail-message').should('contain', errorDuplicate.error)
+          .get('.red').should('be.visible')
+      })
     })
   });
 
@@ -207,6 +295,19 @@ describe('Mi Voz, Mi Voto email notification form user flow', () => {
         .get('.submit-button').click()
         .wait('@getServerFailure')
     })
-    cy.get('.error-text').should('contain', 'We\'re sorry, please try again.')
+
+    cy.fixture('english.json').as('english').then((english) => {
+      cy.get('.error-image').should('be.visible')
+        .get('h3[class=error-text]').should('contain', english['error.sorryMessage'])
+        .get('button').should('contain', english['pageNotFound.button'])
+    })
+
+    cy.get('.en-espanol-button').select('Español')
+    cy.fixture('spanish.json').as('spanish').then((spanish) => {
+      cy.get('.error-image').should('be.visible')
+        .get('h3[class=error-text]').should('contain', spanish['error.sorryMessage'])
+        .get('button').should('contain', spanish['pageNotFound.button'])
+    })
+
   });
 })

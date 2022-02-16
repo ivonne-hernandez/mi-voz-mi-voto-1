@@ -1,3 +1,8 @@
+// 🌎 BACKEND DEPLOYED LINK ⬇️
+// https://mi-voz-api.herokuapp.com/
+// 🌎 FRONTEND DEPLOYED LINK ⬇️
+// https://mi-voz-mi-voto.herokuapp.com/
+
 const endpoints = {
   users: 'http://localhost:3001/api/v1/users',
   /* POST newEmailSubscriber:
@@ -5,7 +10,7 @@ const endpoints = {
       {
         first_name: 'string',
         last_name: 'string',
-        state_name: 'string', ** two letter state abbv **
+        state_name: 'string', ** 'Colorado' or 'Maine'**
         email: 'string',
         language: 'string' ** 'en' or 'es' **
       }

@@ -1,4 +1,5 @@
-import { Component, Fragment } from 'react';
+import { FormattedMessage } from 'react-intl';
+import { Component } from 'react';
 import './EmailNotificationForm.css';
 import Loading from '../Loading/Loading';
 import Error from '../Error/Error';
@@ -84,6 +85,8 @@ class EmailNotificationForm extends Component {
         .catch(error => {
           this.setState({
             error: error.message,
+            successMessage: null,
+            failMessage: null,
             isSubmitting: false
           });
         })
@@ -119,15 +122,35 @@ class EmailNotificationForm extends Component {
 
   displayMissingInputMessage = () => {
     if (!this.validateNames()) {
-      return <p className="missing-input-message">Please enter your first and last name.</p>;
+      return <p className="missing-input-message">
+          <FormattedMessage
+            id="emailNotificationForm.missingNames"
+            defaultMessage="Please enter your first and last name." />
+        </p>;
     } else if (!this.validateState()) {
-      return <p className="missing-input-message">Please select a state.</p>;
+      return <p className="missing-input-message">
+          <FormattedMessage
+            id="emailNotificationForm.missingState"
+            defaultMessage="Please select a state." />
+        </p>;
     } else if (!this.validateEmail()) {
-      return <p className="missing-input-message">Please enter a valid email.</p>;
+      return <p className="missing-input-message">
+          <FormattedMessage
+            id="emailNotificationForm.missingEmail"
+            defaultMessage="Please enter a valid email." />
+        </p>;
     } else if (!this.validateLanguage()) {
-      return <p className="missing-input-message">Please select your preferred language.</p>;
+      return <p className="missing-input-message">
+          <FormattedMessage
+            id="emailNotificationForm.missingLanguage"
+            defaultMessage="Please select your preferred language." />
+        </p>;
     } else if (!this.validateAcknowledgement()) {
-      return <p className="missing-input-message">Please check the "Sign up for email notifications" box.</p>;
+      return <p className="missing-input-message">
+          <FormattedMessage
+            id="emailNotificationForm.missingCheckbox"
+            defaultMessage="Please check the 'Sign up for email notifications' box." />
+        </p>;
     }
   }
 
@@ -151,7 +174,7 @@ class EmailNotificationForm extends Component {
 
     const stateOptions = states.map(state => {
       return (
-        <option className="state-name-option" name="state_name" value={state.value} key={state.label}>
+        <option className="state-name-option" name="state_name" value={state.label} key={state.label}>
           {state.label}
         </option>
       );
@@ -168,11 +191,20 @@ class EmailNotificationForm extends Component {
             {this.state.error ? <Error error={this.state.error} /> :
               <form className="form-container">
                 <div className="form-header-container">
-                  <h2 className="form-header">State Election Reminders</h2>
+                  <h2 className="form-header">
+                    <FormattedMessage
+                      id="emailNotificationForm.title"
+                      defaultMessage="State Election Reminders" />
+                  </h2>
                 </div>
                 <div className="form-content-container">
                   <div className="label-input-container">
-                    <label className="label" htmlFor="first_name">First Name<em>*</em></label>
+                    <label className="label" htmlFor="first_name">
+                      <FormattedMessage
+                        id="emailNotificationForm.firstNameLabel"
+                        defaultMessage="First Name" />
+                      <em>*</em>
+                    </label>
                     <input type="text"
                       name="first_name"
                       value={this.state.first_name}
@@ -183,7 +215,12 @@ class EmailNotificationForm extends Component {
                       onChange={(event) => this.handleInputChange(event)}/>
                   </div>
                   <div className="label-input-container">
-                    <label className="label" htmlFor="last_name">Last Name<em>*</em></label>
+                    <label className="label" htmlFor="last_name">
+                      <FormattedMessage
+                        id="emailNotificationForm.lastNameLabel"
+                        defaultMessage="Last Name" />
+                        <em>*</em>
+                    </label>
                     <input type="text"
                       name="last_name"
                       value={this.state.last_name}
@@ -194,7 +231,12 @@ class EmailNotificationForm extends Component {
                       onChange={(event) => this.handleInputChange(event)}/>
                   </div>
                   <div className="label-input-container">
-                    <label className="label" htmlFor="state_name">State<em>*</em></label>
+                    <label className="label" htmlFor="state_name">
+                      <FormattedMessage
+                        id="emailNotificationForm.stateLabel"
+                        defaultMessage="State" />
+                        <em>*</em>
+                    </label>
                     <select name="state_name"
                       id="state_name"
                       className="state-name-select input"
@@ -204,7 +246,12 @@ class EmailNotificationForm extends Component {
                     </select>
                   </div>
                   <div className="label-input-container email-label">
-                    <label className="label" htmlFor="email">Email address<em>*</em></label>
+                    <label className="label" htmlFor="email">
+                      <FormattedMessage
+                        id="emailNotificationForm.emailLabel"
+                        defaultMessage="Email address" />
+                        <em>*</em>
+                    </label>
                     <input type="email"
                       name="email"
                       value={this.state.email}
@@ -214,7 +261,12 @@ class EmailNotificationForm extends Component {
                       className="input"
                       onChange={(event) => this.handleInputChange(event)}/>
                   </div>
-                  <label className="preferred-lang-p label" htmlFor="language">Preferred language<em>*</em></label>
+                  <label className="preferred-lang-p label" htmlFor="language">
+                    <FormattedMessage
+                      id="emailNotificationForm.preferredLanguageLabel"
+                      defaultMessage="Preferred language" />
+                      <em>*</em>
+                  </label>
                   <div className="label-input-container">
                     <input type="radio"
                       name="language"
@@ -224,7 +276,11 @@ class EmailNotificationForm extends Component {
                       className="input-radio"
                       checked={this.state.language === "en"}
                       onChange={(event) => this.handleInputChange(event)}/>
-                    <label className="label-radio" htmlFor="english">English</label>
+                    <label className="label-radio" htmlFor="english">
+                      <FormattedMessage
+                        id="emailNotificationForm.englishLabel"
+                        defaultMessage="English" />
+                    </label>
                   </div>
                   <div className="label-input-container">
                     <input type="radio"
@@ -235,7 +291,11 @@ class EmailNotificationForm extends Component {
                       className="input-radio"
                       checked={this.state.language === "es"}
                       onChange={(event) => this.handleInputChange(event)}/>
-                    <label className="label-radio" htmlFor="spanish">Spanish</label>
+                    <label className="label-radio" htmlFor="spanish">
+                      <FormattedMessage
+                        id="emailNotificationForm.spanishLabel"
+                        defaultMessage="Spanish" />
+                    </label>
                   </div>
                   <div className="label-input-container">
                     <input type="checkbox"
@@ -248,14 +308,18 @@ class EmailNotificationForm extends Component {
                       checked={this.state.agree_to_emails}
                       onChange={() => this.handleCheckboxInput()}/>
                     <label className="agree-to-emails-checkbox label" htmlFor="agree_to_emails">
-                      Sign up for email notifications about upcoming elections in my state.
+                      <FormattedMessage
+                        id="emailNotificationForm.agreeToEmailsMessage"
+                        defaultMessage="Sign up for email notifications about upcoming elections in my state." />
                     </label>
                   </div>
                   <div className="submit-button-container">
                     <button
                       className="submit-button"
                       onClick={(event) => this.handleSubmit(event)}>
-                        Submit
+                        <FormattedMessage
+                          id="emailNotificationForm.submitButton"
+                          defaultMessage="Submit" />
                     </button>
                   </div>
                   <div className="missing-input-message-container">

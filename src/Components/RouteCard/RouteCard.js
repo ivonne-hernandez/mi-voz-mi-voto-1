@@ -11,7 +11,7 @@ const RouteCard = ({ header, listItems, linksTo }) => {
   });
 
   return (
-    <article className={`route-card-article ${header.toLowerCase().split(' ').join('-')}`}>
+    <article className="route-card-article">
       <div className="route-card-container">
         <h2 className="route-card-header">{header}</h2>
         <ul className="link-list">

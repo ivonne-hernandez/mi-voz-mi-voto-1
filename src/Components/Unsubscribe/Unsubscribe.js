@@ -1,3 +1,4 @@
+import { FormattedMessage } from 'react-intl';
 import { Component } from 'react';
 import { deleteSubscriber } from '../../apiCalls.js';
 import Loading from '../Loading/Loading';
@@ -25,7 +26,11 @@ class Unsubscribe extends Component {
 
   displayMissingInputMessage = () => {
     if (!this.validateEmail()) {
-      return <p className="unsubscribe-missing-input-message">Please enter a valid email.</p>;
+      return <p className="unsubscribe-missing-input-message">
+        <FormattedMessage
+          id="unsubscribe.missingInputMessage"
+          defaultMessage="Please enter a valid email." />
+      </p>;
     }
   }
 
@@ -38,7 +43,7 @@ class Unsubscribe extends Component {
     this.setState({ displayMissingInput: true })
     if (this.validateEmail()) {
       this.setState({ displayMissingInput: false });
-      
+
       const email = {
         email: this.state.email
       }
@@ -46,7 +51,7 @@ class Unsubscribe extends Component {
       deleteSubscriber(email)
         .then(response => {
           this.setState({ isSubmitting: true });
-          if(!response.ok) {
+          if (response.status !== 404 && response.status !== 200) {
             throw new Error(`${response.status}: ${response.statusText}.`)
           }
           return response.json();
@@ -62,6 +67,8 @@ class Unsubscribe extends Component {
         .catch(error => {
           this.setState({
             error: error.message,
+            isSubmitting: false,
+            failMessage: null,
             isSubmitting: false
           });
         })
@@ -96,11 +103,20 @@ class Unsubscribe extends Component {
             {this.state.error ? <Error error={this.state.error} /> :
               <form className="unsubscribe-form-container">
                 <div className="unsubscribe-form-header-container">
-                  <h2 className="unsubscribe-form-header">Unsubscribe from Election Reminders</h2>
+                  <h2 className="unsubscribe-form-header">
+                    <FormattedMessage
+                      id="unsubscribe.formHeader"
+                      defaultMessage="Unsubscribe from Election Reminders" />
+                  </h2>
                 </div>
                 <div className="unsubscribe-form-content-container">
                   <div className="unsubscribe-label-input-container unsubscribe-email-label">
-                    <label className="unsubscribe-label" htmlFor="email">Email Address<em>*</em></label>
+                    <label className="unsubscribe-label" htmlFor="email">
+                      <FormattedMessage
+                        id="unsubscribe.emailLabel"
+                        defaultMessage="Email Address" />
+                        <em>*</em>
+                    </label>
                     <input
                       type="email"
                       name="email"
@@ -116,7 +132,9 @@ class Unsubscribe extends Component {
                     <button
                       className="unsubscribe-button"
                       onClick={(event) => this.handleSubmit(event)}>
-                        Unsubscribe
+                        <FormattedMessage
+                          id="unsubscribe.button"
+                          defaultMessage="Unsubscribe" />
                     </button>
                   </div>
                   <div className="unsubscribe-missing-input-message-container">
