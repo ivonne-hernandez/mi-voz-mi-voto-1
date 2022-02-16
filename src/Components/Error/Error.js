@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
 import { useNavigate } from 'react-router-dom';
 import './Error.css';
@@ -5,7 +6,7 @@ import noVoice1 from '../../Assets/no-voice1.png';
 
 const Error = ({ error }) => {
   const navigate = useNavigate();
-  
+
   return (
     <div className="error-container">
       <img className="error-image" src={noVoice1}
