@@ -54,5 +54,6 @@
   "unsubscribe.emailLabel": "Correo electrónico",
   "unsubscribe.button": "Cancelar",
   "pageNotFound.message": "Lo sentimos, parece que no podemos encontrar la página que está buscando. Intente de nuevo.",
-  "pageNotFound.button": "Página Principal"
+  "pageNotFound.button": "Página Principal",
+  "error.sorryMessage": "Lo sentimos, por favor intente de nuevo."
 }
