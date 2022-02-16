@@ -75,7 +75,6 @@ describe('Mi Voz, Mi Voto main page user flow', () => {
         })
       })
     })
-
   });
 
   it('Should display \'404 page not found\' if the user types in a wrong URL & should be able to navigate to the main page', () => {
