@@ -11,7 +11,7 @@ let env = 'http://localhost:3001/';
 env = 'https://mi-voz-api.herokuapp.com/';
 
 const endpoints = {
-  users: `${env}api/v1/users`,
+  addUser: `${env}api/v1/users`,
   /* POST newEmailSubscriber:
     REQUEST OBJECT:
       {
@@ -48,7 +48,7 @@ const endpoints = {
         status: 200
       }
   */
-  delete: `${env}api/v1/users`,
+  removeUser: `${env}api/v1/users`,
   /* DELETE subscriber:
     SUCCESS:
     {
