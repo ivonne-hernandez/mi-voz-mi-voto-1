@@ -3,8 +3,15 @@
 // 🌎 FRONTEND DEPLOYED LINK ⬇️
 // https://mi-voz-mi-voto.herokuapp.com/
 
+
+// DEVELOPMENT ENVIRONMENT ⬇️
+let env = 'http://localhost:3001/';
+
+// DEPLOYED ENVIRONMENT ⬇️  (must be uncommented)
+env = 'https://mi-voz-api.herokuapp.com/';
+
 const endpoints = {
-  users: 'http://localhost:3001/api/v1/users',
+  users: `${env}api/v1/users`,
   /* POST newEmailSubscriber:
     REQUEST OBJECT:
       {
@@ -41,7 +48,7 @@ const endpoints = {
         status: 200
       }
   */
-  delete: 'http://localhost:3001/api/v1/users',
+  delete: `${env}api/v1/users`,
   /* DELETE subscriber:
     SUCCESS:
     {
@@ -52,12 +59,12 @@ const endpoints = {
       error: "#{user.email} is not currently subscribed to receive election notifications."
     }
   */
-  elections: 'http://localhost:3001/api/v1/elections',
+  elections: `${env}api/v1/elections`,
   /*
     QUERY PARAMS? LOCATION? STATE?  I.E. CO?
   */
-  referendums: 'http://localhost:3001/api/v1/referendums',
-  state: 'http://localhost:3001/api/v1/state'
+  referendums: `${env}api/v1/referendums`,
+  state: `${env}api/v1/state`
 }
 
 export default endpoints;
