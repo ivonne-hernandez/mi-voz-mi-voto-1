@@ -6,9 +6,9 @@
 }
 
 .error-image {
-  margin-top: 50px;
-  height: 10rem;
-  width: 10rem;
+  margin-top: 100px;
+  height: 15rem;
+  width: 15rem;
 }
 
 .error-text {
@@ -25,6 +25,7 @@
   width: 150px;
   color: white;
   border: 0px;
+  margin-top: 5px;
 }
 
 .home-button:hover {
