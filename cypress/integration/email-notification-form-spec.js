@@ -334,7 +334,7 @@ describe('Mi Voz, Mi Voto email notification form user flow', () => {
   });
 
   it('Should display an error image & error message, in both English & Spanish, if the server can\'t complete the request', () => {
-    cy.intercept('POST', 'http://localhost:3001/api/v1/users', {statusCode: 500}).as('getServerFailure')
+    cy.intercept('POST', endpoints.addUser, {statusCode: 500}).as('getServerFailure')
 
     cy.fixture('user1.json').as('user1').then((user1) => {
       cy.get('input[id=first_name]').type(user1.first_name)
