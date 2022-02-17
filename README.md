@@ -12,10 +12,19 @@ https://user-images.githubusercontent.com/86989161/154371168-c8426fa6-9d72-4b74-
 - `npm install`
 - `npm start` to start the app on localhost:3000
 
+## View Testing Code Coverage:
+- `npm run dev` to start the app on localhost:3000, start cypress, and compile a code coverage report
+- `open code/lcov-report/index.html` to view code coverage report in the browser
+
 ## Technologies
 - React
+- React Intl
 - React Router
 - Cypress
+- Cypress Code Coverage
+- Instrument CRA
+- Context API
+- A11y Testing with React aXe 
 
 ## Creators
 - [Ivonne Hernandez](https://www.linkedin.com/in/ivonne-hernandez-107b0324/)
