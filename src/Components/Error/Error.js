@@ -10,12 +10,12 @@ const Error = ({ error }) => {
     <div className="error-container">
       <img className="error-image" src={noVoice1}
         alt="microphone with horizontal strikethrough" />
+      <h4 className="error-text">Error: {error}</h4>
       <h3 className="error-text">
         <FormattedMessage
           id="error.sorryMessage"
           defaultMessage="We're sorry, please try again." />
       </h3>
-      <h4 className="error-text">{error}</h4>
       <button className="home-button" onClick={() => navigate('/')}>
         <FormattedMessage
           id="pageNotFound.button"

@@ -6,15 +6,15 @@
 }
 
 .error-image {
-  margin-top: 5rem;
-  height: 20rem;
-  width: 20rem;
+  margin-top: 50px;
+  height: 10rem;
+  width: 10rem;
 }
 
 .error-text {
-  margin-top: 2rem;
-  font-size: 2rem;
+  font-size: 20px;
   color: #FD3535;
+  line-height: 1.5em;
 }
 
 .home-button {
@@ -25,7 +25,6 @@
   width: 150px;
   color: white;
   border: 0px;
-  padding: 2rem;
 }
 
 .home-button:hover {
