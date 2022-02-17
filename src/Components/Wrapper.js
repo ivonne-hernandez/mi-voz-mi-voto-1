@@ -16,7 +16,7 @@ const Wrapper = (props) => {
   const selectLanguage = (event) => {
     const newLocale = event.target.value;
     setLocale(newLocale);
-    
+
     newLocale === "es" ? setMessages(Spanish) : setMessages(English);
   }
 

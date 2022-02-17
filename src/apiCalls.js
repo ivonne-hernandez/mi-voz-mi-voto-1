@@ -1,7 +1,7 @@
 import endpoints from './endpoints.js';
 
 export const postNewEmailSubscriber = (newEmailSubscriber) => {
-  return fetch(endpoints.users, {
+  return fetch(endpoints.addUser, {
     mode: 'cors',
     method: 'POST',
     headers: {
@@ -13,7 +13,7 @@ export const postNewEmailSubscriber = (newEmailSubscriber) => {
 }
 
 export const deleteSubscriber = (email) => {
-  return fetch(endpoints.delete, {
+  return fetch(endpoints.removeUser, {
     mode: 'cors',
     method: 'DELETE',
     headers: {
