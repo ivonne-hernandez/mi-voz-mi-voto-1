@@ -7,7 +7,7 @@
 // DEVELOPMENT ENVIRONMENT ⬇️
 //let env = 'http://localhost:3001/';
 
-// DEPLOYED ENVIRONMENT ⬇️ 
+// DEPLOYED ENVIRONMENT ⬇️
 let env = 'https://mi-voz-api.herokuapp.com/';
 
 const endpoints = {
