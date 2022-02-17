@@ -1,4 +1,4 @@
-import endpoints from '../src/endpoints.js';
+import endpoints from '../../src/endpoints.js';
 
 describe('Unsubscribe form user flow', () => {
   beforeEach(() => {

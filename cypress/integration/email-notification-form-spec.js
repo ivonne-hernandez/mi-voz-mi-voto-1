@@ -1,4 +1,4 @@
-import endpoints from '../src/endpoints.js';
+import endpoints from '../../src/endpoints.js';
 
 describe('Mi Voz, Mi Voto email notification form user flow', () => {
   beforeEach(() => {
