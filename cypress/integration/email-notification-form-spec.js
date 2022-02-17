@@ -333,7 +333,7 @@ describe('Mi Voz, Mi Voto email notification form user flow', () => {
     })
   });
 
-  it('Should display an error image & error message, in both English & Spanish, if the server can\'t complete the request', () => {
+  it('Should display an error image & error message in English if the server can\'t complete the request', () => {
     cy.intercept('POST', endpoints.addUser, {statusCode: 500}).as('getServerFailure')
 
     cy.fixture('user1.json').as('user1').then((user1) => {
@@ -350,15 +350,29 @@ describe('Mi Voz, Mi Voto email notification form user flow', () => {
     cy.fixture('english.json').as('english').then((english) => {
       cy.get('.error-image').should('be.visible')
         .get('h3[class=error-text]').should('contain', english['error.sorryMessage'])
-        .get('button').should('contain', english['pageNotFound.button'])
+        .get('.home-button').should('contain', english['pageNotFound.button'])
     })
+  });
+
+  it('Should display an error image & error message in Spanish if the server can\'t complete the request', () => {
+    cy.intercept('POST', endpoints.addUser, {statusCode: 500}).as('getServerFailure')
 
     cy.get('.en-espanol-button').select('Español')
+    cy.fixture('user1.json').as('user1').then((user1) => {
+      cy.get('input[id=first_name]').type(user1.first_name)
+        .get('input[id=last_name]').type(user1.last_name)
+        .get('select[id=state_name]').select(user1.state_name)
+        .get('input[id=email]').type(user1.email)
+        .get(`input[value=${user1.language}]`).click()
+        .get('input[id=agree_to_emails]').click()
+        .get('.submit-button').click()
+        .wait('@getServerFailure')
+    })
+
     cy.fixture('spanish.json').as('spanish').then((spanish) => {
       cy.get('.error-image').should('be.visible')
         .get('h3[class=error-text]').should('contain', spanish['error.sorryMessage'])
-        .get('button').should('contain', spanish['pageNotFound.button'])
+        .get('.home-button').should('contain', spanish['pageNotFound.button'])
     })
-
   });
 })

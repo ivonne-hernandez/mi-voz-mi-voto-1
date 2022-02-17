@@ -134,7 +134,7 @@ describe('Unsubscribe form user flow', () => {
   });
 
   it('Should, if the server can\'t complete the request, display an error image, a message in English, & then be able to navigate back to the main page', () => {
-    cy.intercept('DELETE', 'http://localhost:3001/api/v1/users', {statusCode: 500}).as('getServerFailure')
+    cy.intercept('DELETE', endpoints.removeUser, {statusCode: 500}).as('getServerFailure')
 
     cy.fixture('user1.json').as('user1').then((user1) => {
       cy.get('input[id=email]').type(user1.email)
@@ -152,7 +152,7 @@ describe('Unsubscribe form user flow', () => {
   });
 
   it('Should, if the server can\'t complete the request, display an error image, a message in Spanish, & then be able to navigate back to the main page', () => {
-    cy.intercept('DELETE', 'http://localhost:3001/api/v1/users', {statusCode: 500}).as('getServerFailure')
+    cy.intercept('DELETE', endpoints.removeUser, {statusCode: 500}).as('getServerFailure')
 
     cy.get('.en-espanol-button').select('Español')
     cy.fixture('user1.json').as('user1').then((user1) => {
