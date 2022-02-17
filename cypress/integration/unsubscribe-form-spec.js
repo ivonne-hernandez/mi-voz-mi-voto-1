@@ -131,8 +131,39 @@ describe('Unsubscribe form user flow', () => {
     })
   });
 
-  it('Should be able to go to the main page', () => {
-    cy.get('.vote-image').click()
-      .url().should('contain', '/')
+  it('Should, if the server can\'t complete the request, display an error image, a message in English, & then be able to navigate back to the main page', () => {
+    cy.intercept('DELETE', 'http://localhost:3001/api/v1/users', {statusCode: 500}).as('getServerFailure')
+
+    cy.fixture('user1.json').as('user1').then((user1) => {
+      cy.get('input[id=email]').type(user1.email)
+        .get('.unsubscribe-button').click()
+        .wait('@getServerFailure')
+    })
+
+    cy.fixture('english.json').as('english').then((english) => {
+      cy.get('.error-image').should('be.visible')
+        .get('h3[class=error-text]').should('contain', english['error.sorryMessage'])
+        .get('.error-container')
+        .get('.home-button').should('contain', english['pageNotFound.button']).click()
+        .url().should('contain', '/')
+    })
+  });
+
+  it('Should, if the server can\'t complete the request, display an error image, a message in Spanish, & then be able to navigate back to the main page', () => {
+    cy.intercept('DELETE', 'http://localhost:3001/api/v1/users', {statusCode: 500}).as('getServerFailure')
+
+    cy.get('.en-espanol-button').select('Español')
+    cy.fixture('user1.json').as('user1').then((user1) => {
+      cy.get('input[id=email]').type(user1.email)
+        .get('.unsubscribe-button').click()
+        .wait('@getServerFailure')
+    })
+
+    cy.fixture('spanish.json').as('spanish').then((spanish) => {
+      cy.get('.error-image').should('be.visible')
+        .get('h3[class=error-text]').should('contain', spanish['error.sorryMessage'])
+        .get('.home-button').should('contain', spanish['pageNotFound.button']).click()
+        .url().should('contain', '/')
+    })
   });
 });

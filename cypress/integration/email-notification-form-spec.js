@@ -48,7 +48,7 @@ describe('Mi Voz, Mi Voto email notification form user flow', () => {
         .get(`select[id=state_name]`).should('have.value', `${user1.state_name}`)
         .get('input[id=email]').type(user1.email)
         .get(`input[value="${user1.email}"]`).should('have.value', `${user1.email}`)
-        .get('input[id=english]').click()
+        .get(`input[value=${user1.language}]`).click()
         .get(`input[value=${user1.language}]`).should('have.value', `${user1.language}`)
         .get('input[id=agree_to_emails]').should('have.value', 'false')
         .get('input[id=agree_to_emails]').click()
@@ -92,7 +92,7 @@ describe('Mi Voz, Mi Voto email notification form user flow', () => {
           .get('input[id=email]').type(user1.email)
           .get('.submit-button').click()
           .get('.missing-input-message-container').should('contain', english['emailNotificationForm.missingLanguage'])
-          .get('input[id=english]').click()
+          .get(`input[value=${user1.language}]`).click()
           .get('.submit-button').click()
           .get('.missing-input-message-container').should('contain', english['emailNotificationForm.missingCheckbox'])
           .get('input[id=agree_to_emails]').click()
@@ -147,7 +147,7 @@ describe('Mi Voz, Mi Voto email notification form user flow', () => {
           .get('.missing-input-message').should('contain', '')
           .get('.submit-button').click()
           .get('.missing-input-message-container').should('contain', english['emailNotificationForm.missingLanguage'])
-          .get('input[id=english]').click()
+          .get(`input[value=${user1.language}]`).click()
           .get('.missing-input-message').should('contain', '')
           .get('.submit-button').click()
           .get('.missing-input-message-container').should('contain', english['emailNotificationForm.missingCheckbox'])
@@ -179,7 +179,7 @@ describe('Mi Voz, Mi Voto email notification form user flow', () => {
           .get('.missing-input-message').should('contain', '')
           .get('.submit-button').click()
           .get('.missing-input-message-container').should('contain', spanish['emailNotificationForm.missingLanguage'])
-          .get('input[id=english]').click()
+          .get(`input[value=${user1.language}]`).click()
           .get('.missing-input-message').should('contain', '')
           .get('.submit-button').click()
           .get('.missing-input-message-container').should('contain', spanish['emailNotificationForm.missingCheckbox'])
@@ -201,7 +201,7 @@ describe('Mi Voz, Mi Voto email notification form user flow', () => {
         .get('input[id=last_name]').type(user1.last_name)
         .get('select[id=state_name]').select(user1.state_name)
         .get('input[id=email]').type(user1.email)
-        .get('input[id=english]').click()
+        .get(`input[value=${user1.language}]`).click()
         .get('input[id=agree_to_emails]').click()
         .get('.submit-button').click()
         .wait('@successfulPost')
@@ -228,7 +228,7 @@ describe('Mi Voz, Mi Voto email notification form user flow', () => {
         .get('input[id=last_name]').type(user3.last_name)
         .get('select[id=state_name]').select(user3.state_name)
         .get('input[id=email]').type(user3.email)
-        .get('input[id=english]').click()
+        .get(`input[value=${user3.language}]`).click()
         .get('input[id=agree_to_emails]').click()
         .get('.submit-button').click()
         .get('.loading-icon').should('be.visible')
@@ -331,7 +331,7 @@ describe('Mi Voz, Mi Voto email notification form user flow', () => {
     })
   });
 
-  it('Should display an error image & error message if the server can\'t complete the request', () => {
+  it('Should display an error image & error message, in both English & Spanish, if the server can\'t complete the request', () => {
     cy.intercept('POST', 'http://localhost:3001/api/v1/users', {statusCode: 500}).as('getServerFailure')
 
     cy.fixture('user1.json').as('user1').then((user1) => {
@@ -339,7 +339,7 @@ describe('Mi Voz, Mi Voto email notification form user flow', () => {
         .get('input[id=last_name]').type(user1.last_name)
         .get('select[id=state_name]').select(user1.state_name)
         .get('input[id=email]').type(user1.email)
-        .get('input[id=english]').click()
+        .get(`input[value=${user1.language}]`).click()
         .get('input[id=agree_to_emails]').click()
         .get('.submit-button').click()
         .wait('@getServerFailure')
