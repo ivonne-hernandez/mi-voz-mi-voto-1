@@ -69,7 +69,7 @@ class EmailNotificationForm extends Component {
       postNewEmailSubscriber(newEmailSubscriber)
         .then(response => {
           this.setState({ isSubmitting: true });
-          if (response.status !== 404 && response.status !== 200) {
+          if (response.status !== 400 && response.status !== 200) {
             throw new Error (`${response.status}: ${response.statusText}.`)
           }
           return response.json()
