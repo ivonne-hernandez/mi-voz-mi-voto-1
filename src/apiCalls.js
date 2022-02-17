@@ -1,8 +1,9 @@
 import endpoints from './endpoints.js';
 
 export const postNewEmailSubscriber = (newEmailSubscriber) => {
+  console.log(newEmailSubscriber)
   return fetch(endpoints.addUser, {
-    mode: 'no-cors',
+    mode: 'cors',
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -13,10 +14,11 @@ export const postNewEmailSubscriber = (newEmailSubscriber) => {
 
 export const deleteSubscriber = (email) => {
   return fetch(endpoints.removeUser, {
-    mode: 'no-cors',
+    mode: 'cors',
     method: 'DELETE',
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
     },
     body: JSON.stringify(email)
   })
