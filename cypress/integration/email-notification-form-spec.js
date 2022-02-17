@@ -1,3 +1,5 @@
+import endpoints from '../src/endpoints.js';
+
 describe('Mi Voz, Mi Voto email notification form user flow', () => {
   beforeEach(() => {
     cy.checkPageA11y('/get-notifications')
@@ -190,7 +192,7 @@ describe('Mi Voz, Mi Voto email notification form user flow', () => {
   });
 
   it('Should clear all inputs and selections once the form is submitted', () => {
-    cy.intercept('POST', 'http://localhost:3001/api/v1/users', (req) => {
+    cy.intercept('POST', endpoints.addUser, (req) => {
       req.reply({
         fixture: 'success.json'
       })
@@ -216,7 +218,7 @@ describe('Mi Voz, Mi Voto email notification form user flow', () => {
   });
 
   it('Should display a loading image while the form is submitting', () => {
-    cy.intercept('POST', 'http://localhost:3001/api/v1/users', (req) => {
+    cy.intercept('POST', endpoints.addUser, (req) => {
       req.reply({
         delay: 1000,
         fixture: 'success.json'
@@ -236,7 +238,7 @@ describe('Mi Voz, Mi Voto email notification form user flow', () => {
   });
 
   it('Should be able to submit the form, see a related icon, and a confirmation message in English', () => {
-    cy.intercept('POST', 'http://localhost:3001/api/v1/users', (req) => {
+    cy.intercept('POST', endpoints.addUser, (req) => {
       req.reply({
         statusCode: 200,
         fixture: 'success.json'
@@ -260,7 +262,7 @@ describe('Mi Voz, Mi Voto email notification form user flow', () => {
   });
 
   it('Should be able to submit the form, see a related icon, and a confirmation message in Spanish', () => {
-    cy.intercept('POST', 'http://localhost:3001/api/v1/users', (req) => {
+    cy.intercept('POST', endpoints.addUser, (req) => {
       req.reply({
         statusCode: 200,
         fixture: 'successES.json'
@@ -285,7 +287,7 @@ describe('Mi Voz, Mi Voto email notification form user flow', () => {
   });
 
   it('Should display an icon & error message in English if the email is already subscribed', () => {
-    cy.intercept('POST', 'http://localhost:3001/api/v1/users', (req) => {
+    cy.intercept('POST', endpoints.addUser, (req) => {
       req.reply({
         fixture: 'errorDuplicate.json'
       })
@@ -308,7 +310,7 @@ describe('Mi Voz, Mi Voto email notification form user flow', () => {
   });
 
   it('Should display an icon & error message in Spanish if the email is already subscribed', () => {
-    cy.intercept('POST', 'http://localhost:3001/api/v1/users', (req) => {
+    cy.intercept('POST', endpoints.addUser, (req) => {
       req.reply({
         fixture: 'errorDuplicateES.json'
       })
@@ -332,7 +334,7 @@ describe('Mi Voz, Mi Voto email notification form user flow', () => {
   });
 
   it('Should display an error image & error message if the server can\'t complete the request', () => {
-    cy.intercept('POST', 'http://localhost:3001/api/v1/users', {statusCode: 500}).as('getServerFailure')
+    cy.intercept('POST', endpoints.addUser, {statusCode: 500}).as('getServerFailure')
 
     cy.fixture('user1.json').as('user1').then((user1) => {
       cy.get('input[id=first_name]').type(user1.first_name)

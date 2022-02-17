@@ -1,3 +1,5 @@
+import endpoints from '../src/endpoints.js';
+
 describe('Unsubscribe form user flow', () => {
   beforeEach(() => {
     cy.checkPageA11y('/unsubscribe');
@@ -58,7 +60,7 @@ describe('Unsubscribe form user flow', () => {
   });
 
   it('Should see a sucessfully removed message in English', () => {
-    cy.intercept('DELETE', 'http://localhost:3001/api/v1/users', (req) => {
+    cy.intercept('DELETE', endpoints.removeUser, (req) => {
       req.reply({
         fixture: 'successUnsubscribe.json'
       })
@@ -76,7 +78,7 @@ describe('Unsubscribe form user flow', () => {
   });
 
   it('Should see a sucessfully removed message in Spanish', () => {
-    cy.intercept('DELETE', 'http://localhost:3001/api/v1/users', (req) => {
+    cy.intercept('DELETE', endpoints.removeUser, (req) => {
       req.reply({
         fixture: 'successUnsubscribeES.json'
       })
@@ -95,7 +97,7 @@ describe('Unsubscribe form user flow', () => {
   });
 
   it('Should see a message warning that the email wasn\'t subscribed in English', () => {
-    cy.intercept('DELETE', 'http://localhost:3001/api/v1/users', (req) => {
+    cy.intercept('DELETE', endpoints.removeUser, (req) => {
       req.reply({
         fixture: 'errorNotSubscribed.json'
       })
@@ -113,7 +115,7 @@ describe('Unsubscribe form user flow', () => {
   });
 
   it('Should see a message warning that the email wasn\'t subscribed in Spanish', () => {
-    cy.intercept('DELETE', 'http://localhost:3001/api/v1/users', (req) => {
+    cy.intercept('DELETE', endpoints.removeUser, (req) => {
       req.reply({
         fixture: 'errorNotSubscribedES.json'
       })
