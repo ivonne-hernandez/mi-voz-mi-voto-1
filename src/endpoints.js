@@ -5,10 +5,10 @@
 
 
 // DEVELOPMENT ENVIRONMENT ⬇️
-let env = 'http://localhost:3001/';
+//let env = 'http://localhost:3001/';
 
-// DEPLOYED ENVIRONMENT ⬇️  (must be uncommented)
-env = 'https://mi-voz-api.herokuapp.com/';
+// DEPLOYED ENVIRONMENT ⬇️ 
+let env = 'https://mi-voz-api.herokuapp.com/';
 
 const endpoints = {
   addUser: `${env}api/v1/users`,
