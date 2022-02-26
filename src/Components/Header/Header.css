@@ -1,3 +1,10 @@
+.header-container {
+  display: grid;
+  align-items: center;
+  padding: 20px;
+  box-shadow: 0 1px 9px rgb(0 0 0 / 50%);
+}
+
 .vote-image {
   width: 80px;
   height: 80px;
@@ -5,25 +12,21 @@
 
 .vote-image:hover {
   cursor: pointer;
-}
+} 
 
 .app-name {
   font-size: 40px;
   margin-left: 8px;
-  text-align: left;
+  text-align: center;
   font-family: 'DM Serif Display', serif;
   font-weight: 200;
   color: #2b2d42;
   text-decoration: none;
-}
+} 
 
-.header-container {
-  display: grid;
-  grid-template-columns: 85px auto 150px 150px;
+.img-app-name-container {
+  display: flex;
   align-items: center;
-  grid-gap: 20px;
-  padding: 20px;
-  box-shadow: 0 1px 9px rgb(0 0 0 / 50%);
 }
 
 .header-button {
@@ -41,70 +44,32 @@
   background-color: #2E538E;
 }
 
-@media screen and (max-width: 850px) {
-  .header-container {
-    grid-template-columns: 20% 20% auto 20% 20%;
-    grid-template-rows: 60% auto;
-    grid-gap: 2rem;
-  }
-
-  .vote-image {
-    transform: scale(150%);
-    margin: 1rem;
-    grid-column: 1;
-  }
-
-  .app-name {
-    grid-column: 2 / span 4;
-    font-size: 3rem;
-    text-align: right;
-  }
-
-  .header-button {
-    padding: 0.5rem;
-  }
-
-  .our-story-button {
-    grid-column: 1 / span 2;
-    grid-row: 2;
-  }
-
-  .en-espanol-button {
-    grid-column: 4 / span 2;
-    grid-row: 2;
-  }
+.our-story-language-button-container {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  grid-column-start: 4;
 }
 
-@media screen and (max-width: 550px) {
+.our-story-button {
+  margin-right: 1rem;
+} 
+
+@media (max-width: 780px) {  
   .header-container {
-    padding: 0;
-    margin: 1rem;
-    grid-template-columns: 50% auto;
-    grid-template-rows: 30% 30% 30%;
-    grid-gap: 0.2rem;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
   }
+  
+  .img-app-name-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  } 
 
-  .app-name {
-    margin: 1rem;
-    grid-column: 1 / span 2;
-    font-size: 3.6rem;
-    text-align: center;
-  }
-
-  .vote-image {
-    transform: scale(160%);
-    margin-left: 5rem;
-    grid-column: 1;
-    grid-row: 2 / span 2;
-  }
-
-  .our-story-button {
-    grid-column: 2;
-    grid-row: 2;
-  }
-
-  .en-espanol-button {
-    grid-column: 2;
-    grid-row: 3;
-  }
-}
+  .our-story-language-button-container {
+    grid-row-start: 2;
+    grid-column-start: 1;
+    justify-content: center;
+  } 
+} 
