@@ -28,3 +28,17 @@
   font-size: 28px;
   font-weight: 200;
 }
+
+@media (max-width: 450px) {
+  .route-card-header {
+    font-size: 22px;
+  }
+
+  .route-card-article {
+    line-height: 1.5rem;
+  }
+
+  .link-item {
+    font-size: 16px;
+  }
+}
