@@ -21,7 +21,7 @@ const DevStories = () => {
             <a
               href={dev.linkedin}
               target="_blank"
-              rel="noopener"
+              rel="noreferrer"
               aria-describedby="new-window-2">
               <img
                 className={`dev-linkedin ${dev.name.split(' ')[0]}`}
@@ -31,7 +31,7 @@ const DevStories = () => {
             <a
               href={dev.github}
               target="_blank"
-              rel="noopener"
+              rel="noreferrer"
               aria-describedby="new-window-2">
               <img
                 className={`dev-github ${dev.name.split(' ')[0]}`}
