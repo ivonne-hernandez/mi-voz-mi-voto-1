@@ -42,3 +42,44 @@
   display: flex;
   align-items: center;
 }
+
+@media (max-width: 730px) {
+  .dev-name, .dev-links-container {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 20px;
+  }
+
+  .dev-story {
+    font-size: 18px;
+  }
+
+  .dev-linkedin {
+    height: 35px;
+    width: 35px;
+  }
+
+  .dev-github {
+    height: 25px;
+    width: 25px;
+  }
+}
+
+@media (max-width: 600px) {
+  .dev-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .dev-name-container {
+    text-align: center;
+  }
+
+  .dev-bio-container {
+    align-items: center;
+  }
+
+  .dev-links-container {
+    align-self: flex-start;
+  }
+}
