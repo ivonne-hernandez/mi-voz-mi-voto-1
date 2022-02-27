@@ -12,9 +12,8 @@ const DevStories = () => {
             alt={dev.name} />
         </div>
         <div className="dev-bio-container">
-          <div className="dev-header">
+          <div className="dev-name-container">
             <h2 className="dev-name">{dev.name}</h2>
-            <h3 className="dev-title">{dev.title}</h3>
           </div>
           <p className="dev-story">{dev.story}</p>
           <div className="dev-links-container">
