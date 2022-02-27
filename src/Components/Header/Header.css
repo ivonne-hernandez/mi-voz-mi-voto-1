@@ -46,7 +46,7 @@
 
 .our-story-language-button-container {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: center;
   grid-column-start: 4;
 }
