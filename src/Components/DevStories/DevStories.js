@@ -5,6 +5,9 @@ const DevStories = () => {
   const devDetails = devs.map(dev => {
     return (
       <article className="dev-container" key={dev.key}>
+        <div className="dev-name-container">
+          <h2 className="dev-name">{dev.name}</h2>
+        </div>
         <div className="dev-photo-container">
           <img
             className={`dev-photo ${dev.name.split(' ')[0]}`}
@@ -12,9 +15,6 @@ const DevStories = () => {
             alt={dev.name} />
         </div>
         <div className="dev-bio-container">
-          <div className="dev-name-container">
-            <h2 className="dev-name">{dev.name}</h2>
-          </div>
           <p className="dev-story">{dev.story}</p>
           <div className="dev-links-container">
             <a
